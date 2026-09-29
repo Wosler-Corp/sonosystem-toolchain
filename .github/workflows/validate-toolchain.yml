@@ -28,3 +28,11 @@ jobs:
       - name: Run package builder tests
         shell: pwsh
         run: pwsh -NoProfile -File tests/Test-ToolchainPackage.ps1
+
+      - name: Run prerequisite tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainPrerequisites.ps1
+
+      - name: Run verified asset synchronization tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainAssetSync.ps1

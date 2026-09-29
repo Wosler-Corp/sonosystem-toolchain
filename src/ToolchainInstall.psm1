@@ -149,24 +149,87 @@ function Invoke-GitHubAssetDownload {
     $asset = [string]$Package.release.asset
     $repository = [string]$Package.release.repository
     $downloadArguments = @('release', 'download', $tag, '--repo', $repository, '--pattern', $asset, '--dir', $DestinationDirectory, '--clobber')
-    $lastOutput = ''
+    Invoke-WoslerReleaseOperation -GitHubCliPath $GitHubCliPath -Arguments $downloadArguments -Description "download '$asset'"
+    $assetPath = Join-Path $DestinationDirectory $asset
+    Invoke-WoslerReleaseOperation -GitHubCliPath $GitHubCliPath -Arguments @('release', 'verify-asset', $tag, $assetPath, '--repo', $repository) -Description "attestation verification '$asset'"
+    return $assetPath
+}
+
+function Invoke-WoslerReleaseOperation {
+    param([string]$GitHubCliPath, [string[]]$Arguments, [string]$Description)
+    # Retry only classified HTTP responses from the catalog's Wosler release.
+    $repositoryIndex = [Array]::IndexOf($Arguments, '--repo')
+    if ($repositoryIndex -lt 0 -or $Arguments[$repositoryIndex + 1] -cne 'Wosler-Corp/sonosystem-toolchain') {
+        throw 'Release access must target Wosler-Corp/sonosystem-toolchain.'
+    }
     for ($attempt = 1; $attempt -le 3; $attempt++) {
-        $output = & $GitHubCliPath @downloadArguments 2>&1
+        $output = & $GitHubCliPath @Arguments 2>&1
         $exitCode = $LASTEXITCODE
-        $lastOutput = [string]::Join([Environment]::NewLine, @($output))
-        if ($exitCode -eq 0) { break }
-        if ($lastOutput -notmatch '(?<!\d)(408|429|5\d\d)(?!\d)' -or $attempt -eq 3) {
-            throw "Failed to download Wosler release asset '$asset': $lastOutput"
+        $message = [string]::Join([Environment]::NewLine, @($output))
+        if ($exitCode -eq 0) { return }
+        if ($attempt -eq 3 -or $message -notmatch '(?i)\bHTTP(?:/[0-9.]+)?\s+(408|429|5[0-9]{2})\b') {
+            throw "Wosler release $Description failed (exit $exitCode): $message"
         }
         Start-Sleep -Seconds $attempt
     }
+}
 
-    $assetPath = Join-Path $DestinationDirectory $asset
-    $verifyOutput = & $GitHubCliPath release verify-asset $tag $assetPath --repo $repository 2>&1
-    if ($LASTEXITCODE -ne 0) {
-        throw "GitHub release attestation verification failed for '$asset': $([string]::Join([Environment]::NewLine, @($verifyOutput)))"
+function Sync-ToolchainAssets {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)][string]$CatalogPath,
+        [Parameter(Mandatory)][string]$Profile,
+        [Parameter(Mandatory)][string]$AssetCacheRoot,
+        [string]$GitHubCliPath = 'gh'
+    )
+    $catalog = Read-ToolchainCatalog -Path $CatalogPath
+    $packages = @(Resolve-ToolchainProfile -Catalog $catalog -Profile $Profile)
+    $assetNames = @{}
+    foreach ($package in $packages) {
+        $name = [string]$package.release.asset
+        if ($assetNames.ContainsKey($name)) { throw "Duplicate flat asset filename '$name' in profile '$Profile'." }
+        $assetNames[$name] = $true
     }
-    return $assetPath
+    $catalogHash = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
+    $AssetCacheRoot = [IO.Path]::GetFullPath($AssetCacheRoot)
+    $assetRoot = Join-Path $AssetCacheRoot $catalogHash
+    [IO.Directory]::CreateDirectory($assetRoot) | Out-Null
+    Assert-OfflineAssetSet -Catalog $catalog -OfflineAssetRoot $assetRoot
+    $assets = [Collections.Generic.List[object]]::new()
+    $hits = [Collections.Generic.List[string]]::new()
+    $downloads = [Collections.Generic.List[string]]::new()
+    $replaced = [Collections.Generic.List[string]]::new()
+    foreach ($package in $packages) {
+        $assetPath = Join-Path $assetRoot ([string]$package.release.asset)
+        $exists = Test-Path -LiteralPath $assetPath -PathType Leaf
+        $valid = $false
+        if ($exists) {
+            $valid = (Get-Item -LiteralPath $assetPath).Length -eq [long]$package.release.sizeBytes -and
+                (Get-FileHash -LiteralPath $assetPath -Algorithm SHA256).Hash.ToLowerInvariant() -ceq [string]$package.release.sha256
+        }
+        if ($valid) {
+            Invoke-WoslerReleaseOperation -GitHubCliPath $GitHubCliPath -Arguments @('release', 'verify-asset', [string]$package.release.tag, $assetPath, '--repo', [string]$package.release.repository) -Description "attestation verification '$($package.release.asset)'"
+            $hits.Add([string]$package.id)
+        } else {
+            # Sibling staging stays on the same volume for atomic replacement and
+            # never makes incomplete bytes visible in the flat installer directory.
+            $staging = Join-Path $AssetCacheRoot ".download-$catalogHash-$([guid]::NewGuid().ToString('N'))"
+            [IO.Directory]::CreateDirectory($staging) | Out-Null
+            try {
+                $verified = Get-VerifiedAsset -Package $package -OperationRoot $staging -GitHubCliPath $GitHubCliPath
+                [IO.File]::Move($verified, $assetPath, $true)
+            } finally {
+                Remove-Item -LiteralPath $staging -Recurse -Force
+            }
+            $downloads.Add([string]$package.id)
+            if ($exists) { $replaced.Add([string]$package.id) }
+        }
+        $assets.Add([pscustomobject][ordered]@{ id = $package.id; path = $assetPath; sha256 = $package.release.sha256; sizeBytes = $package.release.sizeBytes })
+    }
+    return [pscustomobject][ordered]@{
+        catalogSha256 = $catalogHash; assetRoot = $assetRoot; assets = @($assets.ToArray())
+        cacheHits = @($hits.ToArray()); replacedCorruptEntries = @($replaced.ToArray()); downloads = @($downloads.ToArray())
+    }
 }
 
 function Get-VerifiedAsset {
@@ -348,6 +411,8 @@ function Install-ToolchainProfile {
         [string]$StatePath,
         [string]$GitHubCliPath = 'gh',
         [string]$PnPUtilPath,
+        [string]$RunnerImage = $env:RUNNER_LABEL,
+        [string]$AssetCacheRoot,
         [switch]$AllowDowngrade
     )
 
@@ -355,6 +420,16 @@ function Install-ToolchainProfile {
     $packages = @(Resolve-ToolchainProfile -Catalog $catalog -Profile $Profile)
     if ($Profile -ne 'dev-windows' -and @($packages | Where-Object { $_.install.kind -ceq 'driver' }).Count -gt 0) {
         throw 'Driver packages are permitted only in the dev-windows profile.'
+    }
+    if (-not $OfflineAssetRoot) {
+        Import-Module (Join-Path $PSScriptRoot 'ToolchainPrerequisites.psm1') -Force
+        $context = if ($Profile -ceq 'ci-windows') { 'ci' } else { 'developer' }
+        Test-ToolchainPrerequisites -CatalogPath $CatalogPath -Context $context -RunnerImage $RunnerImage | Out-Null
+        if (-not $AssetCacheRoot) {
+            $AssetCacheRoot = Join-Path ([Environment]::GetFolderPath('LocalApplicationData')) 'sonosystem-toolchain/cache'
+        }
+        $synchronized = Sync-ToolchainAssets -CatalogPath $CatalogPath -Profile $Profile -AssetCacheRoot $AssetCacheRoot -GitHubCliPath $GitHubCliPath
+        $OfflineAssetRoot = $synchronized.assetRoot
     }
     if (-not $PnPUtilPath) { $PnPUtilPath = Join-Path $env:WINDIR 'System32\pnputil.exe' }
     $catalogSha256 = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -510,4 +585,4 @@ function Test-InstalledToolchain {
     }
 }
 
-Export-ModuleMember -Function Install-ToolchainProfile, Test-InstalledToolchain
+Export-ModuleMember -Function Install-ToolchainProfile, Test-InstalledToolchain, Sync-ToolchainAssets
