@@ -20,3 +20,7 @@ jobs:
       - name: Run catalog contract tests
         shell: pwsh
         run: pwsh -NoProfile -File tests/Test-ToolchainCatalog.ps1
+
+      - name: Run installer tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainInstall.ps1
