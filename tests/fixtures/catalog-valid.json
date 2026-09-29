@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "windows-2026.09.0",
+  "platform": "windows",
+  "architecture": "x86_64",
+  "packages": [
+    {
+      "id": "runtime",
+      "version": "1.0.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "runtime-1.0.0",
+        "asset": "runtime-1.0.0-windows-x86_64.zip",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sizeBytes": 128,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://vendor.invalid/runtime-1.0.0.zip",
+        "version": "1.0.0",
+        "retrievedAt": "2026-09-29T00:00:00Z"
+      },
+      "licenses": [
+        "licenses/runtime/1.0.0/LICENSE.txt"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "runtime-1.0.0",
+        "expandedSizeBytes": 1024
+      },
+      "validation": [
+        {
+          "type": "file-exists",
+          "path": "bin/runtime.exe"
+        }
+      ]
+    },
+    {
+      "id": "compiler",
+      "version": "2.0.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "compiler-2.0.0",
+        "asset": "compiler-2.0.0-windows-x86_64.zip",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "sizeBytes": 256,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://vendor.invalid/compiler-2.0.0.zip",
+        "version": "2.0.0",
+        "retrievedAt": "2026-09-29T00:00:00Z"
+      },
+      "licenses": [
+        "licenses/compiler/2.0.0/LICENSE.txt"
+      ],
+      "dependencies": [
+        "runtime"
+      ],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "compiler-2.0.0",
+        "expandedSizeBytes": 2048
+      },
+      "validation": [
+        {
+          "type": "command-version",
+          "path": "bin/compiler.exe",
+          "expected": "2.0.0"
+        }
+      ]
+    },
+    {
+      "id": "cp210x-driver",
+      "version": "11.4.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "cp210x-driver-11.4.0",
+        "asset": "cp210x-driver-11.4.0-windows-x86_64.zip",
+        "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "sizeBytes": 512,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip",
+        "version": "11.4.0",
+        "retrievedAt": "2026-09-29T00:00:00Z"
+      },
+      "licenses": [
+        "licenses/cp210x-driver/11.4.0/LICENSE.txt"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "driver",
+        "target": "windows-driver-store",
+        "destination": "cp210x-driver-11.4.0",
+        "expandedSizeBytes": 4096
+      },
+      "validation": [
+        {
+          "type": "inf-provider-version",
+          "path": "silabser.inf",
+          "expected": "11.4.0"
+        }
+      ]
+    }
+  ],
+  "profiles": {
+    "ci-windows": [
+      "compiler"
+    ],
+    "dev-windows": [
+      "compiler",
+      "cp210x-driver"
+    ]
+  }
+}
