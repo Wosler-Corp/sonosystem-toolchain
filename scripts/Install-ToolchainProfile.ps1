@@ -6,7 +6,6 @@ param(
     [string]$OfflineAssetRoot,
     [string]$StatePath,
     [string]$GitHubCliPath = 'gh',
-    [ValidateSet('Image', 'Developer')][string]$Mode = 'Developer',
     [switch]$AllowDowngrade
 )
 
@@ -21,7 +20,6 @@ $arguments = @{
     Profile = $Profile
     InstallRoot = $InstallRoot
     GitHubCliPath = $GitHubCliPath
-    Mode = $Mode
 }
 if ($OfflineAssetRoot) { $arguments.OfflineAssetRoot = $OfflineAssetRoot }
 if ($StatePath) { $arguments.StatePath = $StatePath }

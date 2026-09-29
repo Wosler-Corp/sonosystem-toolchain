@@ -9,6 +9,7 @@
     "catalogId",
     "platform",
     "architecture",
+    "runnerPrerequisites",
     "packages",
     "profiles"
   ],
@@ -25,6 +26,11 @@
     },
     "architecture": {
       "const": "x86_64"
+    },
+    "runnerPrerequisites": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/runnerPrerequisite" }
     },
     "packages": {
       "type": "array",
@@ -53,6 +59,36 @@
     }
   },
   "$defs": {
+    "runnerPrerequisite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "platform", "context", "productId", "requiredComponents", "generator", "toolset", "versionFamily", "versionProbes"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "platform": { "const": "windows" },
+        "context": { "enum": ["runner", "developer"] },
+        "productId": { "type": "string", "pattern": "^Microsoft\\.VisualStudio\\.Product\\.[A-Za-z][A-Za-z0-9]*$" },
+        "requiredComponents": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^Microsoft\\.[A-Za-z0-9.]+$" }
+        },
+        "generator": { "type": "string", "minLength": 1 },
+        "toolset": { "type": "string", "pattern": "^v[0-9]+$" },
+        "versionFamily": { "type": "string", "pattern": "^\\[[0-9]+\\.[0-9]+,[0-9]+\\.[0-9]+\\)$" },
+        "versionProbes": {
+          "type": "object", "additionalProperties": false,
+          "required": ["installationVersion", "vcToolsVersion", "compilerVersion", "msbuildVersion"],
+          "properties": {
+            "installationVersion": { "$ref": "#/$defs/exactToolVersion" },
+            "vcToolsVersion": { "$ref": "#/$defs/exactToolVersion" },
+            "compilerVersion": { "$ref": "#/$defs/exactToolVersion" },
+            "msbuildVersion": { "$ref": "#/$defs/exactToolVersion" }
+          }
+        },
+        "supportedRunnerLabel": { "const": "windows-latest-l" }
+      }
+    },
+    "exactToolVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:\\.[0-9]+)?$" },
     "semanticVersion": {
       "type": "string",
       "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
@@ -217,8 +253,6 @@
         "kind": {
           "enum": [
             "zip",
-            "msi",
-            "exe",
             "driver"
           ]
         },

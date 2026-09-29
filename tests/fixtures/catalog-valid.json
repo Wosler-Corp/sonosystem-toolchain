@@ -3,6 +3,30 @@
   "catalogId": "windows-2026.09.0",
   "platform": "windows",
   "architecture": "x86_64",
+  "runnerPrerequisites": [
+    {
+      "id": "visual-studio-2022",
+      "platform": "windows",
+      "context": "runner",
+      "productId": "Microsoft.VisualStudio.Product.Enterprise",
+      "requiredComponents": [
+        "Microsoft.Component.MSBuild",
+        "Microsoft.VisualStudio.Component.VC.CMake.Project",
+        "Microsoft.VisualStudio.Component.VC.Tools.x86.x64",
+        "Microsoft.VisualStudio.Component.VC.Redist.14.Latest"
+      ],
+      "generator": "Visual Studio 17 2022",
+      "toolset": "v143",
+      "versionFamily": "[17.0,18.0)",
+      "versionProbes": {
+        "installationVersion": "17.14.0.0",
+        "vcToolsVersion": "14.43.34808",
+        "compilerVersion": "19.43.34810",
+        "msbuildVersion": "17.14.0.0"
+      },
+      "supportedRunnerLabel": "windows-latest-l"
+    }
+  ],
   "packages": [
     {
       "id": "runtime",

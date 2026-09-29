@@ -229,6 +229,23 @@ function Write-TestCatalog {
         catalogId = 'windows-test-1.0.0'
         platform = 'windows'
         architecture = 'x86_64'
+        runnerPrerequisites = @([ordered]@{
+            id = 'visual-studio-2022'
+            platform = 'windows'
+            context = 'runner'
+            productId = 'Microsoft.VisualStudio.Product.Enterprise'
+            requiredComponents = @('Microsoft.Component.MSBuild', 'Microsoft.VisualStudio.Component.VC.CMake.Project', 'Microsoft.VisualStudio.Component.VC.Tools.x86.x64', 'Microsoft.VisualStudio.Component.VC.Redist.14.Latest')
+            generator = 'Visual Studio 17 2022'
+            toolset = 'v143'
+            versionFamily = '[17.0,18.0)'
+            versionProbes = [ordered]@{
+                installationVersion = '17.14.0.0'
+                vcToolsVersion = '14.43.34808'
+                compilerVersion = '19.43.34810'
+                msbuildVersion = '17.14.0.0'
+            }
+            supportedRunnerLabel = 'windows-latest-l'
+        })
         packages = @($Packages)
         profiles = [ordered]@{
             'ci-windows' = @($CiRoots)
@@ -245,7 +262,6 @@ function Invoke-Installer {
         [Parameter(Mandatory)]$Environment,
         [string]$CatalogPath = $Environment.CatalogPath,
         [string]$Profile = 'ci-windows',
-        [ValidateSet('Image', 'Developer')][string]$Mode = 'Image',
         [switch]$AllowDowngrade
     )
 
@@ -255,7 +271,6 @@ function Invoke-Installer {
         InstallRoot = $Environment.InstallRoot
         OfflineAssetRoot = $Environment.AssetRoot
         StatePath = $Environment.StatePath
-        Mode = $Mode
     }
     if ($AllowDowngrade) {
         $arguments.AllowDowngrade = $true
@@ -447,6 +462,50 @@ Invoke-Test 'records packages in deterministic dependency order' {
         $state = Get-Content -LiteralPath $environment.StatePath -Raw | ConvertFrom-Json -Depth 100
         Assert-Equal -Actual @($state.packages.id) -Expected @('base', 'app') `
             -Message 'Installed-state dependency order is incorrect'
+        Assert-Equal -Actual $state.catalogId -Expected 'windows-test-1.0.0' -Message 'Catalog ID missing from state'
+        Assert-Equal -Actual $state.profile -Expected 'ci-windows' -Message 'Profile missing from state'
+        Assert-Equal -Actual $state.catalogSha256 -Expected (Get-PathHash $environment.CatalogPath) -Message 'Catalog SHA-256 missing from state'
+        Assert-Equal -Actual @($state.packages.recipeVersion) -Expected @(1, 1) -Message 'Recipe versions missing from state'
+    } finally {
+        Remove-TestEnvironment $environment
+    }
+}
+
+Invoke-Test 'changed recipe version invalidates the no-op path' {
+    $environment = New-TestEnvironment
+    try {
+        $baseline = Install-Baseline -Environment $environment
+        $sentinel = Join-Path $baseline.Destination 'sentinel.keep'
+        [IO.File]::WriteAllText($sentinel, 'old-recipe')
+        $catalog = Get-Content -LiteralPath $environment.CatalogPath -Raw | ConvertFrom-Json -Depth 100
+        $catalog.packages[0].install.recipeVersion = 2
+        [IO.File]::WriteAllText($environment.CatalogPath, ($catalog | ConvertTo-Json -Depth 100))
+        Assert-Throws -MessagePattern 'state|recipeVersion|catalog' -Action {
+            & $validatorPath -CatalogPath $environment.CatalogPath -Profile 'ci-windows' -StatePath $environment.StatePath -InstallRoot $environment.InstallRoot
+        }
+        Invoke-Installer -Environment $environment
+        Assert-True -Condition (-not (Test-Path -LiteralPath $sentinel)) -Message 'Changed recipe was skipped.'
+        $state = Get-Content -LiteralPath $environment.StatePath -Raw | ConvertFrom-Json -Depth 100
+        Assert-Equal -Actual $state.packages[0].recipeVersion -Expected 2 -Message 'Updated recipe version not recorded'
+        Assert-Equal -Actual $state.catalogSha256 -Expected (Get-PathHash $environment.CatalogPath) -Message 'Updated catalog hash not recorded'
+    } finally {
+        Remove-TestEnvironment $environment
+    }
+}
+
+Invoke-Test 'legacy state without a recipe version is reinstalled' {
+    $environment = New-TestEnvironment
+    try {
+        $baseline = Install-Baseline -Environment $environment
+        $sentinel = Join-Path $baseline.Destination 'sentinel.keep'
+        [IO.File]::WriteAllText($sentinel, 'old-recipe')
+        $state = Get-Content -LiteralPath $environment.StatePath -Raw | ConvertFrom-Json -Depth 100
+        $state.packages[0].PSObject.Properties.Remove('recipeVersion')
+        [IO.File]::WriteAllText($environment.StatePath, ($state | ConvertTo-Json -Depth 100))
+        Invoke-Installer -Environment $environment
+        Assert-True -Condition (-not (Test-Path -LiteralPath $sentinel)) -Message 'Legacy state was incorrectly skipped.'
+        $updated = Get-Content -LiteralPath $environment.StatePath -Raw | ConvertFrom-Json -Depth 100
+        Assert-Equal -Actual $updated.packages[0].recipeVersion -Expected 1 -Message 'Recipe version was not restored.'
     } finally {
         Remove-TestEnvironment $environment
     }
@@ -522,15 +581,35 @@ Invoke-Test 'refuses downgrade unless AllowDowngrade is supplied' {
     }
 }
 
-Invoke-Test 'rejects driver packages in image mode' {
+Invoke-Test 'rejects driver packages in the CI profile' {
     $environment = New-TestEnvironment
     try {
         $asset = New-ZipAsset -Environment $environment -AssetName 'cp210x-driver-11.4.0.zip' -Content 'driver'
         $package = New-PackageDefinition -Id 'cp210x-driver' -Version '11.4.0' -Asset $asset `
             -Kind 'driver' -Target 'windows-driver-store' -Destination 'cp210x-driver'
         Write-TestCatalog -Environment $environment -Packages @($package) -CiRoots @('cp210x-driver') -DevRoots @('cp210x-driver') | Out-Null
-        Assert-Throws -MessagePattern 'driver.*image|image.*driver' -Action { Invoke-Installer -Environment $environment }
+        Assert-Throws -MessagePattern 'ci-windows.*driver|driver.*ci-windows' -Action { Invoke-Installer -Environment $environment }
+        Assert-True -Condition (-not (Test-Path -LiteralPath $environment.StatePath)) -Message 'Invalid CI profile wrote state.'
     } finally {
+        Remove-TestEnvironment $environment
+    }
+}
+
+Invoke-Test 'failed pnputil leaves no driver state and warns about cleanup and reboot' {
+    $environment = New-TestEnvironment
+    $originalWindir = $env:WINDIR
+    try {
+        $baseline = Install-Baseline -Environment $environment
+        $stateHash = Get-PathHash $environment.StatePath
+        $driverAsset = New-ZipAsset -Environment $environment -AssetName 'cp210x-driver-11.4.0.zip' -Content 'driver' -RelativePath 'silabser.inf'
+        $driver = New-PackageDefinition -Id 'cp210x-driver' -Version '11.4.0' -Asset $driverAsset -Kind 'driver' -Target 'windows-driver-store' -Destination 'cp210x-driver' -ProbePath 'silabser.inf'
+        $runtime = New-PackageDefinition -Id 'runtime' -Version '1.0.0' -Asset $baseline.Asset
+        Write-TestCatalog -Environment $environment -Packages @($runtime, $driver) -CiRoots @('runtime') -DevRoots @('runtime', 'cp210x-driver') | Out-Null
+        $env:WINDIR = Join-Path $environment.Root 'fake-windows'
+        Assert-Throws -MessagePattern 'Driver Store.*cleanup.*reboot' -Action { Invoke-Installer -Environment $environment -Profile 'dev-windows' }
+        Assert-Equal -Actual (Get-PathHash $environment.StatePath) -Expected $stateHash -Message 'Failed driver installation wrote state.'
+    } finally {
+        $env:WINDIR = $originalWindir
         Remove-TestEnvironment $environment
     }
 }

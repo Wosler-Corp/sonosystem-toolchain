@@ -62,7 +62,9 @@ function Get-StatePackage {
     if ($null -eq $State -or $null -eq $State.PSObject.Properties['packages']) {
         return $null
     }
-    return @($State.packages | Where-Object { [string]$_.id -ceq $Id } | Select-Object -First 1)[0]
+    $matches = @($State.packages | Where-Object { [string]$_.id -ceq $Id } | Select-Object -First 1)
+    if ($matches.Count -eq 0) { return $null }
+    return $matches[0]
 }
 
 function Compare-SemanticVersion {
@@ -307,8 +309,12 @@ function Install-DriverPackage {
     if ($infFiles.Count -eq 0) { throw "Driver package '$($Package.id)' contains no INF file." }
     $pnputil = Join-Path $env:WINDIR 'System32\pnputil.exe'
     foreach ($inf in $infFiles) {
-        $output = & $pnputil /add-driver $inf.FullName /install 2>&1
-        if ($LASTEXITCODE -ne 0) { throw "Driver installation failed for '$($inf.FullName)': $([string]::Join([Environment]::NewLine, @($output)))" }
+        try {
+            $output = & $pnputil /add-driver $inf.FullName /install 2>&1
+            if ($LASTEXITCODE -ne 0) { throw "pnputil exited $LASTEXITCODE`: $([string]::Join([Environment]::NewLine, @($output)))" }
+        } catch {
+            throw "Driver installation failed for '$($inf.FullName)': $($_.Exception.Message). Driver Store cleanup and reboot may be required."
+        }
     }
 }
 
@@ -334,15 +340,15 @@ function Install-ToolchainProfile {
         [string]$OfflineAssetRoot,
         [string]$StatePath,
         [string]$GitHubCliPath = 'gh',
-        [ValidateSet('Image', 'Developer')][string]$Mode = 'Developer',
         [switch]$AllowDowngrade
     )
 
     $catalog = Read-ToolchainCatalog -Path $CatalogPath
     $packages = @(Resolve-ToolchainProfile -Catalog $catalog -Profile $Profile)
-    if ($Mode -eq 'Image' -and @($packages | Where-Object { $_.install.kind -ceq 'driver' }).Count -gt 0) {
-        throw 'Driver packages cannot be installed in image mode.'
+    if ($Profile -ne 'dev-windows' -and @($packages | Where-Object { $_.install.kind -ceq 'driver' }).Count -gt 0) {
+        throw 'Driver packages are permitted only in the dev-windows profile.'
     }
+    $catalogSha256 = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
 
     $InstallRoot = [IO.Path]::GetFullPath($InstallRoot)
     if (-not $StatePath) { $StatePath = Join-Path $InstallRoot 'installed-toolchain.json' }
@@ -356,6 +362,7 @@ function Install-ToolchainProfile {
     [IO.Directory]::CreateDirectory($operationRoot) | Out-Null
     $changes = [Collections.Generic.List[object]]::new()
     $statePackages = [Collections.Generic.List[object]]::new()
+    $driversToInstall = [Collections.Generic.List[object]]::new()
 
     try {
         foreach ($package in $packages) {
@@ -366,7 +373,7 @@ function Install-ToolchainProfile {
             }
 
             $assetPath = Get-VerifiedAsset -Package $package -OfflineAssetRoot $OfflineAssetRoot -OperationRoot $operationRoot -GitHubCliPath $GitHubCliPath
-            $stateMatches = $null -ne $existing -and [string]$existing.version -ceq [string]$package.version -and [string]$existing.sha256 -ceq [string]$package.release.sha256
+            $stateMatches = $null -ne $existing -and $null -ne $existing.PSObject.Properties['recipeVersion'] -and [string]$existing.version -ceq [string]$package.version -and [string]$existing.sha256 -ceq [string]$package.release.sha256 -and [string]$existing.recipeVersion -ceq [string]$package.install.recipeVersion
             if ($stateMatches -and (Test-PackageProbes -Package $package -Destination $destination)) {
                 $statePackages.Add($existing)
                 continue
@@ -376,8 +383,6 @@ function Install-ToolchainProfile {
             switch -CaseSensitive ([string]$package.install.kind) {
                 'zip' { Expand-VerifiedZip -AssetPath $assetPath -Destination $stage -ExpandedSizeLimit ([long]$package.install.expandedSizeBytes) }
                 'driver' { Expand-VerifiedZip -AssetPath $assetPath -Destination $stage -ExpandedSizeLimit ([long]$package.install.expandedSizeBytes) }
-                'msi' { [IO.Directory]::CreateDirectory($stage) | Out-Null; Copy-Item -LiteralPath $assetPath -Destination (Join-Path $stage ([IO.Path]::GetFileName($assetPath))) }
-                'exe' { [IO.Directory]::CreateDirectory($stage) | Out-Null; Copy-Item -LiteralPath $assetPath -Destination (Join-Path $stage ([IO.Path]::GetFileName($assetPath))) }
                 default { throw "Unsupported install kind '$($package.install.kind)'." }
             }
             Test-PackageProbes -Package $package -Destination $stage -ThrowOnFailure | Out-Null
@@ -395,19 +400,27 @@ function Install-ToolchainProfile {
             $changes.Add([pscustomobject]@{ Destination = $destination; Backup = $backup; HadDestination = $hadDestination })
 
             Test-PackageProbes -Package $package -Destination $destination -ThrowOnFailure | Out-Null
-            if ([string]$package.install.kind -ceq 'driver') { Install-DriverPackage -Package $package -Destination $destination }
+            if ([string]$package.install.kind -ceq 'driver') {
+                $driversToInstall.Add([pscustomobject]@{ Package = $package; Destination = $destination })
+            }
             $statePackages.Add([ordered]@{
                 id = [string]$package.id
                 version = [string]$package.version
                 sha256 = [string]$package.release.sha256
+                recipeVersion = [int]$package.install.recipeVersion
                 target = [string]$package.install.target
                 destination = [string]$package.install.destination
             })
         }
 
+        foreach ($driver in $driversToInstall) {
+            Install-DriverPackage -Package $driver.Package -Destination $driver.Destination
+        }
+
         $state = [ordered]@{
             schemaVersion = 1
             catalogId = [string]$catalog.catalogId
+            catalogSha256 = $catalogSha256
             profile = $Profile
             packages = $statePackages.ToArray()
         }
@@ -443,17 +456,18 @@ function Test-InstalledToolchain {
     )
 
     $catalog = Read-ToolchainCatalog -Path $CatalogPath
+    $catalogSha256 = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
     $packages = @(Resolve-ToolchainProfile -Catalog $catalog -Profile $Profile)
     $state = Read-InstalledState -StatePath $StatePath
     if ($null -eq $state) { throw "Installed toolchain state does not exist: $StatePath" }
-    if ([string]$state.catalogId -cne [string]$catalog.catalogId -or [string]$state.profile -cne $Profile) {
+    if ([string]$state.catalogId -cne [string]$catalog.catalogId -or [string]$state.catalogSha256 -cne $catalogSha256 -or [string]$state.profile -cne $Profile) {
         throw 'Installed toolchain state does not match the selected catalog and profile.'
     }
     if (@($state.packages).Count -ne $packages.Count) { throw 'Installed toolchain package count does not match the selected profile.' }
     for ($index = 0; $index -lt $packages.Count; $index++) {
         $package = $packages[$index]
         $record = @($state.packages)[$index]
-        if ([string]$record.id -cne [string]$package.id -or [string]$record.version -cne [string]$package.version -or [string]$record.sha256 -cne [string]$package.release.sha256) {
+        if ([string]$record.id -cne [string]$package.id -or [string]$record.version -cne [string]$package.version -or [string]$record.sha256 -cne [string]$package.release.sha256 -or [string]$record.recipeVersion -cne [string]$package.install.recipeVersion) {
             throw "Installed toolchain state mismatch at package '$($package.id)'."
         }
         $destination = Get-PackageDestination -Package $package -InstallRoot $InstallRoot

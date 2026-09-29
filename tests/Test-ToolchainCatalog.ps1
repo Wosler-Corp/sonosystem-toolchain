@@ -83,6 +83,53 @@ Invoke-Test 'valid fixture satisfies the published JSON schema' {
     }
 }
 
+Invoke-Test 'Visual Studio is an exact runner prerequisite, not a package' {
+    $catalog = Copy-CatalogFixture
+    Test-ToolchainCatalog -Catalog $catalog
+    Assert-Equal -Actual @($catalog.runnerPrerequisites).Count -Expected 1 -Message 'Expected one runner prerequisite'
+    $item = $catalog.runnerPrerequisites[0]
+    Assert-Equal -Actual $item.id -Expected 'visual-studio-2022' -Message 'Prerequisite ID differs'
+    Assert-Equal -Actual $item.productId -Expected 'Microsoft.VisualStudio.Product.Enterprise' -Message 'Product ID differs'
+    Assert-Equal -Actual @($item.requiredComponents) -Expected @(
+        'Microsoft.Component.MSBuild',
+        'Microsoft.VisualStudio.Component.VC.CMake.Project',
+        'Microsoft.VisualStudio.Component.VC.Tools.x86.x64',
+        'Microsoft.VisualStudio.Component.VC.Redist.14.Latest'
+    ) -Message 'Required components differ'
+    Assert-Equal -Actual "$($item.toolset):$($item.versionFamily)" -Expected 'v143:[17.0,18.0)' -Message 'Toolset pin differs'
+    Assert-Equal -Actual @($item.versionProbes.PSObject.Properties | ForEach-Object { "$($_.Name)=$($_.Value)" }) -Expected @(
+        'installationVersion=17.14.0.0', 'vcToolsVersion=14.43.34808',
+        'compilerVersion=19.43.34810', 'msbuildVersion=17.14.0.0'
+    ) -Message 'Exact version probes differ'
+    Assert-Equal -Actual $item.supportedRunnerLabel -Expected 'windows-latest-l' -Message 'Runner label differs'
+    foreach ($field in @('release', 'upstream', 'install', 'assetUrl')) {
+        if ($item.PSObject.Properties[$field]) { throw "Prerequisite contains $field metadata." }
+    }
+    if ($item.id -cin @($catalog.packages.id)) { throw 'Prerequisite is packaged.' }
+    foreach ($profile in @('ci-windows', 'dev-windows')) {
+        if ($item.id -cin @((Resolve-ToolchainProfile -Catalog $catalog -Profile $profile).id)) { throw "Prerequisite is in $profile." }
+    }
+}
+
+$invalidPrerequisites = @(
+    @{ Name = 'duplicate prerequisite ID'; Error = 'duplicate.*prerequisite'; Mutate = { param($c) $c.runnerPrerequisites = @($c.runnerPrerequisites) + @(($c.runnerPrerequisites[0] | ConvertTo-Json -Depth 100 | ConvertFrom-Json -Depth 100)) } },
+    @{ Name = 'prerequisite asset URL'; Error = 'assetUrl|unsupported'; Mutate = { param($c) $c.runnerPrerequisites[0] | Add-Member -NotePropertyName assetUrl -NotePropertyValue 'https://vendor.invalid/vs.exe' } },
+    @{ Name = 'missing prerequisite component'; Error = 'component'; Mutate = { param($c) $c.runnerPrerequisites[0].requiredComponents = @() } },
+    @{ Name = 'floating prerequisite version'; Error = 'version'; Mutate = { param($c) $c.runnerPrerequisites[0].versionProbes.compilerVersion = 'latest' } },
+    @{ Name = 'unsupported runner label'; Error = 'label'; Mutate = { param($c) $c.runnerPrerequisites[0].supportedRunnerLabel = 'custom-image' } },
+    @{ Name = 'prerequisite ID collides with package'; Error = 'prerequisite|duplicate'; Mutate = { param($c) $c.runnerPrerequisites[0].id = 'runtime' } },
+    @{ Name = 'CI profile contains a driver'; Error = 'ci-windows.*driver|driver.*ci-windows'; Mutate = { param($c) $c.profiles.'ci-windows' = @('compiler', 'cp210x-driver') } },
+    @{ Name = 'MSI install kind'; Error = 'kind'; Mutate = { param($c) $c.packages[0].install.kind = 'msi' } },
+    @{ Name = 'EXE install kind'; Error = 'kind'; Mutate = { param($c) $c.packages[0].install.kind = 'exe' } }
+)
+foreach ($case in $invalidPrerequisites) {
+    Invoke-Test "rejects $($case.Name)" {
+        $catalog = Copy-CatalogFixture
+        & $case.Mutate $catalog
+        Assert-Throws -MessagePattern $case.Error -Action { Test-ToolchainCatalog -Catalog $catalog }
+    }
+}
+
 $invalidCases = @(
     @{
         Name = 'rejects an unsupported schema version'
@@ -168,7 +215,6 @@ $productionCatalogPath = Join-Path $repoRoot 'catalog\windows\2026.09.0.json'
 $definitionRoot = Join-Path $repoRoot 'packages\windows'
 $expectedDefinitionIds = @(
     'host-tools',
-    'msvc-build-tools',
     'msys2-sonosystem',
     'vcpkg-sonosystem',
     'boost-mingw',
@@ -211,17 +257,6 @@ Invoke-Test 'host-tools pins CMake 3.30.6 and 7-Zip 19.00' {
     $definition = Read-PackageDefinition -Id 'host-tools'
     Assert-Equal -Actual @($definition.contents | ForEach-Object { "$($_.id)=$($_.version)" }) `
         -Expected @('cmake=3.30.6', '7zip=19.00') -Message 'Host-tool pins are incorrect'
-}
-
-Invoke-Test 'MSVC Build Tools pins every required component' {
-    $definition = Read-PackageDefinition -Id 'msvc-build-tools'
-    Assert-Equal -Actual $definition.product -Expected 'Visual Studio 2022 Build Tools' -Message 'MSVC product is incorrect'
-    Assert-Equal -Actual @($definition.components) -Expected @(
-        'Microsoft.Component.MSBuild',
-        'Microsoft.VisualStudio.Component.VC.CMake.Project',
-        'Microsoft.VisualStudio.Component.VC.Tools.x86.x64',
-        'Microsoft.VisualStudio.Component.VC.Redist.14.Latest'
-    ) -Message 'MSVC component set is incorrect'
 }
 
 Invoke-Test 'MSYS2 package definition freezes the SonoBot dependency list' {

@@ -1,7 +1,7 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-$script:AllowedInstallKinds = @('zip', 'msi', 'exe', 'driver')
+$script:AllowedInstallKinds = @('zip', 'driver')
 $script:AllowedInstallTargets = @('toolchain-root', 'msys2-root', 'vcpkg-root', 'windows-driver-store')
 $script:AllowedProbeTypes = @(
     'file-exists',
@@ -166,6 +166,64 @@ function Test-ToolchainCatalog {
     }
     $packageMap = New-PackageMap -Packages $packages
 
+    $prerequisites = @(Get-RequiredValue -InputObject $Catalog -Name 'runnerPrerequisites' -Context 'catalog')
+    if ($prerequisites.Count -eq 0) { throw 'Catalog runnerPrerequisites must not be empty.' }
+    $prerequisiteIds = @{}
+    foreach ($prerequisite in $prerequisites) {
+        $id = [string](Get-RequiredValue -InputObject $prerequisite -Name 'id' -Context 'runner prerequisite')
+        if ($id -cnotmatch '^[a-z0-9][a-z0-9._-]*$') { throw "Runner prerequisite ID is invalid: $id" }
+        if ($prerequisiteIds.ContainsKey($id) -or $packageMap.ContainsKey($id)) {
+            throw "Catalog contains duplicate runner prerequisite or package ID '$id'."
+        }
+        $prerequisiteIds[$id] = $true
+        $allowed = @('id', 'platform', 'context', 'productId', 'requiredComponents', 'generator', 'toolset', 'versionFamily', 'versionProbes', 'supportedRunnerLabel')
+        foreach ($property in $prerequisite.PSObject.Properties) {
+            if ($property.Name -cnotin $allowed) { throw "Runner prerequisite '$id' has unsupported property '$($property.Name)'." }
+        }
+        if ((Get-RequiredValue -InputObject $prerequisite -Name 'platform' -Context "runner prerequisite '$id'") -cne 'windows') {
+            throw "Runner prerequisite '$id' platform must be windows."
+        }
+        if ((Get-RequiredValue -InputObject $prerequisite -Name 'context' -Context "runner prerequisite '$id'") -cnotin @('runner', 'developer')) {
+            throw "Runner prerequisite '$id' context is unsupported."
+        }
+        $productId = [string](Get-RequiredValue -InputObject $prerequisite -Name 'productId' -Context "runner prerequisite '$id'")
+        if ($productId -cnotmatch '^Microsoft\.VisualStudio\.Product\.[A-Za-z][A-Za-z0-9]*$') {
+            throw "Runner prerequisite '$id' productId is invalid."
+        }
+        $components = @(Get-RequiredValue -InputObject $prerequisite -Name 'requiredComponents' -Context "runner prerequisite '$id'")
+        if ($components.Count -eq 0) { throw "Runner prerequisite '$id' requires component IDs." }
+        $componentIds = @{}
+        foreach ($component in $components) {
+            if ([string]$component -cnotmatch '^Microsoft\.[A-Za-z0-9.]+$' -or $componentIds.ContainsKey([string]$component)) {
+                throw "Runner prerequisite '$id' has invalid or duplicate component '$component'."
+            }
+            $componentIds[[string]$component] = $true
+        }
+        Assert-NonEmptyString -Value (Get-RequiredValue -InputObject $prerequisite -Name 'generator' -Context "runner prerequisite '$id'") -Context "runner prerequisite '$id' generator"
+        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'toolset' -Context "runner prerequisite '$id'") -cnotmatch '^v[0-9]+$') {
+            throw "Runner prerequisite '$id' toolset must be exact."
+        }
+        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'versionFamily' -Context "runner prerequisite '$id'") -cnotmatch '^\[[0-9]+\.[0-9]+,[0-9]+\.[0-9]+\)$') {
+            throw "Runner prerequisite '$id' versionFamily must be a bounded version range."
+        }
+        $probes = Get-RequiredValue -InputObject $prerequisite -Name 'versionProbes' -Context "runner prerequisite '$id'"
+        foreach ($property in $probes.PSObject.Properties) {
+            if ($property.Name -cnotin @('installationVersion', 'vcToolsVersion', 'compilerVersion', 'msbuildVersion')) {
+                throw "Runner prerequisite '$id' has unsupported version probe '$($property.Name)'."
+            }
+        }
+        foreach ($name in @('installationVersion', 'vcToolsVersion', 'compilerVersion', 'msbuildVersion')) {
+            $value = [string](Get-RequiredValue -InputObject $probes -Name $name -Context "runner prerequisite '$id' versionProbes")
+            if ($value -cnotmatch '^[0-9]+\.[0-9]+\.[0-9]+(?:\.[0-9]+)?$') {
+                throw "Runner prerequisite '$id' $name version must be exact."
+            }
+        }
+        $label = $prerequisite.PSObject.Properties['supportedRunnerLabel']
+        if ($null -ne $label -and [string]$label.Value -cne 'windows-latest-l') {
+            throw "Runner prerequisite '$id' supportedRunnerLabel is unsupported."
+        }
+    }
+
     foreach ($package in $packages) {
         $id = [string](Get-RequiredValue -InputObject $package -Name 'id' -Context 'package')
         if ($id -notmatch '^[a-z0-9][a-z0-9._-]*$') {
@@ -305,6 +363,11 @@ function Test-ToolchainCatalog {
 
     $ciIds = @((Resolve-PackageClosure -PackageMap $packageMap -Roots ([string[]]@($profiles.'ci-windows'))).id)
     $devIds = @((Resolve-PackageClosure -PackageMap $packageMap -Roots ([string[]]@($profiles.'dev-windows'))).id)
+    foreach ($ciId in $ciIds) {
+        if ([string]$packageMap[$ciId].install.kind -ceq 'driver') {
+            throw "ci-windows profile cannot contain driver package '$ciId'."
+        }
+    }
     foreach ($ciId in $ciIds) {
         if ($ciId -cnotin $devIds) {
             throw "dev-windows profile must contain the ci-windows closure; missing '$ciId'."
