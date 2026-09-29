@@ -164,6 +164,134 @@ Invoke-Test 'resolves the developer profile as the CI closure plus CP210x' {
         -Message 'dev-windows profile closure is incorrect'
 }
 
+$productionCatalogPath = Join-Path $repoRoot 'catalog\windows\2026.09.0.json'
+$definitionRoot = Join-Path $repoRoot 'packages\windows'
+$expectedDefinitionIds = @(
+    'host-tools',
+    'msvc-build-tools',
+    'msys2-sonosystem',
+    'vcpkg-sonosystem',
+    'boost-mingw',
+    'boost-msvc',
+    'libdatachannel',
+    'cmake-sources',
+    'cp210x'
+)
+
+function Read-ProductionCatalog {
+    if (-not (Test-Path -LiteralPath $productionCatalogPath -PathType Leaf)) {
+        throw "Production catalog not found: $productionCatalogPath"
+    }
+    return Read-ToolchainCatalog -Path $productionCatalogPath
+}
+
+function Read-PackageDefinition {
+    param([Parameter(Mandatory)][string]$Id)
+    $path = Join-Path $definitionRoot "$Id.json"
+    if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { throw "Package definition not found: $path" }
+    return Get-Content -LiteralPath $path -Raw | ConvertFrom-Json -Depth 100
+}
+
+Invoke-Test 'production catalog defines the exact Windows package inventory' {
+    $catalog = Read-ProductionCatalog
+    Test-ToolchainCatalog -Catalog $catalog
+    Assert-Equal -Actual $catalog.catalogId -Expected 'windows-2026.09.0' -Message 'Production catalog ID is incorrect'
+    Assert-Equal -Actual @($catalog.packages.id) -Expected $expectedDefinitionIds -Message 'Production package inventory is incorrect'
+
+    $ciIds = @((Resolve-ToolchainProfile -Catalog $catalog -Profile 'ci-windows').id)
+    $devIds = @((Resolve-ToolchainProfile -Catalog $catalog -Profile 'dev-windows').id)
+    Assert-Equal -Actual $ciIds -Expected @($expectedDefinitionIds | Where-Object { $_ -cne 'cp210x' }) -Message 'CI profile inventory is incorrect'
+    Assert-Equal -Actual $devIds -Expected $expectedDefinitionIds -Message 'Developer profile must extend CI with CP210x'
+    if ('cp210x' -cin $ciIds) { throw 'CP210x must not belong to ci-windows.' }
+    if ('cp210x' -cnotin $devIds) { throw 'CP210x must belong to dev-windows.' }
+    if (@($catalog.packages.id | Where-Object { $_ -match '(?i)inno' }).Count -ne 0) { throw 'Inno Setup is outside the SW_SS-655 package profiles.' }
+}
+
+Invoke-Test 'host-tools pins CMake 3.30.6 and 7-Zip 19.00' {
+    $definition = Read-PackageDefinition -Id 'host-tools'
+    Assert-Equal -Actual @($definition.contents | ForEach-Object { "$($_.id)=$($_.version)" }) `
+        -Expected @('cmake=3.30.6', '7zip=19.00') -Message 'Host-tool pins are incorrect'
+}
+
+Invoke-Test 'MSVC Build Tools pins every required component' {
+    $definition = Read-PackageDefinition -Id 'msvc-build-tools'
+    Assert-Equal -Actual $definition.product -Expected 'Visual Studio 2022 Build Tools' -Message 'MSVC product is incorrect'
+    Assert-Equal -Actual @($definition.components) -Expected @(
+        'Microsoft.Component.MSBuild',
+        'Microsoft.VisualStudio.Component.VC.CMake.Project',
+        'Microsoft.VisualStudio.Component.VC.Tools.x86.x64',
+        'Microsoft.VisualStudio.Component.VC.Redist.14.Latest'
+    ) -Message 'MSVC component set is incorrect'
+}
+
+Invoke-Test 'MSYS2 package definition freezes the SonoBot dependency list' {
+    $definition = Read-PackageDefinition -Id 'msys2-sonosystem'
+    Assert-Equal -Actual $definition.base.version -Expected '20240507' -Message 'MSYS2 base version is incorrect'
+    Assert-Equal -Actual @($definition.packages) -Expected @(
+        'mingw-w64-x86_64-crt-git',
+        'mingw-w64-x86_64-headers-git',
+        'mingw-w64-x86_64-toolchain',
+        'mingw-w64-x86_64-gcc',
+        'mingw-w64-x86_64-make',
+        'mingw-w64-x86_64-gdb',
+        'mingw-w64-x86_64-binutils',
+        'mingw-w64-x86_64-vtk',
+        'mingw-w64-x86_64-qt6',
+        'mingw-w64-x86_64-opencv',
+        'mingw-w64-x86_64-nlohmann-json',
+        'mingw-w64-x86_64-jsoncpp',
+        'mingw-w64-x86_64-usrsctp',
+        'mingw-w64-x86_64-libsrtp',
+        'mingw-w64-x86_64-gst-plugins-base',
+        'mingw-w64-x86_64-gst-plugins-good',
+        'mingw-w64-x86_64-gst-plugins-bad',
+        'mingw-w64-x86_64-gst-plugins-ugly',
+        'mingw-w64-x86_64-gst-libav',
+        'mingw-w64-x86_64-freetype',
+        'mingw-w64-x86_64-fast_float',
+        'mingw-w64-x86_64-utf8cpp',
+        'mingw-w64-x86_64-eigen3',
+        'mingw-w64-x86_64-pkg-config',
+        'mingw-w64-x86_64-openssl',
+        'mingw-w64-x86_64-libzip',
+        'mingw-w64-x86_64-vulkan-devel',
+        'mingw-w64-x86_64-vulkan',
+        'mingw-w64-x86_64-vulkan-headers'
+    ) -Message 'MSYS2 dependency snapshot is incorrect'
+}
+
+Invoke-Test 'vcpkg definition freezes tag, registries, and SonoBot manifests' {
+    $definition = Read-PackageDefinition -Id 'vcpkg-sonosystem'
+    Assert-Equal -Actual $definition.vcpkgTag -Expected '2025.12.12' -Message 'vcpkg tag is incorrect'
+    Assert-Equal -Actual @($definition.registryBaselines) -Expected @(
+        '544a4c5c297e60e4ac4a5a1810df66748d908869',
+        '054637a2ae63c6c647b3169251759910cc4c984a'
+    ) -Message 'vcpkg registry baselines are incorrect'
+    Assert-Equal -Actual @($definition.manifestTree.path) -Expected @('vcpkg.json', 'vcpkg-configuration.json') -Message 'vcpkg manifest tree is incomplete'
+    foreach ($entry in @($definition.manifestTree)) {
+        if ([string]$entry.sha256 -cnotmatch '^[0-9a-f]{64}$') { throw "vcpkg manifest '$($entry.path)' has no exact SHA-256." }
+    }
+}
+
+Invoke-Test 'Boost, libdatachannel, and CMake source pins match SonoBot' {
+    $mingw = Read-PackageDefinition -Id 'boost-mingw'
+    $msvc = Read-PackageDefinition -Id 'boost-msvc'
+    $libdatachannel = Read-PackageDefinition -Id 'libdatachannel'
+    $sources = Read-PackageDefinition -Id 'cmake-sources'
+    Assert-Equal -Actual "$($mingw.version):$($mingw.toolchain)" -Expected '1.86.0:gcc14.2-mingw' -Message 'MinGW Boost pin is incorrect'
+    Assert-Equal -Actual "$($msvc.version):$($msvc.toolchain)" -Expected '1.86.0:msvc19.43-v143' -Message 'MSVC Boost pin is incorrect'
+    Assert-Equal -Actual $libdatachannel.version -Expected '0.21.2' -Message 'libdatachannel pin is incorrect'
+    Assert-Equal -Actual @($sources.contents | ForEach-Object { "$($_.id)=$($_.version)" }) `
+        -Expected @('spdlog=1.15.0', 'googletest=1.14.0') -Message 'CMake source pins are incorrect'
+}
+
+Invoke-Test 'CP210x definition requires signed Universal driver INF metadata' {
+    $definition = Read-PackageDefinition -Id 'cp210x'
+    Assert-Equal -Actual $definition.product -Expected 'CP210x Universal Windows Driver' -Message 'CP210x product is incorrect'
+    Assert-Equal -Actual $definition.source.authenticode.status -Expected 'Valid' -Message 'CP210x must require a valid Authenticode signature'
+    Assert-Equal -Actual $definition.source.inf.version -Expected $definition.version -Message 'CP210x version must come from its INF'
+}
+
 Write-Host "Catalog tests: $script:passed passed, $script:failed failed."
 if ($script:failed -ne 0) {
     exit 1
