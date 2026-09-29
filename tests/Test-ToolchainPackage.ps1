@@ -179,7 +179,8 @@ Invoke-Test 'normalizes ZIP entry ordering and timestamps' {
             $names = @($archive.Entries | ForEach-Object { $_.FullName })
             Assert-Equal -Actual $names -Expected @('a-first/config.txt', 'z-last/tool.exe') -Message 'ZIP entries are not in ordinal path order'
             foreach ($entry in $archive.Entries) {
-                Assert-Equal -Actual $entry.LastWriteTime.UtcDateTime.ToString('o') -Expected '2000-01-01T00:00:00.0000000Z' -Message "ZIP timestamp was not normalized for $($entry.FullName)"
+                # ZIP stores wall-clock fields without a UTC offset.
+                Assert-Equal -Actual $entry.LastWriteTime.DateTime.ToString('o') -Expected '2000-01-01T00:00:00.0000000' -Message "ZIP timestamp was not normalized for $($entry.FullName)"
             }
         } finally { $archive.Dispose() }
     } finally { Remove-TestEnvironment $environment }
