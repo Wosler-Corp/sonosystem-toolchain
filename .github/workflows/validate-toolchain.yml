@@ -24,3 +24,7 @@ jobs:
       - name: Run installer tests
         shell: pwsh
         run: pwsh -NoProfile -File tests/Test-ToolchainInstall.ps1
+
+      - name: Run package builder tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainPackage.ps1
