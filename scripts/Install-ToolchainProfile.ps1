@@ -6,6 +6,7 @@ param(
     [string]$OfflineAssetRoot,
     [string]$StatePath,
     [string]$GitHubCliPath = 'gh',
+    [string]$PnPUtilPath,
     [switch]$AllowDowngrade
 )
 
@@ -23,6 +24,7 @@ $arguments = @{
 }
 if ($OfflineAssetRoot) { $arguments.OfflineAssetRoot = $OfflineAssetRoot }
 if ($StatePath) { $arguments.StatePath = $StatePath }
+if ($PnPUtilPath) { $arguments.PnPUtilPath = $PnPUtilPath }
 if ($AllowDowngrade) { $arguments.AllowDowngrade = $true }
 
 $state = Install-ToolchainProfile @arguments

@@ -262,6 +262,8 @@ function Invoke-Installer {
         [Parameter(Mandatory)]$Environment,
         [string]$CatalogPath = $Environment.CatalogPath,
         [string]$Profile = 'ci-windows',
+        [string]$StatePath = $Environment.StatePath,
+        [string]$PnPUtilPath,
         [switch]$AllowDowngrade
     )
 
@@ -270,8 +272,9 @@ function Invoke-Installer {
         Profile = $Profile
         InstallRoot = $Environment.InstallRoot
         OfflineAssetRoot = $Environment.AssetRoot
-        StatePath = $Environment.StatePath
+        StatePath = $StatePath
     }
+    if ($PnPUtilPath) { $arguments.PnPUtilPath = $PnPUtilPath }
     if ($AllowDowngrade) {
         $arguments.AllowDowngrade = $true
     }
@@ -471,6 +474,51 @@ Invoke-Test 'records packages in deterministic dependency order' {
     }
 }
 
+function New-FakePnPUtil {
+    param(
+        [Parameter(Mandatory)]$Environment,
+        [Parameter(Mandatory)][ValidateSet('fail', 'succeed', 'fail-second')][string]$Behavior
+    )
+
+    $path = Join-Path $Environment.Root 'fake-pnputil.cmd'
+    $logPath = Join-Path $Environment.Root 'pnputil-calls.txt'
+    $firstCallPath = Join-Path $Environment.Root 'pnputil-first-call.txt'
+    $lines = @('@echo off', "echo %*>>`"$logPath`"")
+    switch ($Behavior) {
+        'fail' { $lines += 'exit /b 42' }
+        'succeed' { $lines += 'exit /b 0' }
+        'fail-second' {
+            $lines += "if exist `"$firstCallPath`" exit /b 42"
+            $lines += "echo first>`"$firstCallPath`""
+            $lines += 'exit /b 0'
+        }
+    }
+    [IO.File]::WriteAllLines($path, $lines, [Text.ASCIIEncoding]::new())
+    return [pscustomobject]@{ Path = $path; LogPath = $logPath }
+}
+
+function Write-DriverTestCatalog {
+    param(
+        [Parameter(Mandatory)]$Environment,
+        [Parameter(Mandatory)][string[]]$DriverEntries
+    )
+
+    $runtimeAsset = New-ZipAsset -Environment $Environment -AssetName 'runtime-1.0.0.zip' -Content 'runtime'
+    $packages = [Collections.Generic.List[object]]::new()
+    $packages.Add((New-PackageDefinition -Id 'runtime' -Version '1.0.0' -Asset $runtimeAsset))
+    $devRoots = [Collections.Generic.List[string]]::new()
+    $devRoots.Add('runtime')
+    for ($index = 0; $index -lt $DriverEntries.Count; $index++) {
+        $id = "driver-$($index + 1)"
+        $entry = $DriverEntries[$index]
+        $asset = New-ZipAsset -Environment $Environment -AssetName "$id-1.0.0.zip" -Content "driver-$index" -RelativePath $entry
+        $packages.Add((New-PackageDefinition -Id $id -Version '1.0.0' -Asset $asset -Kind 'driver' `
+            -Target 'windows-driver-store' -Destination $id -ProbePath $entry))
+        $devRoots.Add($id)
+    }
+    Write-TestCatalog -Environment $Environment -Packages $packages.ToArray() -CiRoots @('runtime') -DevRoots $devRoots.ToArray() | Out-Null
+}
+
 Invoke-Test 'changed recipe version invalidates the no-op path' {
     $environment = New-TestEnvironment
     try {
@@ -610,6 +658,71 @@ Invoke-Test 'failed pnputil leaves no driver state and warns about cleanup and r
         Assert-Equal -Actual (Get-PathHash $environment.StatePath) -Expected $stateHash -Message 'Failed driver installation wrote state.'
     } finally {
         $env:WINDIR = $originalWindir
+        Remove-TestEnvironment $environment
+    }
+}
+
+Invoke-Test 'preflights every driver INF set before calling pnputil' {
+    $environment = New-TestEnvironment
+    $originalWindir = $env:WINDIR
+    try {
+        Write-DriverTestCatalog -Environment $environment -DriverEntries @('first.inf', 'payload.txt')
+        $env:WINDIR = Join-Path $environment.Root 'missing-pnputil'
+        Assert-Throws -MessagePattern "driver-2.*no INF" -Action {
+            Invoke-Installer -Environment $environment -Profile 'dev-windows'
+        }
+        Assert-True -Condition (-not (Test-Path -LiteralPath $environment.StatePath)) `
+            -Message 'Missing second INF wrote successful driver state.'
+    } finally {
+        $env:WINDIR = $originalWindir
+        Remove-TestEnvironment $environment
+    }
+}
+
+Invoke-Test 'native pnputil nonzero exit warns and writes no successful state' {
+    $environment = New-TestEnvironment
+    try {
+        Write-DriverTestCatalog -Environment $environment -DriverEntries @('first.inf')
+        $fake = New-FakePnPUtil -Environment $environment -Behavior 'fail'
+        Assert-Throws -MessagePattern '42.*Driver Store.*cleanup.*reboot' -Action {
+            Invoke-Installer -Environment $environment -Profile 'dev-windows' -PnPUtilPath $fake.Path
+        }
+        Assert-Equal -Actual @(Get-Content -LiteralPath $fake.LogPath).Count -Expected 1 -Message 'Expected one native pnputil invocation'
+        Assert-True -Condition (-not (Test-Path -LiteralPath $environment.StatePath)) -Message 'Failed pnputil wrote successful state.'
+    } finally {
+        Remove-TestEnvironment $environment
+    }
+}
+
+Invoke-Test 'second pnputil failure warns after the first driver succeeds' {
+    $environment = New-TestEnvironment
+    try {
+        Write-DriverTestCatalog -Environment $environment -DriverEntries @('first.inf', 'second.inf')
+        $fake = New-FakePnPUtil -Environment $environment -Behavior 'fail-second'
+        Assert-Throws -MessagePattern '42.*Driver Store.*cleanup.*reboot' -Action {
+            Invoke-Installer -Environment $environment -Profile 'dev-windows' -PnPUtilPath $fake.Path
+        }
+        Assert-Equal -Actual @(Get-Content -LiteralPath $fake.LogPath).Count -Expected 2 -Message 'Expected two native pnputil invocations'
+        Assert-True -Condition (-not (Test-Path -LiteralPath $environment.StatePath)) -Message 'Partial driver install wrote successful state.'
+    } finally {
+        Remove-TestEnvironment $environment
+    }
+}
+
+Invoke-Test 'state-write failure after driver execution warns about partial Driver Store changes' {
+    $environment = New-TestEnvironment
+    try {
+        Write-DriverTestCatalog -Environment $environment -DriverEntries @('first.inf')
+        $fake = New-FakePnPUtil -Environment $environment -Behavior 'succeed'
+        $blockingFile = Join-Path $environment.Root 'state-parent-is-a-file'
+        [IO.File]::WriteAllText($blockingFile, 'block state write')
+        $statePath = Join-Path $blockingFile 'installed-toolchain.json'
+        Assert-Throws -MessagePattern 'Driver Store.*cleanup.*reboot' -Action {
+            Invoke-Installer -Environment $environment -Profile 'dev-windows' -PnPUtilPath $fake.Path -StatePath $statePath
+        }
+        Assert-Equal -Actual @(Get-Content -LiteralPath $fake.LogPath).Count -Expected 1 -Message 'Driver execution did not precede state-write failure'
+        Assert-True -Condition (-not (Test-Path -LiteralPath $statePath)) -Message 'Failed state write left successful state.'
+    } finally {
         Remove-TestEnvironment $environment
     }
 }

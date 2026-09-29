@@ -299,7 +299,7 @@ function Test-PackageProbes {
     }
 }
 
-function Install-DriverPackage {
+function Get-DriverInfFiles {
     param(
         [Parameter(Mandatory)]$Package,
         [Parameter(Mandatory)][string]$Destination
@@ -307,13 +307,20 @@ function Install-DriverPackage {
 
     $infFiles = @(Get-ChildItem -LiteralPath $Destination -Filter '*.inf' -File -Recurse)
     if ($infFiles.Count -eq 0) { throw "Driver package '$($Package.id)' contains no INF file." }
-    $pnputil = Join-Path $env:WINDIR 'System32\pnputil.exe'
-    foreach ($inf in $infFiles) {
-        try {
-            $output = & $pnputil /add-driver $inf.FullName /install 2>&1
-            if ($LASTEXITCODE -ne 0) { throw "pnputil exited $LASTEXITCODE`: $([string]::Join([Environment]::NewLine, @($output)))" }
-        } catch {
-            throw "Driver installation failed for '$($inf.FullName)': $($_.Exception.Message). Driver Store cleanup and reboot may be required."
+    return $infFiles
+}
+
+function Install-DriverPackage {
+    param(
+        [Parameter(Mandatory)][string]$PackageId,
+        [Parameter(Mandatory)][object[]]$InfFiles,
+        [Parameter(Mandatory)][string]$PnPUtilPath
+    )
+
+    foreach ($inf in $InfFiles) {
+        $output = & $PnPUtilPath /add-driver $inf.FullName /install 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            throw "Driver installation failed for package '$PackageId': pnputil exited $LASTEXITCODE`: $([string]::Join([Environment]::NewLine, @($output)))"
         }
     }
 }
@@ -340,6 +347,7 @@ function Install-ToolchainProfile {
         [string]$OfflineAssetRoot,
         [string]$StatePath,
         [string]$GitHubCliPath = 'gh',
+        [string]$PnPUtilPath,
         [switch]$AllowDowngrade
     )
 
@@ -348,6 +356,7 @@ function Install-ToolchainProfile {
     if ($Profile -ne 'dev-windows' -and @($packages | Where-Object { $_.install.kind -ceq 'driver' }).Count -gt 0) {
         throw 'Driver packages are permitted only in the dev-windows profile.'
     }
+    if (-not $PnPUtilPath) { $PnPUtilPath = Join-Path $env:WINDIR 'System32\pnputil.exe' }
     $catalogSha256 = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
 
     $InstallRoot = [IO.Path]::GetFullPath($InstallRoot)
@@ -363,6 +372,7 @@ function Install-ToolchainProfile {
     $changes = [Collections.Generic.List[object]]::new()
     $statePackages = [Collections.Generic.List[object]]::new()
     $driversToInstall = [Collections.Generic.List[object]]::new()
+    $driverExecutionStarted = $false
 
     try {
         foreach ($package in $packages) {
@@ -413,8 +423,14 @@ function Install-ToolchainProfile {
             })
         }
 
+        $preflightedDrivers = [Collections.Generic.List[object]]::new()
         foreach ($driver in $driversToInstall) {
-            Install-DriverPackage -Package $driver.Package -Destination $driver.Destination
+            $infFiles = @(Get-DriverInfFiles -Package $driver.Package -Destination $driver.Destination)
+            $preflightedDrivers.Add([pscustomobject]@{ PackageId = [string]$driver.Package.id; InfFiles = $infFiles })
+        }
+        foreach ($driver in $preflightedDrivers) {
+            $driverExecutionStarted = $true
+            Install-DriverPackage -PackageId $driver.PackageId -InfFiles $driver.InfFiles -PnPUtilPath $PnPUtilPath
         }
 
         $state = [ordered]@{
@@ -430,19 +446,38 @@ function Install-ToolchainProfile {
         }
         return $state
     } catch {
-        for ($index = $changes.Count - 1; $index -ge 0; $index--) {
-            $change = $changes[$index]
-            if (Test-Path -LiteralPath $change.Destination) { Remove-Item -LiteralPath $change.Destination -Recurse -Force }
-            if ($change.HadDestination -and (Test-Path -LiteralPath $change.Backup)) { Move-Item -LiteralPath $change.Backup -Destination $change.Destination }
+        $failure = $_
+        $rollbackFailure = $null
+        try {
+            for ($index = $changes.Count - 1; $index -ge 0; $index--) {
+                $change = $changes[$index]
+                if (Test-Path -LiteralPath $change.Destination) { Remove-Item -LiteralPath $change.Destination -Recurse -Force }
+                if ($change.HadDestination -and (Test-Path -LiteralPath $change.Backup)) { Move-Item -LiteralPath $change.Backup -Destination $change.Destination }
+            }
+            if ($null -ne $previousStateBytes) {
+                [IO.File]::WriteAllBytes($StatePath, $previousStateBytes)
+            } elseif (Test-Path -LiteralPath $StatePath) {
+                Remove-Item -LiteralPath $StatePath -Force
+            }
+        } catch {
+            $rollbackFailure = $_
         }
-        if ($null -ne $previousStateBytes) {
-            [IO.File]::WriteAllBytes($StatePath, $previousStateBytes)
-        } elseif (Test-Path -LiteralPath $StatePath) {
-            Remove-Item -LiteralPath $StatePath -Force
+        if ($driverExecutionStarted) {
+            $details = $failure.Exception.Message
+            if ($null -ne $rollbackFailure) { $details += " Rollback also failed: $($rollbackFailure.Exception.Message)" }
+            throw "Toolchain installation failed after driver execution began: $details. Driver Store changes may be partial; cleanup and reboot may be required."
         }
-        throw
+        if ($null -ne $rollbackFailure) { throw $rollbackFailure }
+        throw $failure
     } finally {
-        if (Test-Path -LiteralPath $operationRoot) { Remove-Item -LiteralPath $operationRoot -Recurse -Force }
+        try {
+            if (Test-Path -LiteralPath $operationRoot) { Remove-Item -LiteralPath $operationRoot -Recurse -Force }
+        } catch {
+            if ($driverExecutionStarted) {
+                throw "Operation cleanup failed after driver execution began: $($_.Exception.Message). Driver Store changes may be partial; cleanup and reboot may be required."
+            }
+            throw
+        }
     }
 }
 
