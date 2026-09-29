@@ -157,12 +157,22 @@ exit 0
         $result = Invoke-Sync; Assert-Cache $result
         Assert-True (@($result.cacheHits).Count -eq 0) 'Changed catalog reused old cache'
     }
-    Invoke-Test 'conflicting flat asset filenames fail before network access' {
-        Reset-Fixture
-        $script:catalog.packages[1].release.asset = $script:catalog.packages[0].release.asset
-        $script:catalog | ConvertTo-Json -Depth 100 | Set-Content $catalogPath
-        Assert-Rejected { Invoke-Sync } 'duplicate.*asset|conflicting.*asset'
-        Assert-True (-not (Test-Path $log)) 'Conflicting catalog reached network access'
+    foreach ($alias in @(
+        @{ Name = 'identical'; Suffix = ''; Uppercase = $false },
+        @{ Name = 'case-only'; Suffix = ''; Uppercase = $true },
+        @{ Name = 'trailing-dot'; Suffix = '.'; Uppercase = $false },
+        @{ Name = 'trailing-space'; Suffix = ' '; Uppercase = $false }
+    )) {
+        Invoke-Test "conflicting $($alias.Name) Windows asset names fail before network or cache mutation" {
+            Reset-Fixture
+            $name = [string]$script:catalog.packages[0].release.asset
+            if ($alias.Uppercase) { $name = $name.ToUpperInvariant() }
+            $script:catalog.packages[1].release.asset = $name + $alias.Suffix
+            $script:catalog | ConvertTo-Json -Depth 100 | Set-Content $catalogPath
+            Assert-Rejected { Invoke-Sync } 'duplicate.*asset|noncanonical.*asset'
+            Assert-True (-not (Test-Path $log)) 'Conflicting catalog reached network access'
+            Assert-True (-not (Test-Path $cacheRoot)) 'Conflicting catalog mutated the cache'
+        }
     }
 } finally {
     if ([IO.Path]::GetFullPath($root).StartsWith([IO.Path]::GetFullPath([IO.Path]::GetTempPath()), [StringComparison]::OrdinalIgnoreCase)) { Remove-Item -LiteralPath $root -Recurse -Force }

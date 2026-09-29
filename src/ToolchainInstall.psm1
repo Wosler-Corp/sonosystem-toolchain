@@ -184,15 +184,22 @@ function Sync-ToolchainAssets {
     )
     $catalog = Read-ToolchainCatalog -Path $CatalogPath
     $packages = @(Resolve-ToolchainProfile -Catalog $catalog -Profile $Profile)
-    $assetNames = @{}
-    foreach ($package in $packages) {
-        $name = [string]$package.release.asset
-        if ($assetNames.ContainsKey($name)) { throw "Duplicate flat asset filename '$name' in profile '$Profile'." }
-        $assetNames[$name] = $true
-    }
     $catalogHash = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
     $AssetCacheRoot = [IO.Path]::GetFullPath($AssetCacheRoot)
     $assetRoot = Join-Path $AssetCacheRoot $catalogHash
+    $assetDestinations = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+    foreach ($package in $packages) {
+        $name = [string]$package.release.asset
+        # Win32 strips trailing dots/spaces, so raw catalog names are not unique
+        # filesystem identities. Reject aliases before creating any cache files.
+        if ($name -cne $name.TrimEnd([char[]]' .')) {
+            throw "Noncanonical Windows asset filename '$name' in profile '$Profile'."
+        }
+        $destination = [IO.Path]::GetFullPath((Join-Path $assetRoot $name))
+        if (-not $assetDestinations.Add($destination)) {
+            throw "Duplicate flat asset destination '$destination' in profile '$Profile'."
+        }
+    }
     [IO.Directory]::CreateDirectory($assetRoot) | Out-Null
     Assert-OfflineAssetSet -Catalog $catalog -OfflineAssetRoot $assetRoot
     $assets = [Collections.Generic.List[object]]::new()
