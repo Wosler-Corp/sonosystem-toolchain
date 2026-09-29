@@ -7,6 +7,7 @@ $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $modulePath = Join-Path $repoRoot 'src\ToolchainCatalog.psm1'
 $fixturePath = Join-Path $PSScriptRoot 'fixtures\catalog-valid.json'
+$schemaPath = Join-Path $repoRoot 'catalog\schema\toolchain-catalog-v1.schema.json'
 
 if (-not (Test-Path -LiteralPath $modulePath -PathType Leaf)) {
     throw "ToolchainCatalog.psm1 not found: $modulePath"
@@ -73,6 +74,13 @@ function Invoke-Test {
 Invoke-Test 'accepts the valid catalog fixture' {
     $catalog = Copy-CatalogFixture
     Test-ToolchainCatalog -Catalog $catalog
+}
+
+Invoke-Test 'valid fixture satisfies the published JSON schema' {
+    $fixtureJson = Get-Content -LiteralPath $fixturePath -Raw
+    if (-not ($fixtureJson | Test-Json -SchemaFile $schemaPath)) {
+        throw 'Valid catalog fixture did not satisfy toolchain-catalog-v1.schema.json.'
+    }
 }
 
 $invalidCases = @(
