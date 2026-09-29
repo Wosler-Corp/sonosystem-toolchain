@@ -26,6 +26,10 @@
       "purpose": "Install the Inno Setup compiler during ordinary developer and Windows CI setup",
       "sources": [{ "path": "setup_dependencies.bat", "line": 82 }],
       "evidence": [{ "path": "setup_dependencies.bat", "line": 66, "observed": "C:\\Program Files (x86)\\Inno Setup 6\\ISCC.exe" }, { "path": "setup_dependencies.bat", "line": 69, "observed": "https://jrsoftware.org/download.php/is.exe" }],
+      "deploymentConsumerEvidence": [
+        { "path": "create_installer.bat", "line": 13, "observed": "SET ISS_SCRIPT=\"%SCRIPT_DIR%SonoStationSetup.iss\"", "purpose": "Select the SonoStation deployment installer specification" },
+        { "path": "create_installer.bat", "line": 74, "observed": "%INNO_COMPILER% /Qp %ISS_SCRIPT%", "purpose": "Invoke the Inno Setup compiler to produce the deployment installer" }
+      ],
       "observedVersion": null, "sha256": null, "licenseStatus": "review-required",
       "currentlyReachableFromSetup": true, "profileMembership": [], "migrationTask": 8,
       "requiredMigration": "Gate or remove unconditional installation in setup_dependencies.bat during the developer-setup migration. Approved target disposition is deployment-only; present source reachability is not deployment-only."

@@ -102,6 +102,25 @@ foreach ($finding in $findings) {
         if ($mapping.profileMembership.Count -ne 0 -or -not $mapping.currentlyReachableFromSetup -or $mapping.migrationTask -ne 8 -or [string]::IsNullOrWhiteSpace($mapping.requiredMigration)) {
             Fail "${key}: exclusion must record current setup reachability, no profile membership, and Task 8 gating"
         }
+        if (-not $mapping.PSObject.Properties['deploymentConsumerEvidence']) {
+            Fail "${key}: exclusion requires exact deployment consumer evidence"
+        } else {
+            $requiredConsumerSites = @(
+                @{ path = 'create_installer.bat'; line = 13; observed = 'SET ISS_SCRIPT="%SCRIPT_DIR%SonoStationSetup.iss"' },
+                @{ path = 'create_installer.bat'; line = 74; observed = '%INNO_COMPILER% /Qp %ISS_SCRIPT%' }
+            )
+            foreach ($site in $requiredConsumerSites) {
+                $evidence = @($mapping.deploymentConsumerEvidence | Where-Object { $_.path -ceq $site.path -and $_.line -eq $site.line -and $_.observed -ceq $site.observed })
+                if ($evidence.Count -ne 1 -or [string]::IsNullOrWhiteSpace($evidence[0].purpose)) {
+                    Fail "${key}: missing or ambiguous deployment consumer evidence at $($site.path):$($site.line)"
+                    continue
+                }
+                $consumerLines = @(Get-Content -LiteralPath (Join-Path $SonoBotRoot $site.path))
+                if ($consumerLines.Count -lt $site.line -or $consumerLines[$site.line - 1].Trim() -cne $site.observed) {
+                    Fail "${key}: deployment consumer evidence does not match source at $($site.path):$($site.line)"
+                }
+            }
+        }
     }
     if ($mapping.category -eq 'license-blocked') {
         if ($mapping.status -ne 'license-blocked' -or $mapping.upstreamFallbackAllowed -or $mapping.packageIds.Count -ne 0 -or $null -ne $mapping.redistributionEvidence) {
