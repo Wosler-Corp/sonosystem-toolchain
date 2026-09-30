@@ -162,7 +162,7 @@ function Get-VisualStudioObservation {
     $vsDevCmd = Join-Path $installation 'Common7/Tools/VsDevCmd.bat'
     if (-not (Test-Path -LiteralPath $vsDevCmd -PathType Leaf)) { throw "Prerequisite Windows SDK: expected '$vsDevCmd'; observed missing." }
     $commandProcessor = [Environment]::GetEnvironmentVariable('ComSpec')
-    $sdkProbe = Invoke-PrerequisiteProbe -Path $commandProcessor -Arguments @('/d', '/s', '/c', "`"$vsDevCmd`" -no_logo -arch=x64 -host_arch=x64 >nul && echo %WindowsSDKVersion%") -ProbeRunner $ProbeRunner
+    $sdkProbe = Invoke-PrerequisiteProbe -Path $commandProcessor -Arguments @('/d', '/s', '/v:on', '/c', "`"$vsDevCmd`" -no_logo -arch=x64 -host_arch=x64 >nul && echo !WindowsSDKVersion!") -ProbeRunner $ProbeRunner
     Assert-PrerequisiteValue 'Windows SDK probe exit' 0 $sdkProbe.ExitCode
     $windowsSdkVersion = ([string]$sdkProbe.Output).Trim().TrimEnd('\')
     if ($windowsSdkVersion -cnotmatch '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$') { throw "Prerequisite Windows SDK: expected a selected numeric SDK version; observed '$windowsSdkVersion'." }

@@ -64,6 +64,7 @@ try {
         $script:downloadCount = 0
         $script:installCount = 0
         $script:vswhereCalls = [Collections.Generic.List[object]]::new()
+        $script:sdkProbeArguments = $null
         [IO.File]::WriteAllText($defaultTools, $toolsVersion)
         [IO.File]::WriteAllText($redistVersion, $toolsVersion)
         if (Test-Path -LiteralPath $outputPath) { Remove-Item -LiteralPath $outputPath }
@@ -87,7 +88,10 @@ try {
         if ($Path -like '*MSBuild.exe') { return @{ ExitCode = 0; Output = $script:msbuildVersion } }
         if ($Path -like '*cl.exe') { return @{ ExitCode = 2; Output = "Microsoft (R) C/C++ Optimizing Compiler Version $script:compilerVersion for x64" } }
         if ($Path -like '*cmake.exe') { return @{ ExitCode = 0; Output = (@{ generators = @(@{ name = $script:cmakeGenerator; toolsetSupport = $true }) } | ConvertTo-Json -Depth 5 -Compress) } }
-        if ($Path -ieq $env:ComSpec) { return @{ ExitCode = 0; Output = $script:sdkVersion } }
+        if ($Path -ieq $env:ComSpec) {
+            $script:sdkProbeArguments = @($Arguments)
+            return @{ ExitCode = 0; Output = $script:sdkVersion }
+        }
         throw "Unexpected executable: $Path"
     }
     $downloadRunner = {
@@ -127,6 +131,15 @@ try {
                 Assert-True ($arguments -ccontains $component) "vswhere did not require $component"
             }
         }
+    }
+
+    Invoke-Test 'Windows SDK probe reads the value after VsDevCmd initializes the environment' {
+        Reset-Fixture; Write-Fixture
+        Invoke-Prerequisites | Out-Null
+        Assert-True ($script:sdkProbeArguments -ccontains '/v:on') 'SDK probe did not enable delayed expansion.'
+        $command = [string]$script:sdkProbeArguments[-1]
+        Assert-True ($command -match '!WindowsSDKVersion!') 'SDK probe did not read the post-VsDevCmd SDK value.'
+        Assert-True ($command -notmatch '%WindowsSDKVersion%') 'SDK probe still expands the SDK value before VsDevCmd runs.'
     }
 
     Invoke-Test 'mutable Visual Studio and compiler patch versions are observed but not pinned' {
