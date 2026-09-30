@@ -188,6 +188,16 @@ Invoke-Test 'validation workflow runs the workflow contract suite with full acti
     Assert-True ($externalUses.Count -gt 0) 'Validation workflow has no pinned checkout action.'
     Assert-True (@($externalUses | Where-Object { $_ -notmatch '^actions/[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)?@[a-f0-9]{40}$' }).Count -eq 0) `
         'Validation workflow contains a floating external action reference.'
+    Assert-True ($text -match "github\.event_name\s*==\s*'workflow_dispatch'.*inputs\.run_release_integration") `
+        'Production release integration is not manually gated.'
+    Assert-True (([regex]::Matches($text, 'uses:\s*\./actions/setup-windows-toolchain')).Count -eq 2) `
+        'Release integration must exercise the reusable action twice.'
+    Assert-True (([regex]::Matches($text, 'catalog-release-tag:\s*windows-2026\.09\.0')).Count -eq 2) `
+        'Release integration does not use the exact production release tag twice.'
+    Assert-True (([regex]::Matches($text, 'catalog-sha256:\s*15858987c826eed0520e6c8f0dcf3d058aa25194acfbd4f7365601febadd0c7e')).Count -eq 2) `
+        'Release integration does not use the exact production catalog digest twice.'
+    Assert-True ($text -match "replacedCorruptEntries.*cmake-sources") `
+        'Release integration does not assert corrupt-cache replacement.'
 }
 
 Write-Host "Workflow contract tests: $script:passed passed, $script:failed failed."

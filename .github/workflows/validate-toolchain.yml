@@ -2,6 +2,12 @@ name: Validate toolchain
 
 on:
   workflow_dispatch:
+    inputs:
+      run_release_integration:
+        description: Exercise the immutable production release and exact cache behavior.
+        required: true
+        default: false
+        type: boolean
   push:
     branches:
       - bugfix/SW_SS-655/toolchain-packaging
@@ -40,3 +46,93 @@ jobs:
       - name: Run reusable action and workflow contract tests
         shell: pwsh
         run: pwsh -NoProfile -File tests/Test-WorkflowContracts.ps1
+
+  release-integration:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_release_integration }}
+    runs-on: windows-latest-l
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+
+      - name: Install immutable Windows toolchain (cache candidate)
+        id: first-install
+        uses: ./actions/setup-windows-toolchain
+        with:
+          catalog-release-tag: windows-2026.09.0
+          catalog-asset-name: 2026.09.0.json
+          catalog-sha256: 15858987c826eed0520e6c8f0dcf3d058aa25194acfbd4f7365601febadd0c7e
+          profile: ci-windows
+          install-root: ${{ runner.temp }}\sonosystem-toolchain
+          trusted-cache-save: 'true'
+
+      - name: Record installed state
+        id: initial-state
+        shell: pwsh
+        env:
+          STATE_PATH: ${{ steps.first-install.outputs.installed-state-path }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $hash = (Get-FileHash -LiteralPath $env:STATE_PATH -Algorithm SHA256).Hash.ToLowerInvariant()
+          "sha256=$hash" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+      - name: Reinstall from the exact cache
+        id: second-install
+        uses: ./actions/setup-windows-toolchain
+        with:
+          catalog-release-tag: windows-2026.09.0
+          catalog-asset-name: 2026.09.0.json
+          catalog-sha256: 15858987c826eed0520e6c8f0dcf3d058aa25194acfbd4f7365601febadd0c7e
+          profile: ci-windows
+          install-root: ${{ runner.temp }}\sonosystem-toolchain
+          trusted-cache-save: 'false'
+
+      - name: Verify cache hit and no-op reinstall
+        shell: pwsh
+        env:
+          CACHE_HIT: ${{ steps.second-install.outputs.cache-hit }}
+          ASSETS_DOWNLOADED: ${{ steps.second-install.outputs.assets-downloaded }}
+          STATE_PATH: ${{ steps.second-install.outputs.installed-state-path }}
+          EXPECTED_STATE_SHA256: ${{ steps.initial-state.outputs.sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:CACHE_HIT -cne 'true') { throw "Expected an exact cache hit, found '$env:CACHE_HIT'." }
+          if ($env:ASSETS_DOWNLOADED -cne 'false') { throw 'Cache-hit reinstall downloaded or replaced an asset.' }
+          $actual = (Get-FileHash -LiteralPath $env:STATE_PATH -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actual -cne $env:EXPECTED_STATE_SHA256) { throw 'Reinstall changed the installed-state manifest.' }
+
+      - name: Corrupt and replace one local cache asset
+        shell: pwsh
+        env:
+          CATALOG_SHA256: 15858987c826eed0520e6c8f0dcf3d058aa25194acfbd4f7365601febadd0c7e
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $catalogPath = Join-Path $env:RUNNER_TEMP 'corrupt-cache-catalog.json'
+          & .\scripts\Resolve-ToolchainCatalog.ps1 `
+            -ReleaseTag 'windows-2026.09.0' `
+            -AssetName '2026.09.0.json' `
+            -ExpectedSha256 $env:CATALOG_SHA256 `
+            -OutputPath $catalogPath | Out-Host
+          $cacheRoot = Join-Path $env:RUNNER_TOOL_CACHE 'sonosystem-toolchain-assets'
+          $assetRoot = Join-Path $cacheRoot $env:CATALOG_SHA256
+          $corruptAsset = Join-Path $assetRoot 'cmake-sources-2026.9.0-windows-x86_64.zip'
+          [IO.File]::WriteAllBytes($corruptAsset, [byte[]]@(0))
+          $sync = & .\scripts\Sync-ToolchainAssets.ps1 `
+            -CatalogPath $catalogPath `
+            -Profile 'ci-windows' `
+            -AssetCacheRoot $cacheRoot
+          if (@($sync.replacedCorruptEntries) -cnotcontains 'cmake-sources') {
+            throw 'Corrupt cache asset was not reported as replaced.'
+          }
+          if (@($sync.downloads).Count -ne 1 -or @($sync.downloads) -cnotcontains 'cmake-sources') {
+            throw 'Corrupt-cache recovery did not download exactly the damaged Wosler asset.'
+          }
+
+      - name: Verify installed state remained unchanged
+        shell: pwsh
+        env:
+          STATE_PATH: ${{ steps.second-install.outputs.installed-state-path }}
+          EXPECTED_STATE_SHA256: ${{ steps.initial-state.outputs.sha256 }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $actual = (Get-FileHash -LiteralPath $env:STATE_PATH -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actual -cne $env:EXPECTED_STATE_SHA256) { throw 'Cache recovery changed the installed-state manifest.' }
