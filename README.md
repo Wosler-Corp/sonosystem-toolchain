@@ -50,6 +50,34 @@ https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/<TAG>/<FIL
 
 ## 🛠 How CI Should Use This Repo
 
+### Reusable Windows toolchain action
+
+The Windows setup action resolves one exact, published, immutable Wosler release,
+verifies the catalog attestation and caller-supplied SHA-256, restores only the
+complete catalog-digest cache key, reverifies every package, and installs without
+contacting vendor package endpoints. Draft releases are deliberately rejected.
+
+Within this repository, the production catalog is exercised as follows after the
+release has been published and made immutable:
+
+```yaml
+- name: Set up the Windows toolchain
+  id: toolchain
+  uses: ./actions/setup-windows-toolchain
+  with:
+    catalog-release-tag: windows-2026.09.0
+    catalog-asset-name: 2026.09.0.json
+    catalog-sha256: 15858987c826eed0520e6c8f0dcf3d058aa25194acfbd4f7365601febadd0c7e
+    profile: ci-windows
+    install-root: ${{ runner.temp }}\sonosystem-toolchain
+    trusted-cache-save: ${{ github.event_name == 'push' && 'true' || 'false' }}
+```
+
+Consumer repositories must replace the local `uses:` path with
+`Wosler-Corp/sonosystem-toolchain/actions/setup-windows-toolchain@<full-merged-commit-sha>`.
+Never point a consumer at this feature branch or at a floating tag. Cache writes
+must remain disabled for pull requests and other untrusted events.
+
 ### Linux example:
 ```bash
 curl -L \

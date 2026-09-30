@@ -130,7 +130,9 @@ function Read-ToolchainCatalog {
     }
 
     try {
-        return Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json -Depth 100
+        # ConvertFrom-Json has no -Depth parameter in Windows PowerShell 5.1.
+        # Parsing does not truncate object depth, so the parameter is unnecessary.
+        return Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
     } catch {
         throw "Catalog is not valid JSON: $Path. $($_.Exception.Message)"
     }

@@ -1,0 +1,158 @@
+name: Setup Windows toolchain
+description: Resolve, verify, cache, and install an immutable Sonosystem Windows toolchain profile.
+
+inputs:
+  catalog-release-tag:
+    description: Exact immutable GitHub Release tag containing the catalog.
+    required: true
+  catalog-asset-name:
+    description: Exact catalog JSON release-asset filename.
+    required: true
+  catalog-sha256:
+    description: Expected SHA-256 of the catalog asset.
+    required: true
+  profile:
+    description: Toolchain profile to install (ci-windows or dev-windows).
+    required: true
+  install-root:
+    description: Absolute destination for the installed toolchain.
+    required: true
+  trusted-cache-save:
+    description: Whether a trusted non-pull-request run may save a cache miss.
+    required: true
+
+outputs:
+  catalog-id:
+    description: Resolved catalog identifier.
+    value: ${{ steps.catalog.outputs.catalog-id }}
+  catalog-sha256:
+    description: Verified catalog SHA-256.
+    value: ${{ steps.catalog.outputs.catalog-sha256 }}
+  installed-state-path:
+    description: Installed toolchain state manifest path.
+    value: ${{ steps.install.outputs.state-path }}
+  prerequisite-result-path:
+    description: Runner prerequisite evidence path.
+    value: ${{ steps.prerequisites.outputs.result-path }}
+  cache-hit:
+    description: Whether the exact catalog cache key restored.
+    value: ${{ steps.sync.outputs.cache-hit }}
+  assets-downloaded:
+    description: Whether asset synchronization downloaded or replaced any package.
+    value: ${{ steps.sync.outputs.assets-downloaded }}
+
+runs:
+  using: composite
+  steps:
+    - name: Resolve and verify immutable catalog
+      id: catalog
+      shell: pwsh
+      env:
+        CATALOG_RELEASE_TAG: ${{ inputs.catalog-release-tag }}
+        CATALOG_ASSET_NAME: ${{ inputs.catalog-asset-name }}
+        CATALOG_SHA256: ${{ inputs.catalog-sha256 }}
+        TRUSTED_CACHE_SAVE: ${{ inputs.trusted-cache-save }}
+      run: |
+        $ErrorActionPreference = 'Stop'
+        if ($env:TRUSTED_CACHE_SAVE -cnotin @('true', 'false')) {
+          throw "trusted-cache-save must be exactly 'true' or 'false'."
+        }
+        $repositoryRoot = (Resolve-Path (Join-Path $env:GITHUB_ACTION_PATH '..\..')).Path
+        $catalogDirectory = Join-Path $env:RUNNER_TEMP ('sonosystem-toolchain-catalog-' + [guid]::NewGuid().ToString('N'))
+        [IO.Directory]::CreateDirectory($catalogDirectory) | Out-Null
+        $catalogPath = Join-Path $catalogDirectory $env:CATALOG_ASSET_NAME
+        $resolved = & (Join-Path $repositoryRoot 'scripts\Resolve-ToolchainCatalog.ps1') `
+          -ReleaseTag $env:CATALOG_RELEASE_TAG `
+          -AssetName $env:CATALOG_ASSET_NAME `
+          -ExpectedSha256 $env:CATALOG_SHA256 `
+          -OutputPath $catalogPath
+        "catalog-id=$($resolved.catalogId)" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+        "catalog-sha256=$($resolved.catalogSha256)" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+        "catalog-path=$($resolved.catalogPath)" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+    - name: Validate licensed runner prerequisites
+      id: prerequisites
+      shell: pwsh
+      env:
+        CATALOG_PATH: ${{ steps.catalog.outputs.catalog-path }}
+      run: |
+        $ErrorActionPreference = 'Stop'
+        $repositoryRoot = (Resolve-Path (Join-Path $env:GITHUB_ACTION_PATH '..\..')).Path
+        $resultPath = Join-Path $env:RUNNER_TEMP 'sonosystem-toolchain-prerequisites.json'
+        & (Join-Path $repositoryRoot 'scripts\Test-ToolchainPrerequisites.ps1') `
+          -CatalogPath $env:CATALOG_PATH `
+          -Context 'ci' `
+          -RunnerImage 'windows-latest-l' `
+          -OutputPath $resultPath | Out-Host
+        "result-path=$resultPath" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+    - name: Restore exact verified asset cache
+      id: cache-restore
+      uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+      with:
+        path: ${{ runner.tool_cache }}\sonosystem-toolchain-assets\${{ steps.catalog.outputs.catalog-sha256 }}
+        key: sonosystem-toolchain-windows-${{ steps.catalog.outputs.catalog-sha256 }}
+
+    - name: Reverify or download exact release assets
+      id: sync
+      shell: pwsh
+      env:
+        CATALOG_PATH: ${{ steps.catalog.outputs.catalog-path }}
+        PROFILE: ${{ inputs.profile }}
+        RESTORED_CACHE_HIT: ${{ steps.cache-restore.outputs.cache-hit }}
+      run: |
+        $ErrorActionPreference = 'Stop'
+        $repositoryRoot = (Resolve-Path (Join-Path $env:GITHUB_ACTION_PATH '..\..')).Path
+        $cacheRoot = Join-Path $env:RUNNER_TOOL_CACHE 'sonosystem-toolchain-assets'
+        $sync = & (Join-Path $repositoryRoot 'scripts\Sync-ToolchainAssets.ps1') `
+          -CatalogPath $env:CATALOG_PATH `
+          -Profile $env:PROFILE `
+          -AssetCacheRoot $cacheRoot
+        $cacheHit = $env:RESTORED_CACHE_HIT -ceq 'true'
+        $downloaded = @($sync.downloads).Count -gt 0 -or @($sync.replacedCorruptEntries).Count -gt 0
+        "asset-root=$($sync.assetRoot)" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+        "cache-hit=$($cacheHit.ToString().ToLowerInvariant())" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+        "assets-downloaded=$($downloaded.ToString().ToLowerInvariant())" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+    - name: Install from verified offline assets
+      id: install
+      shell: pwsh
+      env:
+        CATALOG_PATH: ${{ steps.catalog.outputs.catalog-path }}
+        PROFILE: ${{ inputs.profile }}
+        INSTALL_ROOT: ${{ inputs.install-root }}
+        ASSET_ROOT: ${{ steps.sync.outputs.asset-root }}
+      run: |
+        $ErrorActionPreference = 'Stop'
+        $repositoryRoot = (Resolve-Path (Join-Path $env:GITHUB_ACTION_PATH '..\..')).Path
+        $statePath = Join-Path $env:INSTALL_ROOT 'installed-toolchain.json'
+        & (Join-Path $repositoryRoot 'scripts\Install-ToolchainProfile.ps1') `
+          -CatalogPath $env:CATALOG_PATH `
+          -Profile $env:PROFILE `
+          -InstallRoot $env:INSTALL_ROOT `
+          -OfflineAssetRoot $env:ASSET_ROOT `
+          -StatePath $statePath
+        "state-path=$statePath" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+    - name: Validate installed toolchain state
+      shell: pwsh
+      env:
+        CATALOG_PATH: ${{ steps.catalog.outputs.catalog-path }}
+        PROFILE: ${{ inputs.profile }}
+        INSTALL_ROOT: ${{ inputs.install-root }}
+        STATE_PATH: ${{ steps.install.outputs.state-path }}
+      run: |
+        $ErrorActionPreference = 'Stop'
+        $repositoryRoot = (Resolve-Path (Join-Path $env:GITHUB_ACTION_PATH '..\..')).Path
+        & (Join-Path $repositoryRoot 'scripts\Test-InstalledToolchain.ps1') `
+          -CatalogPath $env:CATALOG_PATH `
+          -Profile $env:PROFILE `
+          -StatePath $env:STATE_PATH `
+          -InstallRoot $env:INSTALL_ROOT
+
+    - name: Save trusted exact asset cache
+      if: ${{ inputs.trusted-cache-save == 'true' && github.event_name != 'pull_request' && steps.cache-restore.outputs.cache-hit != 'true' }}
+      uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+      with:
+        path: ${{ runner.tool_cache }}\sonosystem-toolchain-assets\${{ steps.catalog.outputs.catalog-sha256 }}
+        key: sonosystem-toolchain-windows-${{ steps.catalog.outputs.catalog-sha256 }}
