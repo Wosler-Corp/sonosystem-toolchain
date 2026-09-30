@@ -1,0 +1,1975 @@
+{
+  "schemaVersion": 1,
+  "id": "boost-mingw",
+  "version": "1.86.0",
+  "toolchain": "gcc14.2-mingw",
+  "kind": "zip",
+  "asset": "boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip",
+  "source": {
+    "sha256": "98fa0abcd9d3c09b1e8d30f39ab8ce5fdd9aca7dd676af43561e77fce8ff9f54",
+    "identityMethod": "Ordinal sorted relative-path NUL sha256 NUL size, joined with LF, UTF-8 without BOM",
+    "identityKind": "extracted-existing-archive-tree",
+    "sizeBytes": 211503636
+  },
+  "upstream": {
+    "version": "1.86.0",
+    "retrievedAt": "2026-09-30T03:12:32.7978061Z",
+    "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip"
+  },
+  "acquisition": {
+    "sourceRelease": {
+      "repository": "Wosler-Corp/sonosystem-toolchain",
+      "releaseId": 377351005,
+      "tag": "boost-1.86.0",
+      "releaseUrl": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/tag/boost-1.86.0",
+      "assetId": 531194847,
+      "assetName": "boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip",
+      "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip",
+      "releaseCreatedAt": "2026-01-06T18:55:56Z",
+      "releasePublishedAt": "2026-08-26T19:01:52Z",
+      "assetCreatedAt": "2026-08-26T18:54:14Z",
+      "assetUpdatedAt": "2026-08-26T18:54:22Z",
+      "observedImmutable": false,
+      "sourceStatus": "verified-source-input-only"
+    },
+    "downloadVerification": {
+      "sha256": "8c9208bdf80c934c4013f8bdca43a092d69020a7f0487135e2ae3f8e7487a31b",
+      "verifiedAt": "2026-09-30T03:12:32.7978061Z",
+      "sizeBytes": 39562973
+    },
+    "task5CopyRequired": true,
+    "publicationStatus": "not-published-by-this-task",
+    "mode": "reuse-existing-release",
+    "instructions": "Copy verified original archive bytes to approved immutable Task5 release; never rebuild/recompress to adopt this definition"
+  },
+  "inputs": [
+    {
+      "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip",
+      "retrievedAt": "2026-09-30T03:12:32.7978061Z",
+      "originalFilename": "boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip",
+      "sha256": "8c9208bdf80c934c4013f8bdca43a092d69020a7f0487135e2ae3f8e7487a31b",
+      "sizeBytes": 39562973,
+      "detectedVersion": "1.86.0",
+      "licenseId": "BSL-1.0",
+      "role": "Existing Wosler Boost archive reused byte-for-byte",
+      "authenticode": {
+        "status": "NotApplicable",
+        "reason": "ZIP has no Authenticode envelope; archive hash/size verified against exact Wosler asset identity, not an immutable-release attestation"
+      }
+    }
+  ],
+  "licenses": [
+    "licenses/boost-mingw/1.86.0/LICENSE_1_0.txt"
+  ],
+  "licenseEvidence": {
+    "sha256": "beb8e42e9d6b4284e03304d05a81a0755200a965fc8d0a5e0aea1e84cf805d6e",
+    "scope": "Boost archive only; external dependency notices remain owned by the dependency",
+    "archivePath": "boost-1.86.0/LICENSE_1_0.txt",
+    "incorporatedLicense": "BSL-1.0"
+  },
+  "dependencies": [
+    "msys2-sonosystem"
+  ],
+  "installLayout": {
+    "include": "boost-1.86.0/include",
+    "flattenArchive": false,
+    "destination": "boost-mingw",
+    "binaries": "boost-1.86.0/bin",
+    "archiveRoot": "boost-1.86.0",
+    "libraries": "boost-1.86.0/lib"
+  },
+  "contents": {
+    "manifest": "packages/windows/contents/boost-mingw-1.86.0.json",
+    "expandedSizeBytes": 211503636,
+    "fileCount": 15955,
+    "manifestSha256": "e386a1d68a97c6974f30943a7cae59658c723ec0ff90557a9dd61cd3e1f4e0c6",
+    "dlls": [
+      "boost-1.86.0/bin/libboost_atomic-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_charconv-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_chrono-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_container-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_context-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_contract-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_coroutine-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_date_time-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_fiber-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_filesystem-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_graph-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_iostreams-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_json-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_locale-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_log-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_log_setup-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_math_c99-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_math_c99f-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_math_c99l-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_math_tr1-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_math_tr1f-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_math_tr1l-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_nowide-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_prg_exec_monitor-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_process-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_program_options-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_random-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_regex-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_serialization-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_stacktrace_noop-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_stacktrace_windbg-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_stacktrace_windbg_cached-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_system-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_thread-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_timer-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_type_erasure-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_unit_test_framework-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_url-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_wave-mt-x64.dll",
+      "boost-1.86.0/bin/libboost_wserialization-mt-x64.dll"
+    ],
+    "libraries": [
+      "boost-1.86.0/lib/libboost_atomic-mt-x64.a",
+      "boost-1.86.0/lib/libboost_atomic-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_charconv-mt-x64.a",
+      "boost-1.86.0/lib/libboost_charconv-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_chrono-mt-x64.a",
+      "boost-1.86.0/lib/libboost_chrono-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_container-mt-x64.a",
+      "boost-1.86.0/lib/libboost_container-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_context-mt-x64.a",
+      "boost-1.86.0/lib/libboost_context-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_contract-mt-x64.a",
+      "boost-1.86.0/lib/libboost_contract-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_coroutine-mt-x64.a",
+      "boost-1.86.0/lib/libboost_coroutine-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_date_time-mt-x64.a",
+      "boost-1.86.0/lib/libboost_date_time-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_exception-mt-x64.a",
+      "boost-1.86.0/lib/libboost_fiber-mt-x64.a",
+      "boost-1.86.0/lib/libboost_fiber-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_filesystem-mt-x64.a",
+      "boost-1.86.0/lib/libboost_filesystem-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_graph-mt-x64.a",
+      "boost-1.86.0/lib/libboost_graph-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_iostreams-mt-x64.a",
+      "boost-1.86.0/lib/libboost_iostreams-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_json-mt-x64.a",
+      "boost-1.86.0/lib/libboost_json-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_locale-mt-x64.a",
+      "boost-1.86.0/lib/libboost_locale-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_log-mt-x64.a",
+      "boost-1.86.0/lib/libboost_log-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_log_setup-mt-x64.a",
+      "boost-1.86.0/lib/libboost_log_setup-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_math_c99-mt-x64.a",
+      "boost-1.86.0/lib/libboost_math_c99-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_math_c99f-mt-x64.a",
+      "boost-1.86.0/lib/libboost_math_c99f-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_math_c99l-mt-x64.a",
+      "boost-1.86.0/lib/libboost_math_c99l-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_math_tr1-mt-x64.a",
+      "boost-1.86.0/lib/libboost_math_tr1-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_math_tr1f-mt-x64.a",
+      "boost-1.86.0/lib/libboost_math_tr1f-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_math_tr1l-mt-x64.a",
+      "boost-1.86.0/lib/libboost_math_tr1l-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_nowide-mt-x64.a",
+      "boost-1.86.0/lib/libboost_nowide-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_prg_exec_monitor-mt-x64.a",
+      "boost-1.86.0/lib/libboost_prg_exec_monitor-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_process-mt-x64.a",
+      "boost-1.86.0/lib/libboost_process-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_program_options-mt-x64.a",
+      "boost-1.86.0/lib/libboost_program_options-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_random-mt-x64.a",
+      "boost-1.86.0/lib/libboost_random-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_regex-mt-x64.a",
+      "boost-1.86.0/lib/libboost_regex-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_serialization-mt-x64.a",
+      "boost-1.86.0/lib/libboost_serialization-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_stacktrace_noop-mt-x64.a",
+      "boost-1.86.0/lib/libboost_stacktrace_noop-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_stacktrace_windbg-mt-x64.a",
+      "boost-1.86.0/lib/libboost_stacktrace_windbg-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_stacktrace_windbg_cached-mt-x64.a",
+      "boost-1.86.0/lib/libboost_stacktrace_windbg_cached-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_system-mt-x64.a",
+      "boost-1.86.0/lib/libboost_system-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_test_exec_monitor-mt-x64.a",
+      "boost-1.86.0/lib/libboost_thread-mt-x64.a",
+      "boost-1.86.0/lib/libboost_thread-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_timer-mt-x64.a",
+      "boost-1.86.0/lib/libboost_timer-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_type_erasure-mt-x64.a",
+      "boost-1.86.0/lib/libboost_type_erasure-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_unit_test_framework-mt-x64.a",
+      "boost-1.86.0/lib/libboost_unit_test_framework-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_url-mt-x64.a",
+      "boost-1.86.0/lib/libboost_url-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_wave-mt-x64.a",
+      "boost-1.86.0/lib/libboost_wave-mt-x64.dll.a",
+      "boost-1.86.0/lib/libboost_wserialization-mt-x64.a",
+      "boost-1.86.0/lib/libboost_wserialization-mt-x64.dll.a"
+    ]
+  },
+  "closure": {
+    "status": "complete",
+    "scope": "Archive DLL imports resolved with explicitly declared external prerequisites; prerequisite source/licensing gates remain separate",
+    "components": [
+      "atomic",
+      "charconv",
+      "chrono",
+      "container",
+      "context",
+      "contract",
+      "coroutine",
+      "date_time",
+      "exception",
+      "fiber",
+      "filesystem",
+      "graph",
+      "iostreams",
+      "json",
+      "locale",
+      "log",
+      "log_setup",
+      "math_c99",
+      "math_c99f",
+      "math_c99l",
+      "math_tr1",
+      "math_tr1f",
+      "math_tr1l",
+      "nowide",
+      "prg_exec_monitor",
+      "process",
+      "program_options",
+      "random",
+      "regex",
+      "serialization",
+      "stacktrace_noop",
+      "stacktrace_windbg",
+      "stacktrace_windbg_cached",
+      "system",
+      "test_exec_monitor",
+      "thread",
+      "timer",
+      "type_erasure",
+      "unit_test_framework",
+      "url",
+      "wave",
+      "wserialization"
+    ],
+    "variants": [
+      "release"
+    ],
+    "link": [
+      "static",
+      "shared"
+    ],
+    "runtimeLink": "shared",
+    "bundledRuntimeDlls": [],
+    "dllImports": [
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_atomic-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_charconv-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_chrono-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_container-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_context-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_contract-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll",
+          "libboost_context-mt-x64.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_coroutine-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "libboost_date_time-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "libboost_context-mt-x64.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "file": "libboost_fiber-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "bcrypt.dll",
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "file": "libboost_filesystem-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_graph-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_iostreams-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_json-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "libiconv-2.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libiconv-2.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_locale-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "ADVAPI32.dll",
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "Secur32.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "WS2_32.dll",
+          "libboost_atomic-mt-x64.dll",
+          "libboost_filesystem-mt-x64.dll",
+          "libboost_thread-mt-x64.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "file": "libboost_log-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "WS2_32.dll",
+          "libboost_filesystem-mt-x64.dll",
+          "libboost_log-mt-x64.dll",
+          "libboost_thread-mt-x64.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "file": "libboost_log_setup-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_math_c99-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_math_c99f-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_math_c99l-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_math_tr1-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_math_tr1f-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_math_tr1l-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_nowide-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_prg_exec_monitor-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "ADVAPI32.dll",
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "ntdll.dll",
+          "libwinpthread-1.dll",
+          "SHELL32.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "USER32.dll",
+          "WS2_32.dll",
+          "libboost_filesystem-mt-x64.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "file": "libboost_process-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_program_options-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "ADVAPI32.dll",
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_random-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_regex-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_serialization-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "libboost_stacktrace_noop-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "dbgeng.dll",
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_stacktrace_windbg-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "dbgeng.dll",
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_stacktrace_windbg_cached-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "libboost_system-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_thread-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_timer-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_type_erasure-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_unit_test_framework-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_url-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "libboost_thread-mt-x64.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "file": "libboost_wave-mt-x64.dll"
+      },
+      {
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libstdc++-6.dll",
+          "libboost_serialization-mt-x64.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "libgcc_s_seh-1.dll",
+          "libstdc++-6.dll"
+        ],
+        "file": "libboost_wserialization-mt-x64.dll"
+      }
+    ],
+    "externalPrerequisites": [
+      "Windows x86_64 system DLLs and API-set contracts",
+      "Frozen msys2-sonosystem runtime installed and validated first"
+    ],
+    "runtimeDependencies": [
+      {
+        "signerFingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "bundledInThisArchive": false,
+        "signatureSha256": "6ef208050c3d8818f2f6f5782731f40e60df6dd0eef908e2d253e29dfa3807ca",
+        "name": "mingw-w64-x86_64-gcc-libs",
+        "version": "14.2.0-1",
+        "ownerPackage": "msys2-sonosystem",
+        "sha256": "3ac4352d1a4dec21508a71d744ff055d5643b2937c799b11114a33066abfb963",
+        "signatureStatus": "Valid"
+      },
+      {
+        "signerFingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "bundledInThisArchive": false,
+        "signatureSha256": "084b4d7c51f6f87c464d6c68c35af2ecbb52122149462cc2fb621b7c5c899a55",
+        "name": "mingw-w64-x86_64-libiconv",
+        "version": "1.17-4",
+        "ownerPackage": "msys2-sonosystem",
+        "sha256": "ceedb36b46fe8e6ff69d619774c4d2ce1f118b50ee6a00194d874855c3ae6a57",
+        "signatureStatus": "Valid"
+      },
+      {
+        "signerFingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "bundledInThisArchive": false,
+        "signatureSha256": "bf74f54e6663f86866587426bb7ce9282b5a32ce2f923e0047ce5dee5b5bd10f",
+        "name": "mingw-w64-x86_64-libwinpthread-git",
+        "version": "12.0.0.r320.g335ffe5b7-1",
+        "ownerPackage": "msys2-sonosystem",
+        "sha256": "244e3ee1f23ee0645307a80009a65c7b9d24a3d277d42b909d3d699c5e4bd619",
+        "signatureStatus": "Valid"
+      }
+    ],
+    "runtimeFiles": [
+      {
+        "packageVersion": "14.2.0-1",
+        "sha256": "0e057fccb0e7656bd096bf25a4714e74245ea02b644dafcc2106f8c524fcc535",
+        "name": "libgcc_s_seh-1.dll",
+        "package": "mingw-w64-x86_64-gcc-libs"
+      },
+      {
+        "packageVersion": "14.2.0-1",
+        "sha256": "713e5d696c6929b9c4cd9186ef0baaba3e1d30b42f43b60d4bbb44525d832e4d",
+        "name": "libstdc++-6.dll",
+        "package": "mingw-w64-x86_64-gcc-libs"
+      },
+      {
+        "packageVersion": "1.17-4",
+        "sha256": "967189adfbc889fde89aafc867f7a1f02731f8592cf6fd5a4ace1929213e2e13",
+        "name": "libiconv-2.dll",
+        "package": "mingw-w64-x86_64-libiconv"
+      },
+      {
+        "packageVersion": "12.0.0.r320.g335ffe5b7-1",
+        "sha256": "1a4f9324673d884914b0fd1a6c55f8bcc84f2cbef52c46d0e4d0a541e0759837",
+        "name": "libwinpthread-1.dll",
+        "package": "mingw-w64-x86_64-libwinpthread-git"
+      }
+    ],
+    "recursiveRuntimeImports": [
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_atomic-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_atomic-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_atomic-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_charconv-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_charconv-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_charconv-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_charconv-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_chrono-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_chrono-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_chrono-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_chrono-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_container-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_container-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_container-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_container-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_context-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_context-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_context-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_contract-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_contract-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_contract-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_contract-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_coroutine-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_coroutine-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_coroutine-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_coroutine-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_coroutine-mt-x64.dll",
+        "dependency": "libboost_context-mt-x64.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_date_time-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_date_time-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_fiber-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_fiber-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_fiber-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_fiber-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_fiber-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-API-set-contract",
+        "file": "libboost_fiber-mt-x64.dll",
+        "dependency": "api-ms-win-core-synch-l1-2-0.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_fiber-mt-x64.dll",
+        "dependency": "libboost_context-mt-x64.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_filesystem-mt-x64.dll",
+        "dependency": "bcrypt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_filesystem-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_filesystem-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_filesystem-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_filesystem-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_filesystem-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-API-set-contract",
+        "file": "libboost_filesystem-mt-x64.dll",
+        "dependency": "api-ms-win-core-synch-l1-2-0.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_graph-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_graph-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_graph-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_graph-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_graph-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_iostreams-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_iostreams-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_iostreams-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_iostreams-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_json-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_json-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_json-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_json-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_json-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_locale-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_locale-mt-x64.dll",
+        "dependency": "libiconv-2.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_locale-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_locale-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_locale-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "ADVAPI32.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "Secur32.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-API-set-contract",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "api-ms-win-core-synch-l1-2-0.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "WS2_32.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "libboost_atomic-mt-x64.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "libboost_filesystem-mt-x64.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_log-mt-x64.dll",
+        "dependency": "libboost_thread-mt-x64.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-API-set-contract",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "api-ms-win-core-synch-l1-2-0.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "WS2_32.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "libboost_filesystem-mt-x64.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "libboost_log-mt-x64.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_log_setup-mt-x64.dll",
+        "dependency": "libboost_thread-mt-x64.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_c99-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_c99-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_c99-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_c99-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_c99f-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_c99f-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_c99f-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_c99l-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_c99l-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_c99l-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_c99l-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_tr1-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_tr1-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_tr1-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_tr1-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_tr1f-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_tr1f-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_tr1f-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_tr1f-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_tr1l-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_tr1l-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_math_tr1l-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_math_tr1l-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_nowide-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_nowide-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_nowide-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_nowide-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_prg_exec_monitor-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_prg_exec_monitor-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_prg_exec_monitor-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_prg_exec_monitor-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "ADVAPI32.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "ntdll.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "SHELL32.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-API-set-contract",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "api-ms-win-core-synch-l1-2-0.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "USER32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "WS2_32.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_process-mt-x64.dll",
+        "dependency": "libboost_filesystem-mt-x64.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_program_options-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_program_options-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_program_options-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_program_options-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_random-mt-x64.dll",
+        "dependency": "ADVAPI32.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_random-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_random-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_random-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_random-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_regex-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_regex-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_regex-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_regex-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_serialization-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_serialization-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_serialization-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_serialization-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_noop-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_noop-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_windbg-mt-x64.dll",
+        "dependency": "dbgeng.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_stacktrace_windbg-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_windbg-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_windbg-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_stacktrace_windbg-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_stacktrace_windbg-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_windbg_cached-mt-x64.dll",
+        "dependency": "dbgeng.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_stacktrace_windbg_cached-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_windbg_cached-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_stacktrace_windbg_cached-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_stacktrace_windbg_cached-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_system-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_system-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_thread-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_thread-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_thread-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_thread-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_timer-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_timer-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_timer-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_timer-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_type_erasure-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_type_erasure-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_type_erasure-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_type_erasure-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_unit_test_framework-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_unit_test_framework-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_unit_test_framework-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_unit_test_framework-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_url-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_url-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_url-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_url-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_wave-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_wave-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_wave-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_wave-mt-x64.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_wave-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "Windows-API-set-contract",
+        "file": "libboost_wave-mt-x64.dll",
+        "dependency": "api-ms-win-core-synch-l1-2-0.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_wave-mt-x64.dll",
+        "dependency": "libboost_thread-mt-x64.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_wserialization-mt-x64.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_wserialization-mt-x64.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libboost_wserialization-mt-x64.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libboost_wserialization-mt-x64.dll",
+        "dependency": "libstdc++-6.dll"
+      },
+      {
+        "classification": "existing-boost-archive",
+        "file": "libboost_wserialization-mt-x64.dll",
+        "dependency": "libboost_serialization-mt-x64.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libgcc_s_seh-1.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libgcc_s_seh-1.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libgcc_s_seh-1.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libiconv-2.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libiconv-2.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libstdc++-6.dll",
+        "dependency": "libgcc_s_seh-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libstdc++-6.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libstdc++-6.dll",
+        "dependency": "msvcrt.dll"
+      },
+      {
+        "classification": "frozen-signed-msys2-runtime",
+        "file": "libstdc++-6.dll",
+        "dependency": "libwinpthread-1.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libwinpthread-1.dll",
+        "dependency": "KERNEL32.dll"
+      },
+      {
+        "classification": "Windows-system-DLL",
+        "file": "libwinpthread-1.dll",
+        "dependency": "msvcrt.dll"
+      }
+    ],
+    "installationOrder": [
+      "msys2-sonosystem",
+      "boost-mingw"
+    ],
+    "runtimePathOrder": [
+      "<toolchain-root>/boost-mingw/boost-1.86.0/bin",
+      "<toolchain-root>/msys2-sonosystem/mingw64/bin",
+      "Windows system directories"
+    ]
+  },
+  "redistribution": {
+    "scope": "Incorporated Boost archive only",
+    "status": "permitted",
+    "externalDependencyGate": "msys2-sonosystem must independently resolve its source/license/provenance obligations before publication/use",
+    "obligations": "Retain original BSL-1.0 license and header copyright notices; external runtime packages are not incorporated into this archive"
+  },
+  "provenance": {
+    "verifiedExistingArchive": true,
+    "originalSourceCommit": null,
+    "rebuilt": false,
+    "recompressed": false,
+    "originalBuildRecipe": "not-established"
+  },
+  "verification": {
+    "archiveSha256": "8c9208bdf80c934c4013f8bdca43a092d69020a7f0487135e2ae3f8e7487a31b",
+    "archiveSizeBytes": 39562973,
+    "offline": {
+      "method": "Exact existing ZIP; clean shared-link thread/chrono/atomic compile/link/runtime with only four runtime DLLs from signed frozen msys2-sonosystem inputs plus Windows; 202 recursive import edges resolved; no host-wide MinGW runtime PATH. Static libraries are present but consumer linking was not tested.",
+      "link": "shared",
+      "staticLibraries": {
+        "present": true,
+        "consumerTested": false,
+        "validationStatus": "presence-only-not-consumer-tested"
+      },
+      "networkControls": "Dead HTTP/HTTPS/ALL proxies, Git protocols disabled, OfflineAssetRoot and nonexistent GitHub CLI; not an OS firewall air gap",
+      "components": [
+        "thread",
+        "chrono",
+        "atomic"
+      ],
+      "variants": {
+        "release": {
+          "runtimeExitCode": 0,
+          "configureExitCode": 0,
+          "buildExitCode": 0
+        }
+      },
+      "status": "passed",
+      "verifiedAt": "2026-09-30T03:33:35.0379321Z"
+    },
+    "reinstall": {
+      "stateUnchanged": true,
+      "fixtureAttestationDisclaimer": "TEST FIXTURE ONLY. release.attestation is a schema-required synthetic marker contradicting observed immutable:false. No attestation verified, no publication evidence, no release provenance claim. Tests exercise offline hash verification/extraction/state mechanics only.",
+      "stateSha256": "c0aa29ec606aa744c4fa21bff8ef67a227601d9d6206542fe5a3eafcbaddcb62",
+      "method": "Actual Install-ToolchainProfile and Test-InstalledToolchain; clean install and repeat install with exact local ZIPs",
+      "payloadTimestampsUnchanged": true,
+      "payloadAndStateUnchanged": true,
+      "status": "passed",
+      "stateFileTimestampChanges": true
+    },
+    "separateExtractionIdentityMatches": true,
+    "buildReproducibility": {
+      "reason": "Existing archive reused; no rebuild or recompression performed",
+      "performed": false
+    },
+    "standaloneRuntime": {
+      "doesNotInvalidateDeclaredDependencyVerification": true,
+      "configureExitCode": 0,
+      "ctestExitCode": 8,
+      "executableExitCode": "0xc0000135",
+      "buildExitCode": 0,
+      "status": "expected-failure-without-declared-dependency",
+      "reason": "External frozen runtime is intentionally not bundled"
+    }
+  }
+}

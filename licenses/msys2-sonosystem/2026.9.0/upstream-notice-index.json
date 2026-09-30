@@ -1,0 +1,2197 @@
+[
+  {
+    "sha256": "46cde7dc11e64c78d650b4851b88f6704b4665ff60f22a1caf68ceb15e217e5b",
+    "originalPath": "mingw64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/COPYING-CMAKE-SCRIPTS",
+    "sizeBytes": 1327
+  },
+  {
+    "sha256": "46cde7dc11e64c78d650b4851b88f6704b4665ff60f22a1caf68ceb15e217e5b",
+    "originalPath": "mingw64/lib/cmake/Qt6/3rdparty/kwin/COPYING-CMAKE-SCRIPTS",
+    "sizeBytes": 1327
+  },
+  {
+    "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+    "originalPath": "mingw64/lib/python3.11/site-packages/packaging-24.1.dist-info/LICENSE",
+    "sizeBytes": 197
+  },
+  {
+    "sha256": "60ccb5a178778653fd34747ca1ee679a7a9a70b400e389a07a689c75be17b3da",
+    "originalPath": "mingw64/share/bullet/kuka_lwr/meshes_arm/COPYRIGHT",
+    "sizeBytes": 477
+  },
+  {
+    "sha256": "cacfb8c9d891e4b0514396e319f626a55f74e43f9fb539eecd1aa52dacf8b7e7",
+    "originalPath": "mingw64/share/doc/hdf5/COPYING",
+    "sizeBytes": 5515
+  },
+  {
+    "sha256": "3c1dc3d7f8a3d08c14f4fbe9942f45764d8a21a3296e8d83446f33fd65f21c38",
+    "originalPath": "mingw64/share/doc/kvazaar/LICENSE",
+    "sizeBytes": 1549
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/doc/libdvdcss/COPYING",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "32b1062f7da84967e7019d01ab805935caa7ab7321a7ced0e30ebe75e5df1670",
+    "originalPath": "mingw64/share/doc/libdvdnav/COPYING",
+    "sizeBytes": 17992
+  },
+  {
+    "sha256": "d6cb0e9e560f51085556949a84af12b79a00f10ab8b66c752537faf7cd665572",
+    "originalPath": "mingw64/share/doc/libdvdread/COPYING",
+    "sizeBytes": 18097
+  },
+  {
+    "sha256": "36b6d3fa47916943fd5fec313c584784946047ec1337a78b440e5992cb595f89",
+    "originalPath": "mingw64/share/doc/libexif/COPYING",
+    "sizeBytes": 26434
+  },
+  {
+    "sha256": "d6ed03c89e25fcda5db454c1badc2c321f241799aab2062418a7fb3742c935ce",
+    "originalPath": "mingw64/share/doc/libraw/COPYRIGHT",
+    "sizeBytes": 1153
+  },
+  {
+    "sha256": "7a4436f9ec37603356791c87de3bc444989befd2682d29efb3d97604e04c1852",
+    "originalPath": "mingw64/share/doc/libshout/COPYING",
+    "sizeBytes": 25275
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/doc/lzo/COPYING",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "25329ef0e2a8823b88786a39f168304a65a3138f720ab39ffc1e9fbee67b74a9",
+    "originalPath": "mingw64/share/doc/mpdecimal/COPYRIGHT.txt",
+    "sizeBytes": 2943
+  },
+  {
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "originalPath": "mingw64/share/doc/mpfr/COPYING",
+    "sizeBytes": 35149
+  },
+  {
+    "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+    "originalPath": "mingw64/share/doc/mpfr/COPYING.LESSER",
+    "sizeBytes": 7652
+  },
+  {
+    "sha256": "5754553f0e3f720f528d63ab12619167599e09aab245703073a5abfd8c9264e5",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/bsd.txt",
+    "sizeBytes": 1455
+  },
+  {
+    "sha256": "37f80b2998523e0e780cbab2774e1ee7eb4b7945f1ff232f5ece22ce037b6282",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/freeimage.txt",
+    "sizeBytes": 17436
+  },
+  {
+    "sha256": "5ed36b9c24f2d16873c3106e1320ef43860081294593b65b6493dab4733f6236",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/freetype.txt",
+    "sizeBytes": 6744
+  },
+  {
+    "sha256": "4bc9debc502c24dd16f746b3f91eabc335500defb7a7e3b4657cc470d7faed93",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/libjpeg.txt",
+    "sizeBytes": 1797
+  },
+  {
+    "sha256": "8e5c5c4eb5714a3ae860eec98e197bbde48ebd18624608505d0441ff12eb816e",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/libmng.txt",
+    "sizeBytes": 1826
+  },
+  {
+    "sha256": "1cf3e4b8e83711f45bd5475920e2cbbd9f4ce74ae0edbadc02737189059f2a4f",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/libpng.txt",
+    "sizeBytes": 4145
+  },
+  {
+    "sha256": "ee70ed409e6f3037b8c8b9bc0df93808a5f8262907fc9809773c0e47c7e2e52b",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/libtiff.txt",
+    "sizeBytes": 1147
+  },
+  {
+    "sha256": "da1c10009579e3eb8d3b3abc65d538a2890f70ff7fd1f05b73a4f9e3fff5c56e",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/mit.txt",
+    "sizeBytes": 1110
+  },
+  {
+    "sha256": "10299420c1e8602c0daf5a59d022621cd72a9148d1f0f33501edb3db3445c7fe",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/mpl.txt",
+    "sizeBytes": 25756
+  },
+  {
+    "sha256": "2050acfe8b8d5ae1ef971b6ab419cd9f46e3f2d779a09966105622b3112600d9",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/uiuc.txt",
+    "sizeBytes": 3194
+  },
+  {
+    "sha256": "715d3407ddae540e1854fc6ecd3d275fb30444e30dcb4b6aee461768aec0d28b",
+    "originalPath": "mingw64/share/doc/OGRE/licenses/zlib.txt",
+    "sizeBytes": 1090
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/doc/openxr/LICENSE",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "84c6d82dc7de80f5b73f231edfd3ddc5b53513908117452bfa37ea36bb4b7e0a",
+    "originalPath": "mingw64/share/doc/soundtouch/COPYING.TXT",
+    "sizeBytes": 24389
+  },
+  {
+    "sha256": "257a842724705950b07da76ce0e22ffa80ec77b3e9dfc6702522ac342409da0f",
+    "originalPath": "mingw64/share/doc/twolame/COPYING",
+    "sizeBytes": 26428
+  },
+  {
+    "sha256": "ee3b35b82f7bb0ba5fd9f13ca34ebbe757a59c05bfde5ab9d50ff4188ed33396",
+    "originalPath": "mingw64/share/doc/xz/COPYING",
+    "sizeBytes": 3885
+  },
+  {
+    "sha256": "0b01625d853911cd0e2e088dcfb743261034a091bb379246cb25a14cc4c74bf1",
+    "originalPath": "mingw64/share/doc/xz/COPYING.0BSD",
+    "sizeBytes": 607
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/doc/xz/COPYING.GPLv2",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "c635190c86f74415ba2170ced60caf1260c563a65a3f716d4b1c17326f66e216",
+    "originalPath": "mingw64/share/doc/zbar/COPYING",
+    "sizeBytes": 1279
+  },
+  {
+    "sha256": "7637386b5f81e8a719ca336233149005e5fa28b5e6054ea7b67de49355b0ad40",
+    "originalPath": "mingw64/share/doc/zimg/COPYING",
+    "sizeBytes": 484
+  },
+  {
+    "sha256": "3ae033da0bfd60f4609c5c99fe50c0c840685889d3b705d3f527fd7b52032f5c",
+    "originalPath": "mingw64/share/icu/75.1/LICENSE",
+    "sizeBytes": 25223
+  },
+  {
+    "sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747",
+    "originalPath": "mingw64/share/licenses/abseil-cpp/LICENSE",
+    "sizeBytes": 11361
+  },
+  {
+    "sha256": "7c940e28a5388e9bba866cf0e408edda45fe0899ba98665b8f6ab31dc5e4b8ff",
+    "originalPath": "mingw64/share/licenses/adobe-source-code-pro-fonts/LICENSE.md",
+    "sizeBytes": 4566
+  },
+  {
+    "sha256": "4764a286d8b2faeaf42f4418e7d7a28d58fc8fd4d00a3d0a7f44b0a4099de7f2",
+    "originalPath": "mingw64/share/licenses/aom/LICENSE",
+    "sizeBytes": 1316
+  },
+  {
+    "sha256": "661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61",
+    "originalPath": "mingw64/share/licenses/aom/PATENTS",
+    "sizeBytes": 5701
+  },
+  {
+    "sha256": "d38eeed89d872bc7fa5344d16a0c83d79f5e644fa7f712cb5e9ab95672818e3b",
+    "originalPath": "mingw64/share/licenses/asciidoc/COPYRIGHT",
+    "sizeBytes": 764
+  },
+  {
+    "sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c",
+    "originalPath": "mingw64/share/licenses/binutils/COPYING",
+    "sizeBytes": 18002
+  },
+  {
+    "sha256": "56bdea73b6145ef6ac5259b3da390b981d840c24cb03b8e1cbc678de7ecfa18d",
+    "originalPath": "mingw64/share/licenses/binutils/COPYING.LIB",
+    "sizeBytes": 25291
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/binutils/COPYING3",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+    "originalPath": "mingw64/share/licenses/binutils/COPYING3.LIB",
+    "sizeBytes": 7639
+  },
+  {
+    "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+    "originalPath": "mingw64/share/licenses/boost/LICENSE",
+    "sizeBytes": 1338
+  },
+  {
+    "sha256": "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94",
+    "originalPath": "mingw64/share/licenses/brotli/LICENSE",
+    "sizeBytes": 1084
+  },
+  {
+    "sha256": "c6dbbf828498be844a89eaa3b84adbab3199e342eb5cb2ed2f0d4ba7ec0f38a3",
+    "originalPath": "mingw64/share/licenses/bzip2/LICENSE",
+    "sizeBytes": 1896
+  },
+  {
+    "sha256": "460f5e768fda3752ca2169a95df062578a10fb126bfd65f3b9b1a1bed2f84807",
+    "originalPath": "mingw64/share/licenses/c-ares/LICENSE.md",
+    "sizeBytes": 1211
+  },
+  {
+    "sha256": "67228a9f7c5f9b67c58f556f1be178f62da4d9e2e6285318d8c74d567255abdf",
+    "originalPath": "mingw64/share/licenses/cairo/COPYING",
+    "sizeBytes": 1576
+  },
+  {
+    "sha256": "9e9e8608c4cdda51a78cc3a385f4ec9a2e4c96d5ecad74ac8bca5fca3e563b7d",
+    "originalPath": "mingw64/share/licenses/cairo/COPYING-LGPL-2.1",
+    "sizeBytes": 26533
+  },
+  {
+    "sha256": "53692a2ed6c6a2c6ec9b32dd0b820dfae91e0a1fcdf625ca9ed0bdf8705fcc4f",
+    "originalPath": "mingw64/share/licenses/cairo/COPYING-MPL-1.1",
+    "sizeBytes": 25755
+  },
+  {
+    "sha256": "60a338a665cb02a815a3727518eb8f176980d2979b717f2143cc2f011bbeafea",
+    "originalPath": "mingw64/share/licenses/cantarell-fonts/COPYING",
+    "sizeBytes": 5084
+  },
+  {
+    "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f",
+    "originalPath": "mingw64/share/licenses/crt/COPYING",
+    "sizeBytes": 2326
+  },
+  {
+    "sha256": "e9b2dc02451ea29092a1f25fa0f3c07207ed421f1807dffb0c4e6dce69dee7bd",
+    "originalPath": "mingw64/share/licenses/crt/COPYING.MinGW-w64-runtime.txt",
+    "sizeBytes": 10936
+  },
+  {
+    "sha256": "f38e6194bd3bfa1b654f118e5acefe0aead437bbe669eee43957ccc65a7127f1",
+    "originalPath": "mingw64/share/licenses/crt/COPYING.MinGW-w64.txt",
+    "sizeBytes": 5905
+  },
+  {
+    "sha256": "78e4010b682cb94187fe0b57e50116d0ba271ef81104d1ddb35c80c3d81e3169",
+    "originalPath": "mingw64/share/licenses/crypto++/LICENSE",
+    "sizeBytes": 4032
+  },
+  {
+    "sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+    "originalPath": "mingw64/share/licenses/curl/LICENSE",
+    "sizeBytes": 1088
+  },
+  {
+    "sha256": "b327887de263238deaa80c34cdd2ff3e0ba1d35db585ce14a37ce3e74ee389e9",
+    "originalPath": "mingw64/share/licenses/dav1d/COPYING",
+    "sizeBytes": 1317
+  },
+  {
+    "sha256": "335eca574598bf4ca181b12f708d6669e5a5e78c8e1513e5b35fa1f03901484b",
+    "originalPath": "mingw64/share/licenses/dav1d/PATENTS",
+    "sizeBytes": 5730
+  },
+  {
+    "sha256": "adf79c0ee42b5b0d9b0d10def6aca4f7c97a0ce7333b3012af2c929e1ed72b77",
+    "originalPath": "mingw64/share/licenses/docbook-xml/LICENSE",
+    "sizeBytes": 1224
+  },
+  {
+    "sha256": "4af93c12062c58058378de2397dc1c92bbff9ddfb1d583a01c84127557ce97ca",
+    "originalPath": "mingw64/share/licenses/double-conversion/LICENSE",
+    "sizeBytes": 1527
+  },
+  {
+    "sha256": "c6b6659630ca6cb837afe982ecc79511bfca878b56296d628b02eb6f18789c29",
+    "originalPath": "mingw64/share/licenses/duktape/LICENSE.txt",
+    "sizeBytes": 1175
+  },
+  {
+    "sha256": "122f2c27000472a201d337b9b31f7eb2b52d091b02857061a8880371612d9534",
+    "originalPath": "mingw64/share/licenses/expat/COPYING",
+    "sizeBytes": 1144
+  },
+  {
+    "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+    "originalPath": "mingw64/share/licenses/fast_float/LICENSE-APACHE",
+    "sizeBytes": 10767
+  },
+  {
+    "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+    "originalPath": "mingw64/share/licenses/fast_float/LICENSE-BOOST",
+    "sizeBytes": 1337
+  },
+  {
+    "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+    "originalPath": "mingw64/share/licenses/fast_float/LICENSE-MIT",
+    "sizeBytes": 1079
+  },
+  {
+    "sha256": "12600ea1a7affcbf469bd0d8b2cd725e4167114a2ee834b88f5d2857bfd7ddbf",
+    "originalPath": "mingw64/share/licenses/flac/COPYING.Xiph",
+    "sizeBytes": 1509
+  },
+  {
+    "sha256": "6b10e504d32ac5c04c518a41b16fff47df2e7e11628271f0ad0ea37bbe603297",
+    "originalPath": "mingw64/share/licenses/FLIF/FLIF-CLA-template.txt",
+    "sizeBytes": 8182
+  },
+  {
+    "sha256": "4d5f0a77070ee043f10a154e428b323b0cff70a3306d5f490b0093cfe651ef20",
+    "originalPath": "mingw64/share/licenses/FLIF/LICENSE",
+    "sizeBytes": 508
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/licenses/FLIF/LICENSE_Apache2",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "d62f065830aa3739cc031156b9690805c7b2e811b4a178c8b4acd8725d561c94",
+    "originalPath": "mingw64/share/licenses/FLIF/LICENSE_GPL",
+    "sizeBytes": 35142
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "mingw64/share/licenses/FLIF/LICENSE_LGPL",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "9b872a8a070b8ad329c4bd380fb1bf0000f564c75023ec8e1e6803f15364b9e9",
+    "originalPath": "mingw64/share/licenses/fluidsynth/LICENSE",
+    "sizeBytes": 26461
+  },
+  {
+    "sha256": "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8",
+    "originalPath": "mingw64/share/licenses/fmt/LICENSE",
+    "sizeBytes": 1431
+  },
+  {
+    "sha256": "51a51aa9823704fd90bccc616cdd17ebabb5b2b3e9cbde886ca02c7002288067",
+    "originalPath": "mingw64/share/licenses/fontconfig/COPYING",
+    "sizeBytes": 8616
+  },
+  {
+    "sha256": "b6593d5ec4c113a274abb85b10e8615895cb0ddb89f7912af5fe5aa8df38a275",
+    "originalPath": "mingw64/share/licenses/freeglut/COPYING",
+    "sizeBytes": 1439
+  },
+  {
+    "sha256": "08c135755dd589039470f1fdbb400daaabaaa50d0b366d19cebff4d22986baa1",
+    "originalPath": "mingw64/share/licenses/freetype/FTL.TXT",
+    "sizeBytes": 6743
+  },
+  {
+    "sha256": "c4120c6752c910c299e3bd9cb3a46ff262c268303ca2069b61f92f10a5656c18",
+    "originalPath": "mingw64/share/licenses/freetype/GPLv2.TXT",
+    "sizeBytes": 17994
+  },
+  {
+    "sha256": "32434afcc8666ba060e111d715bfdb6c2d5dd8a35fa4d3ab8ad67d8f850d2f2b",
+    "originalPath": "mingw64/share/licenses/fribidi/COPYING",
+    "sizeBytes": 26440
+  },
+  {
+    "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+    "originalPath": "mingw64/share/licenses/gcc-libgfortran/COPYING.RUNTIME",
+    "sizeBytes": 3324
+  },
+  {
+    "sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "originalPath": "mingw64/share/licenses/gcc-libs/COPYING.LIB",
+    "sizeBytes": 26527
+  },
+  {
+    "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+    "originalPath": "mingw64/share/licenses/gcc-libs/COPYING.RUNTIME",
+    "sizeBytes": 3324
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/gcc-libs/COPYING3",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "33400d067fa3e2bd670a0868dcdb60c9486e8f559b675cf9ff1ff55d4e0d06ab",
+    "originalPath": "mingw64/share/licenses/gcc-libs/README",
+    "sizeBytes": 236
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/gdk-pixbuf2/COPYING",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "7ef2cdfe58e0c0460657b6598b49af29d4e03c1e41cbaf0e1da1eb8ad74b95d0",
+    "originalPath": "mingw64/share/licenses/gettext-runtime/COPYING",
+    "sizeBytes": 495
+  },
+  {
+    "sha256": "3fe5361f24b7c49ba12911c08f5a33f9cb18871d95d9fb881f5b8a4793e04288",
+    "originalPath": "mingw64/share/licenses/gettext-runtime/intl/COPYING.LIB",
+    "sizeBytes": 26545
+  },
+  {
+    "sha256": "03133addae5b99a6148c538300e6d97074453089be1423b741bd081f18e2b298",
+    "originalPath": "mingw64/share/licenses/gettext-runtime/libasprintf/COPYING",
+    "sizeBytes": 65
+  },
+  {
+    "sha256": "3fe5361f24b7c49ba12911c08f5a33f9cb18871d95d9fb881f5b8a4793e04288",
+    "originalPath": "mingw64/share/licenses/gettext-runtime/libasprintf/COPYING.LIB",
+    "sizeBytes": 26545
+  },
+  {
+    "sha256": "90d1f3701813c3cd65eee2dc736746fe46b465918f3f7d6d31463a2018b33fa5",
+    "originalPath": "mingw64/share/licenses/gflags/COPYING.txt",
+    "sizeBytes": 1479
+  },
+  {
+    "sha256": "8991cd11befec7c6a63662700f03c0cc42e864b6e77c7e70b80297c951a7f0ff",
+    "originalPath": "mingw64/share/licenses/glew/LICENSE",
+    "sizeBytes": 3797
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/glib-networking/COPYING",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "fa6f36630bb1e0c571d34b2bbdf188d08495c9dbf58f28cac112f303fc1f58fb",
+    "originalPath": "mingw64/share/licenses/glib2/COPYING",
+    "sizeBytes": 25967
+  },
+  {
+    "sha256": "136d48dea7a681413691f3db3098f6cf5ffaa3119d96d97bb83b8cff3ce38c4a",
+    "originalPath": "mingw64/share/licenses/glog/COPYING",
+    "sizeBytes": 1479
+  },
+  {
+    "sha256": "adb783e734e906d1f46db5df29991dbde84bdb0ceab502ac2febb44fe3c2b5f4",
+    "originalPath": "mingw64/share/licenses/glslang/LICENSE.txt",
+    "sizeBytes": 54705
+  },
+  {
+    "sha256": "cfd9fd7b2be592d2c0910d32dc1d8910c08dc0670b1d9ce417a82fa9eb788df9",
+    "originalPath": "mingw64/share/licenses/graphene/LICENSE.txt",
+    "sizeBytes": 1077
+  },
+  {
+    "sha256": "2c272829ff23f182c8bf7ea12fedea69b0ae148663123ed5240c117cb129c9c1",
+    "originalPath": "mingw64/share/licenses/graphite2/COPYING",
+    "sizeBytes": 1235
+  },
+  {
+    "sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "originalPath": "mingw64/share/licenses/graphite2/LICENSE",
+    "sizeBytes": 26527
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/gsettings-desktop-schemas/COPYING",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "81c68a3374937ed9b5e4929c709e81a2c4b35b5d1f450ecf8c473e2daea46ff6",
+    "originalPath": "mingw64/share/licenses/gsm/license.txt",
+    "sizeBytes": 1450
+  },
+  {
+    "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64",
+    "originalPath": "mingw64/share/licenses/harfbuzz/COPYING",
+    "sizeBytes": 1971
+  },
+  {
+    "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f",
+    "originalPath": "mingw64/share/licenses/headers/COPYING",
+    "sizeBytes": 2326
+  },
+  {
+    "sha256": "e9b2dc02451ea29092a1f25fa0f3c07207ed421f1807dffb0c4e6dce69dee7bd",
+    "originalPath": "mingw64/share/licenses/headers/COPYING.MinGW-w64-runtime.txt",
+    "sizeBytes": 10936
+  },
+  {
+    "sha256": "f38e6194bd3bfa1b654f118e5acefe0aead437bbe669eee43957ccc65a7127f1",
+    "originalPath": "mingw64/share/licenses/headers/COPYING.MinGW-w64.txt",
+    "sizeBytes": 5905
+  },
+  {
+    "sha256": "fdb6018009cec99085041e4fd1f13db7b82852e9aa73012d0cc7da6449b94f13",
+    "originalPath": "mingw64/share/licenses/headers/ddk-readme.txt",
+    "sizeBytes": 762
+  },
+  {
+    "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+    "originalPath": "mingw64/share/licenses/highway/LICENSE",
+    "sizeBytes": 11356
+  },
+  {
+    "sha256": "d79a936a42f3c6cb7c8375a023d43f4435f4664d3a5a2ea6b4623cff83c7fc06",
+    "originalPath": "mingw64/share/licenses/hwloc/LICENSE",
+    "sizeBytes": 2552
+  },
+  {
+    "sha256": "a556c5292c87c9a6ac795c80669b0c3660f9f729de8c476bf2b10f83ab1b34ec",
+    "originalPath": "mingw64/share/licenses/imagemagick/LICENSE",
+    "sizeBytes": 12577
+  },
+  {
+    "sha256": "b95a04195e55f13771eee456201844a68c7df83a791aaac46c61f343bb4ea50b",
+    "originalPath": "mingw64/share/licenses/imagemagick/NOTICE",
+    "sizeBytes": 12013
+  },
+  {
+    "sha256": "c20236d3b39fd20eba8e3d1fb3b892a5483df2e7d8d61bf43f165d3fac22f601",
+    "originalPath": "mingw64/share/licenses/imath/LICENSE.md",
+    "sizeBytes": 1497
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/iso-codes/COPYING",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "4ad1bb42aff888c4403d792e6e2c5f1716d6c279fea70b296333c9d577d30b81",
+    "originalPath": "mingw64/share/licenses/jasper/LICENSE",
+    "sizeBytes": 2744
+  },
+  {
+    "sha256": "91df39d1816bfb17a4dda2d3d2c83b1f6f2d38d53e53e41e8f97ad5ac46a0cad",
+    "originalPath": "mingw64/share/licenses/jbigkit/COPYING",
+    "sizeBytes": 17982
+  },
+  {
+    "sha256": "86b998c792894ccb911a1cb7994f7a9652894e7a094c0b5e45be2f553f45cf14",
+    "originalPath": "mingw64/share/licenses/json/LICENSE.MIT",
+    "sizeBytes": 1076
+  },
+  {
+    "sha256": "3c1dc3d7f8a3d08c14f4fbe9942f45764d8a21a3296e8d83446f33fd65f21c38",
+    "originalPath": "mingw64/share/licenses/kvazaar/LICENSE",
+    "sizeBytes": 1549
+  },
+  {
+    "sha256": "6dbd60437f8ef91d8de1f08ad75882547fd4931bfcc3566a0735f28db1484d31",
+    "originalPath": "mingw64/share/licenses/lcms2/LICENSE",
+    "sizeBytes": 1080
+  },
+  {
+    "sha256": "c53a65c2fd561c87eaabf1072ef5dcab8653042bc15308465f52413585eb6271",
+    "originalPath": "mingw64/share/licenses/lcms2/LICENSE-fast_float",
+    "sizeBytes": 35146
+  },
+  {
+    "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806",
+    "originalPath": "mingw64/share/licenses/leptonica/LICENSE",
+    "sizeBytes": 1521
+  },
+  {
+    "sha256": "77a8b761727c75e2167b15bfdf61b2c0bcf8792271228bebe80779106ad00671",
+    "originalPath": "mingw64/share/licenses/lerc/LICENSE",
+    "sizeBytes": 9198
+  },
+  {
+    "sha256": "e831d176bf03288ca15c0a07298b250d9b6e9695750add499cc545513f06aec0",
+    "originalPath": "mingw64/share/licenses/libaec/LICENSE",
+    "sizeBytes": 1346
+  },
+  {
+    "sha256": "6a1ee543e5282cd9061881edf462e6fdab181f328da71fc2c9a6950a80e94d01",
+    "originalPath": "mingw64/share/licenses/libb2/LICENSE",
+    "sizeBytes": 6556
+  },
+  {
+    "sha256": "b3aa400aca6d2ba1f0bd03bd98d03d1fe7489a3bbb26969d72016360af8a5c9d",
+    "originalPath": "mingw64/share/licenses/libbluray/COPYING",
+    "sizeBytes": 24478
+  },
+  {
+    "sha256": "c388d36583fa54e13b6d73ad924d0b68d073ed8a5771e17cb49104705df4504f",
+    "originalPath": "mingw64/share/licenses/libcue/LICENSE",
+    "sizeBytes": 36434
+  },
+  {
+    "sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "originalPath": "mingw64/share/licenses/libdatrie/COPYING",
+    "sizeBytes": 26527
+  },
+  {
+    "sha256": "ab15fd526bd8dd18a9e77ebc139656bf4d33e97fc7238cd11bf60e2b9b8666c6",
+    "originalPath": "mingw64/share/licenses/libdca/COPYING",
+    "sizeBytes": 17987
+  },
+  {
+    "sha256": "02cc1585a20677992e0ba578fa692635dc193735f2691dc81de924b51c4e8020",
+    "originalPath": "mingw64/share/licenses/libde265/COPYING",
+    "sizeBytes": 44339
+  },
+  {
+    "sha256": "4ad69099cb4374836fd27583d9991e2838cd86b6e4666ab26b2d32582c91e73a",
+    "originalPath": "mingw64/share/licenses/libdeflate/COPYING",
+    "sizeBytes": 1078
+  },
+  {
+    "sha256": "36701a9d30ccaaf1fa3bf93fdbf97c666a1d21efaf45188eca4b6db057c5414b",
+    "originalPath": "mingw64/share/licenses/libdovi/LICENSE",
+    "sizeBytes": 1066
+  },
+  {
+    "sha256": "d6cb0e9e560f51085556949a84af12b79a00f10ab8b66c752537faf7cd665572",
+    "originalPath": "mingw64/share/licenses/libdvdread/COPYING",
+    "sizeBytes": 18097
+  },
+  {
+    "sha256": "36b6d3fa47916943fd5fec313c584784946047ec1337a78b440e5992cb595f89",
+    "originalPath": "mingw64/share/licenses/libexif/COPYING",
+    "sizeBytes": 26434
+  },
+  {
+    "sha256": "95ec80da40b4af12ad4c4f3158c9cfb80f2479f3246e4260cb600827cc8c7836",
+    "originalPath": "mingw64/share/licenses/libfdk-aac/NOTICE",
+    "sizeBytes": 4447
+  },
+  {
+    "sha256": "67894089811f93fca47a76f85e017da6f8582d4ba0905963c6e0f1ad6df7a195",
+    "originalPath": "mingw64/share/licenses/libffi/LICENSE",
+    "sizeBytes": 1132
+  },
+  {
+    "sha256": "319daefe38ebeead3df178e5937898a52d67c0c795f54f1c0bb10ac3b9cffb63",
+    "originalPath": "mingw64/share/licenses/libgme/license.txt",
+    "sizeBytes": 26940
+  },
+  {
+    "sha256": "860e4e6f467a9c02298e36382a581a2fa31b2d1e7755da08f8cc0f2036b6857d",
+    "originalPath": "mingw64/share/licenses/libharu/LICENSE",
+    "sizeBytes": 910
+  },
+  {
+    "sha256": "b2eb4f6588b005bebac44cfb2dfd23f6a16c5ca9b8a619a315158b0215a917a3",
+    "originalPath": "mingw64/share/licenses/libheif/COPYING",
+    "sizeBytes": 44338
+  },
+  {
+    "sha256": "278ee9bbb13ecb080a131c68927bd589a6a56fd5449ce25e8e594c858864830d",
+    "originalPath": "mingw64/share/licenses/libheif/COPYING-examples",
+    "sizeBytes": 1066
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/libiconv/COPYING",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/libiconv/COPYING.LIB",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/libiconv/libcharset/COPYING.LIB",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "dd37af33149d9722d6edca08aeb1e18591dda95bb645d81a2f011a5d83088929",
+    "originalPath": "mingw64/share/licenses/libiconv/README",
+    "sizeBytes": 5664
+  },
+  {
+    "sha256": "5c1f9094835d21f66ee0e9ce81c57264d2dd50801b19832d6723dc8cdbda080e",
+    "originalPath": "mingw64/share/licenses/libjpeg-turbo/README.ijg",
+    "sizeBytes": 12739
+  },
+  {
+    "sha256": "4e62a56391f8b2a14a0fddca1b7b38d08e6c9877c2218205060884aa4ee49db1",
+    "originalPath": "mingw64/share/licenses/libjpeg-turbo/README.md",
+    "sizeBytes": 17643
+  },
+  {
+    "sha256": "000b2df5469d2f94ea20a1b3d638b94031dad296f006600e1dbff79eded5facb",
+    "originalPath": "mingw64/share/licenses/libjpeg-turbo/simd/jsimdext.inc",
+    "sizeBytes": 15399
+  },
+  {
+    "sha256": "8405932022a556380c2d8c272eff154a923feb197233f348ce5f7334fb0a5ede",
+    "originalPath": "mingw64/share/licenses/libjxl/LICENSE",
+    "sizeBytes": 1508
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/licenses/liblc3/LICENSE",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "f764ee3ea10043718c7cc2ce3e2c8a8b3a4e9a3f4b5b4bbb74c603d2a974aabe",
+    "originalPath": "mingw64/share/licenses/libmicrodns/COPYING",
+    "sizeBytes": 26598
+  },
+  {
+    "sha256": "49942e7b3b175f549e751feb08b5270ca6f6c5fb7a1be9f9517db275ec32c92e",
+    "originalPath": "mingw64/share/licenses/libmodplug/LICENSE",
+    "sizeBytes": 57
+  },
+  {
+    "sha256": "9c8713ccc5d6d93d20c7a1cfcb876e64baf551bfbe67faa4e60d39cda9ffd023",
+    "originalPath": "mingw64/share/licenses/libmysofa/LICENSE",
+    "sizeBytes": 1453
+  },
+  {
+    "sha256": "9246b2ee8b1db30cf03d5d9719ad8bb5edce1cadc85f8cfef319c23d24d950b5",
+    "originalPath": "mingw64/share/licenses/libnice/COPYING",
+    "sizeBytes": 237
+  },
+  {
+    "sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "originalPath": "mingw64/share/licenses/libnice/COPYING.LGPL",
+    "sizeBytes": 26527
+  },
+  {
+    "sha256": "3b3c75ae6c663c4f93987647eb5463d33dc1602a1aded3ac479773f2c3928e3a",
+    "originalPath": "mingw64/share/licenses/libnice/COPYING.MPL",
+    "sizeBytes": 25657
+  },
+  {
+    "sha256": "d2ab5758336489da61c12cc5bb757da5339c4ae9001f9bb0562b4370249af814",
+    "originalPath": "mingw64/share/licenses/libogg/COPYING",
+    "sizeBytes": 1466
+  },
+  {
+    "sha256": "b3aa400aca6d2ba1f0bd03bd98d03d1fe7489a3bbb26969d72016360af8a5c9d",
+    "originalPath": "mingw64/share/licenses/libplacebo/LICENSE",
+    "sizeBytes": 24478
+  },
+  {
+    "sha256": "7317e078e2d3b5d7ba5a6159e650945153262b44b76f6700f8e9edb261c5143e",
+    "originalPath": "mingw64/share/licenses/libpng/LICENSE",
+    "sizeBytes": 5345
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/libproxy/COPYING",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "322392e6001b2b3b0fca705dc9f11f26e12441188ecde50eb1d22909980b2925",
+    "originalPath": "mingw64/share/licenses/libpsl/COPYING",
+    "sizeBytes": 1060
+  },
+  {
+    "sha256": "f75d910a294fd6882e319c90a028d150eca07206f15327cc83629ce28f75a303",
+    "originalPath": "mingw64/share/licenses/libraqm/LICENSE",
+    "sizeBytes": 1180
+  },
+  {
+    "sha256": "0e3098d2d54a12434715f6679ea408d57da5e8d613c385c58ecc6fe5d30cc81f",
+    "originalPath": "mingw64/share/licenses/libraw/LICENSE.CDDL",
+    "sizeBytes": 16906
+  },
+  {
+    "sha256": "eea173a556abac0370461e57e12aab266894ea6be3874c2be05fd87871f75449",
+    "originalPath": "mingw64/share/licenses/libraw/LICENSE.LGPL",
+    "sizeBytes": 24389
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/librsvg/COPYING.LIB",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "ad01ea5cd2755f6048383c8d54c88459cd6fcb17757c5c8892f8c5ea060f6140",
+    "originalPath": "mingw64/share/licenses/libsndfile/COPYING",
+    "sizeBytes": 26518
+  },
+  {
+    "sha256": "b7993225104d90ddd8024fd838faf300bea5e83d91203eab98e29512acebd69c",
+    "originalPath": "mingw64/share/licenses/libsoup3/COPYING",
+    "sizeBytes": 25383
+  },
+  {
+    "sha256": "f2f118b9029ec1871b953639ecc46651b2fc7b62e295e6cf3ef2ac4c9a058b33",
+    "originalPath": "mingw64/share/licenses/libsoxr/COPYING.LGPL",
+    "sizeBytes": 26432
+  },
+  {
+    "sha256": "dc98676341fdcd29d9f279c9679d6a75288785b174ded8d1b2e316c366166135",
+    "originalPath": "mingw64/share/licenses/libsoxr/LICENSE",
+    "sizeBytes": 1024
+  },
+  {
+    "sha256": "a9f3d236f3c14a41a1293f176d4c7c46d85404403417fcb8df6d6c9707104e42",
+    "originalPath": "mingw64/share/licenses/libsoxr/LICENSE-PFFFT",
+    "sizeBytes": 2122
+  },
+  {
+    "sha256": "fda5e2522c58ba1f31c9f2044747616457466f4aebec16ade4af86e3a16a8e02",
+    "originalPath": "mingw64/share/licenses/libssh2/LICENSE",
+    "sizeBytes": 1959
+  },
+  {
+    "sha256": "3200024286eb0a33c22da3a31c470df07c7b8cfbead2b9528195d67d107264ec",
+    "originalPath": "mingw64/share/licenses/libsystre/LICENSE",
+    "sizeBytes": 1445
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/libtasn1/COPYING",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/libtasn1/COPYING.LESSER",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "originalPath": "mingw64/share/licenses/libthai/COPYING",
+    "sizeBytes": 26527
+  },
+  {
+    "sha256": "0780558a8bfba0af1160ec1ff11ade4f41c0d7deafd6ecfc796b492a788e380d",
+    "originalPath": "mingw64/share/licenses/libtiff/LICENSE.md",
+    "sizeBytes": 1164
+  },
+  {
+    "sha256": "6a50ab50d856b30c965cf2dd899e577ec108c938242fd3a2e7a7a25eed996200",
+    "originalPath": "mingw64/share/licenses/libtre/LICENSE",
+    "sizeBytes": 1479
+  },
+  {
+    "sha256": "0c57e2ec42ece17791a75d2f9b2f8e0663181be008667a507f765b3ef22522db",
+    "originalPath": "mingw64/share/licenses/libunibreak/LICENCE",
+    "sizeBytes": 1045
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/libunistring/LICENSE",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+    "originalPath": "mingw64/share/licenses/libunistring/LICENSE.LIB",
+    "sizeBytes": 7639
+  },
+  {
+    "sha256": "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d",
+    "originalPath": "mingw64/share/licenses/libunwind/LICENSE",
+    "sizeBytes": 16706
+  },
+  {
+    "sha256": "c86a782ee845b52472dae9b9d79fb915d333628ac0efe49cdce63644814931de",
+    "originalPath": "mingw64/share/licenses/libva/COPYING",
+    "sizeBytes": 1130
+  },
+  {
+    "sha256": "bf1cfac2e2792b6e1e995ce103d70796aecaf2ec7e4c5fe5474f7acec7b4a677",
+    "originalPath": "mingw64/share/licenses/libvpl/LICENSE",
+    "sizeBytes": 1074
+  },
+  {
+    "sha256": "5aec868f669e384a22372a4e8a1a6cd7d44c64cd451f960ca69cc170d1e13acf",
+    "originalPath": "mingw64/share/licenses/libwebp/COPYING",
+    "sizeBytes": 1496
+  },
+  {
+    "sha256": "63263614cdd29f2f93cba85e992f041b31f9fc7b4033692f31269489a8a1b177",
+    "originalPath": "mingw64/share/licenses/libwinpthread/COPYING",
+    "sizeBytes": 2883
+  },
+  {
+    "sha256": "7fb0a66f3989f9bd5c7e5438a3de02cd4a7a47dde0aea2f7ea2ba2ff454ee6a4",
+    "originalPath": "mingw64/share/licenses/libxml2/COPYING",
+    "sizeBytes": 1289
+  },
+  {
+    "sha256": "01c022eca6d566e2e8792fd0f091a28653b2a608319922bcd4de91c49d1438e1",
+    "originalPath": "mingw64/share/licenses/libzip/LICENSE",
+    "sizeBytes": 1454
+  },
+  {
+    "sha256": "d30937367d5413e7eaa218b1640b8946ff76fd34d97152f6979fd96169d5d0fc",
+    "originalPath": "mingw64/share/licenses/md4c/LICENSE.md",
+    "sizeBytes": 1096
+  },
+  {
+    "sha256": "ae7a4090983e6ea0780c60c454016fd5e93b414b0de26ad041608ec66fbb54bb",
+    "originalPath": "mingw64/share/licenses/mingw-w64-libraries/COPYING.libmangle",
+    "sizeBytes": 1109
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/mingw-w64-tools/COPYING.gendef",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/mingw-w64-tools/COPYING.genidl",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/mingw-w64-tools/COPYING.genpeimg",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "0505354efe9c3b3d01c49a03bfe5e19358174f112f683c63f36fa2f723368764",
+    "originalPath": "mingw64/share/licenses/mingw-w64-x86_64-docbook-xsl/COPYING",
+    "sizeBytes": 1999
+  },
+  {
+    "sha256": "c22482728a634a8dfdb4ff72a96d4c1ed64cd8f3e79335c401751ac591609366",
+    "originalPath": "mingw64/share/licenses/mpg123/COPYING",
+    "sizeBytes": 40718
+  },
+  {
+    "sha256": "6b94f3abc1aabd0c72a7c7d92a77f79dda7c8a0cb3df839a97890b4116a2de2a",
+    "originalPath": "mingw64/share/licenses/nghttp2/COPYING",
+    "sizeBytes": 1156
+  },
+  {
+    "sha256": "58cc3fc8c6d6cb2485ab35eb5918e849b5bf1e56522974e106d7a39a88d61dcd",
+    "originalPath": "mingw64/share/licenses/nghttp3/COPYING",
+    "sizeBytes": 1081
+  },
+  {
+    "sha256": "82758e8d1d72139904b9b7472ef0f6544413d2871b58540307fdcc20e473e5f8",
+    "originalPath": "mingw64/share/licenses/ogre3d/LICENSE",
+    "sizeBytes": 1084
+  },
+  {
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "originalPath": "mingw64/share/licenses/oneTBB/LICENSE",
+    "sizeBytes": 11357
+  },
+  {
+    "sha256": "190b5a9c8d9723fe958ad33916bd7346d96fab3c5ea90832bb02d854f620fcff",
+    "originalPath": "mingw64/share/licenses/OpenBLAS/LICENSE",
+    "sizeBytes": 1548
+  },
+  {
+    "sha256": "978539245c405775bf347b1256c36df4daf8b69a64b099e94b1d53742201621e",
+    "originalPath": "mingw64/share/licenses/OpenBLAS/LICENSE-lapack",
+    "sizeBytes": 2266
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/licenses/opencv4/ade-LICENSE",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/licenses/opencv4/flatbuffers-LICENSE.txt",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "676858659f4115246b41f2f44dcfbf17db52c6b1755f1102b78a87062dff0c07",
+    "originalPath": "mingw64/share/licenses/opencv4/mscr-chi_table_LICENSE.txt",
+    "sizeBytes": 1559
+  },
+  {
+    "sha256": "cfaceadff07c2c9458283079cd0166872aa2d93d5c480f1f417be321aa7e0f4d",
+    "originalPath": "mingw64/share/licenses/opencv4/opencl-headers-LICENSE.txt",
+    "sizeBytes": 1309
+  },
+  {
+    "sha256": "0c5b08365136da52639d777f1ebfc03988b0169d80655c90c59f1b3fa3e526a2",
+    "originalPath": "mingw64/share/licenses/opencv4/SoftFloat-COPYING.txt",
+    "sizeBytes": 1732
+  },
+  {
+    "sha256": "a9c8a68807d39b6810d593008f02e7835a8f8280781e5ce9b544a7fb973bb79e",
+    "originalPath": "mingw64/share/licenses/opencv4/vasot-LICENSE.txt",
+    "sizeBytes": 1083
+  },
+  {
+    "sha256": "84853c91d4c2e0310741d4773469d98bb93e61029608e0ba0882a3fffdf330bd",
+    "originalPath": "mingw64/share/licenses/openexr/LICENSE.md",
+    "sizeBytes": 1501
+  },
+  {
+    "sha256": "dd5c1c9668512530fa5a96e4c29ac4033d70a7eeb0eed7a42fddb6dd794ebdbb",
+    "originalPath": "mingw64/share/licenses/openh264/LICENSE",
+    "sizeBytes": 1295
+  },
+  {
+    "sha256": "a6af136f3e15038a666b61f376612a07d9a4e48cb7c01adbf3e33b3f14ab49b6",
+    "originalPath": "mingw64/share/licenses/openjpeg/LICENSE",
+    "sizeBytes": 2112
+  },
+  {
+    "sha256": "5ddf5177863dfc9ab65fa129d587db651241f00e21ed2427b218bea997591f98",
+    "originalPath": "mingw64/share/licenses/openjph/LICENSE",
+    "sizeBytes": 1448
+  },
+  {
+    "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+    "originalPath": "mingw64/share/licenses/openssl/LICENSE",
+    "sizeBytes": 10175
+  },
+  {
+    "sha256": "f56ff606104d4ef18e617921a75c73ad73b5a1a1d70c69590c29de16919e04ad",
+    "originalPath": "mingw64/share/licenses/openvr/LICENSE",
+    "sizeBytes": 1488
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/licenses/openxr-sdk/LICENSE",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "01e1167d54a096d123cf6dfbbeb19587278845c6481d2d66d545669846079551",
+    "originalPath": "mingw64/share/licenses/opus/COPYING",
+    "sizeBytes": 1945
+  },
+  {
+    "sha256": "4f5dabb1b44bb6fc5cd53820b1f103147ad61b395a57903991325bd1b85d97bf",
+    "originalPath": "mingw64/share/licenses/orc/COPYING",
+    "sizeBytes": 3124
+  },
+  {
+    "sha256": "d245807f90032872d1438d741ed21e2490e1175dc8aa3afa5ddb6c8e529b58e5",
+    "originalPath": "mingw64/share/licenses/pango/COPYING",
+    "sizeBytes": 25292
+  },
+  {
+    "sha256": "99272c55f3dcfa07a8a7e15a5c1a33096e4727de74241d65fa049fccfdd59507",
+    "originalPath": "mingw64/share/licenses/pcre2/COPYING",
+    "sizeBytes": 97
+  },
+  {
+    "sha256": "030087e2e8dd7c1bdd26057d25d4ded8f45bbf01ad458d68665ad04b8b0fbedf",
+    "originalPath": "mingw64/share/licenses/pcre2/LICENCE",
+    "sizeBytes": 3477
+  },
+  {
+    "sha256": "fac9270f0987b96ff4533fca3548c633e02083cbba4a0172a3b149b2e4019793",
+    "originalPath": "mingw64/share/licenses/pixman/COPYING",
+    "sizeBytes": 2087
+  },
+  {
+    "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+    "originalPath": "mingw64/share/licenses/protobuf/LICENSE",
+    "sizeBytes": 1732
+  },
+  {
+    "sha256": "01e13f39d058cca09968f18d423912a18f8bf61b9161c65f8e5bcc418a8aba28",
+    "originalPath": "mingw64/share/licenses/pugixml/LICENSE",
+    "sizeBytes": 1079
+  },
+  {
+    "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+    "originalPath": "mingw64/share/licenses/python-packaging/LICENSE",
+    "sizeBytes": 197
+  },
+  {
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    "originalPath": "mingw64/share/licenses/python-packaging/LICENSE.APACHE",
+    "sizeBytes": 10174
+  },
+  {
+    "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+    "originalPath": "mingw64/share/licenses/python-packaging/LICENSE.BSD",
+    "sizeBytes": 1344
+  },
+  {
+    "sha256": "93bb4f7417aa775bab9026cc3d0af28aeb64451fc5a8ec651876785edd8eaf9b",
+    "originalPath": "mingw64/share/licenses/qt6-base/AFL-2.1.txt",
+    "sizeBytes": 8948
+  },
+  {
+    "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb",
+    "originalPath": "mingw64/share/licenses/qt6-base/Apache-2.0.txt",
+    "sizeBytes": 10398
+  },
+  {
+    "sha256": "592db1199aab67aafe4515db9808b420db122083807c5329b2f061951e79acbe",
+    "originalPath": "mingw64/share/licenses/qt6-base/blessing.txt",
+    "sizeBytes": 244
+  },
+  {
+    "sha256": "9f0490f18656c6f2435bd14f603ef0c96434d1825615363dce43abb42ed1dcce",
+    "originalPath": "mingw64/share/licenses/qt6-base/BSD-3-Clause.txt",
+    "sizeBytes": 1469
+  },
+  {
+    "sha256": "3abd6471b9a9a08d65ce771143f8e278bb4c1aeb10c1c2d476935a6b049653f5",
+    "originalPath": "mingw64/share/licenses/qt6-base/BSL-1.0.txt",
+    "sizeBytes": 1340
+  },
+  {
+    "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "originalPath": "mingw64/share/licenses/qt6-base/CC0-1.0.txt",
+    "sizeBytes": 7048
+  },
+  {
+    "sha256": "110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4",
+    "originalPath": "mingw64/share/licenses/qt6-base/GFDL-1.3-no-invariants-only.txt",
+    "sizeBytes": 22955
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/qt6-base/GPL-2.0-only.txt",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/qt6-base/GPL-2.0-or-later.txt",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/qt6-base/GPL-3.0-only.txt",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "mingw64/share/licenses/qt6-base/LGPL-3.0-only.txt",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "0526625fcc746a42d3f19a0ab357d3dc8479fdbe3bfd168825498f50215c7a63",
+    "originalPath": "mingw64/share/licenses/qt6-base/LicenseRef-BSD-3-Clause-with-PCRE2-Binary-Like-Packages-Exception.txt",
+    "sizeBytes": 1852
+  },
+  {
+    "sha256": "9b1f50aae6267f9d5e0ceb6775ee86450262c25ec7c0573e151fe5d3f18a4700",
+    "originalPath": "mingw64/share/licenses/qt6-base/LicenseRef-Qt-Commercial.txt",
+    "sizeBytes": 462
+  },
+  {
+    "sha256": "65d86b8ec6b1cd8b8f6e64fd8710274ba00d6a3c520e00dfdcd1c3d2071f3305",
+    "originalPath": "mingw64/share/licenses/qt6-base/LicenseRef-SHA1-Public-Domain.txt",
+    "sizeBytes": 144
+  },
+  {
+    "sha256": "d040359701c01996a017d5c515678929cd1b0625e64cb86db44025fbb6cdf1fc",
+    "originalPath": "mingw64/share/licenses/qt6-base/MIT.txt",
+    "sizeBytes": 1111
+  },
+  {
+    "sha256": "40678d338ce53cd93f8b22b281a2ecbcaa3ee65ce60b25ffb0c462b0530846b2",
+    "originalPath": "mingw64/share/licenses/qt6-base/Qt-GPL-exception-1.0.txt",
+    "sizeBytes": 965
+  },
+  {
+    "sha256": "80bb6294022d8764adb36a9d65ebb6bd94efb1865918a71e31e6c247607d7634",
+    "originalPath": "mingw64/share/licenses/qt6-base/Unicode-3.0.txt",
+    "sizeBytes": 1995
+  },
+  {
+    "sha256": "1a33fc12a3abb0b3eb14db70e36ef1d0af51c93b1cc1f80f022c3bd406e9b874",
+    "originalPath": "mingw64/share/licenses/qt6-base/Unicode-DFS-2016.txt",
+    "sizeBytes": 2858
+  },
+  {
+    "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/Apache-2.0.txt",
+    "sizeBytes": 10398
+  },
+  {
+    "sha256": "9f0490f18656c6f2435bd14f603ef0c96434d1825615363dce43abb42ed1dcce",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/BSD-3-Clause.txt",
+    "sizeBytes": 1469
+  },
+  {
+    "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/CC-BY-3.0.txt",
+    "sizeBytes": 19467
+  },
+  {
+    "sha256": "110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/GFDL-1.3-no-invariants-only.txt",
+    "sizeBytes": 22955
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/GPL-2.0-only.txt",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/GPL-3.0-only.txt",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/LGPL-3.0-only.txt",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "9b1f50aae6267f9d5e0ceb6775ee86450262c25ec7c0573e151fe5d3f18a4700",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/LicenseRef-Qt-Commercial.txt",
+    "sizeBytes": 462
+  },
+  {
+    "sha256": "d040359701c01996a017d5c515678929cd1b0625e64cb86db44025fbb6cdf1fc",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/MIT.txt",
+    "sizeBytes": 1111
+  },
+  {
+    "sha256": "1d361a8f8e8ce6e68457dcd93fb56e162e6baa3bbb7e7573a290d44399f6b57e",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/OFL-1.1.txt",
+    "sizeBytes": 4599
+  },
+  {
+    "sha256": "40678d338ce53cd93f8b22b281a2ecbcaa3ee65ce60b25ffb0c462b0530846b2",
+    "originalPath": "mingw64/share/licenses/qt6-declarative/Qt-GPL-exception-1.0.txt",
+    "sizeBytes": 965
+  },
+  {
+    "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/BSD-2-Clause.txt",
+    "sizeBytes": 1267
+  },
+  {
+    "sha256": "9f0490f18656c6f2435bd14f603ef0c96434d1825615363dce43abb42ed1dcce",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/BSD-3-Clause.txt",
+    "sizeBytes": 1469
+  },
+  {
+    "sha256": "1f1b677d26ab73e159a55c3a914cf12d888e18a9d0d469fedab4aa6e5a48b1c0",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/BSD-Source-Code.txt",
+    "sizeBytes": 1301
+  },
+  {
+    "sha256": "84c6ef3ea9e3254a54d0acf5d3e0c61ae011b8fef7dd6940591cf060e6380a8f",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/BSL-1.0.txt",
+    "sizeBytes": 1338
+  },
+  {
+    "sha256": "110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/GFDL-1.3-no-invariants-only.txt",
+    "sizeBytes": 22955
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/GPL-2.0-only.txt",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/GPL-3.0-only.txt",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "7658542977bfdced9e1059a6c934ce4281de76d103b831007b825917dc62511a",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/IJG.txt",
+    "sizeBytes": 4244
+  },
+  {
+    "sha256": "f2ec607f67bb0dd3053b49835b02110d5cd0f8eb6da3aac4dc0b142a6b299be9",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/ISC.txt",
+    "sizeBytes": 823
+  },
+  {
+    "sha256": "fa6f36630bb1e0c571d34b2bbdf188d08495c9dbf58f28cac112f303fc1f58fb",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/LGPL-2.1-or-later.txt",
+    "sizeBytes": 25967
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/LGPL-3.0-only.txt",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "9b1f50aae6267f9d5e0ceb6775ee86450262c25ec7c0573e151fe5d3f18a4700",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/LicenseRef-Qt-Commercial.txt",
+    "sizeBytes": 462
+  },
+  {
+    "sha256": "b85dcd3e453d05982552c52b5fc9e0bdd6d23c6f8e844b984a88af32570b0cc0",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/MIT.txt",
+    "sizeBytes": 1078
+  },
+  {
+    "sha256": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/MPL-2.0.txt",
+    "sizeBytes": 16727
+  },
+  {
+    "sha256": "40678d338ce53cd93f8b22b281a2ecbcaa3ee65ce60b25ffb0c462b0530846b2",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/Qt-GPL-exception-1.0.txt",
+    "sizeBytes": 965
+  },
+  {
+    "sha256": "bfb1112d49db5b1daecdfef24bd7e2f3ea0bafb33aa67aa0ab51e2bf8407c03d",
+    "originalPath": "mingw64/share/licenses/qt6-multimedia/Zlib.txt",
+    "sizeBytes": 838
+  },
+  {
+    "sha256": "9f0490f18656c6f2435bd14f603ef0c96434d1825615363dce43abb42ed1dcce",
+    "originalPath": "mingw64/share/licenses/qt6-shadertools/BSD-3-Clause.txt",
+    "sizeBytes": 1469
+  },
+  {
+    "sha256": "110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4",
+    "originalPath": "mingw64/share/licenses/qt6-shadertools/GFDL-1.3-no-invariants-only.txt",
+    "sizeBytes": 22955
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/qt6-shadertools/GPL-2.0-only.txt",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/qt6-shadertools/GPL-3.0-only.txt",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "mingw64/share/licenses/qt6-shadertools/LGPL-3.0-only.txt",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "9b1f50aae6267f9d5e0ceb6775ee86450262c25ec7c0573e151fe5d3f18a4700",
+    "originalPath": "mingw64/share/licenses/qt6-shadertools/LicenseRef-Qt-Commercial.txt",
+    "sizeBytes": 462
+  },
+  {
+    "sha256": "40678d338ce53cd93f8b22b281a2ecbcaa3ee65ce60b25ffb0c462b0530846b2",
+    "originalPath": "mingw64/share/licenses/qt6-shadertools/Qt-GPL-exception-1.0.txt",
+    "sizeBytes": 965
+  },
+  {
+    "sha256": "9f0490f18656c6f2435bd14f603ef0c96434d1825615363dce43abb42ed1dcce",
+    "originalPath": "mingw64/share/licenses/qt6-svg/BSD-3-Clause.txt",
+    "sizeBytes": 1469
+  },
+  {
+    "sha256": "110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4",
+    "originalPath": "mingw64/share/licenses/qt6-svg/GFDL-1.3-no-invariants-only.txt",
+    "sizeBytes": 22955
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/qt6-svg/GPL-2.0-only.txt",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/qt6-svg/GPL-3.0-only.txt",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "mingw64/share/licenses/qt6-svg/LGPL-3.0-only.txt",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "9b1f50aae6267f9d5e0ceb6775ee86450262c25ec7c0573e151fe5d3f18a4700",
+    "originalPath": "mingw64/share/licenses/qt6-svg/LicenseRef-Qt-Commercial.txt",
+    "sizeBytes": 462
+  },
+  {
+    "sha256": "40678d338ce53cd93f8b22b281a2ecbcaa3ee65ce60b25ffb0c462b0530846b2",
+    "originalPath": "mingw64/share/licenses/qt6-svg/Qt-GPL-exception-1.0.txt",
+    "sizeBytes": 965
+  },
+  {
+    "sha256": "9f0490f18656c6f2435bd14f603ef0c96434d1825615363dce43abb42ed1dcce",
+    "originalPath": "mingw64/share/licenses/qt6-tools/BSD-3-Clause.txt",
+    "sizeBytes": 1469
+  },
+  {
+    "sha256": "3abd6471b9a9a08d65ce771143f8e278bb4c1aeb10c1c2d476935a6b049653f5",
+    "originalPath": "mingw64/share/licenses/qt6-tools/BSL-1.0.txt",
+    "sizeBytes": 1340
+  },
+  {
+    "sha256": "110535522396708cea37c72a802c5e7e81391139f5f7985631c93ef242b206a4",
+    "originalPath": "mingw64/share/licenses/qt6-tools/GFDL-1.3-no-invariants-only.txt",
+    "sizeBytes": 22955
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/qt6-tools/GPL-2.0-only.txt",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/qt6-tools/GPL-3.0-only.txt",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "mingw64/share/licenses/qt6-tools/LGPL-3.0-only.txt",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "9b1f50aae6267f9d5e0ceb6775ee86450262c25ec7c0573e151fe5d3f18a4700",
+    "originalPath": "mingw64/share/licenses/qt6-tools/LicenseRef-Qt-Commercial.txt",
+    "sizeBytes": 462
+  },
+  {
+    "sha256": "40678d338ce53cd93f8b22b281a2ecbcaa3ee65ce60b25ffb0c462b0530846b2",
+    "originalPath": "mingw64/share/licenses/qt6-tools/Qt-GPL-exception-1.0.txt",
+    "sizeBytes": 965
+  },
+  {
+    "sha256": "2dd0a109751e939dec3f80ddcfbc1ba91553f18c574399e85c159632182a2c0a",
+    "originalPath": "mingw64/share/licenses/rav1e/LICENSE",
+    "sizeBytes": 1332
+  },
+  {
+    "sha256": "7b14a70c194b19dbd0625e7eac839a63200f67484521ce5e8d8244b127e8907a",
+    "originalPath": "mingw64/share/licenses/rav1e/PATENTS",
+    "sizeBytes": 5702
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "mingw64/share/licenses/readline/COPYING",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "9b9e1764f06701bcf7ce21e942c682d5921ba0900c6fca760321b1c8837a9662",
+    "originalPath": "mingw64/share/licenses/SDL2/LICENSE.txt",
+    "sizeBytes": 884
+  },
+  {
+    "sha256": "84c6d82dc7de80f5b73f231edfd3ddc5b53513908117452bfa37ea36bb4b7e0a",
+    "originalPath": "mingw64/share/licenses/soundtouch/COPYING.TXT",
+    "sizeBytes": 24389
+  },
+  {
+    "sha256": "366576cb0b869cd9e95a4882878607314650488ac635e5df0692180382e9666a",
+    "originalPath": "mingw64/share/licenses/spandsp/COPYING",
+    "sizeBytes": 44595
+  },
+  {
+    "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+    "originalPath": "mingw64/share/licenses/speex/LICENSE",
+    "sizeBytes": 1773
+  },
+  {
+    "sha256": "2654a4264b2bfe298dedc508748d140111840c315cc8eb646a3a68c13fa75b01",
+    "originalPath": "mingw64/share/licenses/speexdsp/LICENSE",
+    "sizeBytes": 1773
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/licenses/spirv-cross/LICENSE",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "ff04ae7e6a468587fe59434fee2e67c0e2a749b592c794b764ff80f30b94a084",
+    "originalPath": "mingw64/share/licenses/spirv-headers/LICENSE",
+    "sizeBytes": 4812
+  },
+  {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "originalPath": "mingw64/share/licenses/spirv-tools/LICENSE",
+    "sizeBytes": 11358
+  },
+  {
+    "sha256": "0b76663a90e034f3d7f2af5bfada4cedec5ebc275361899eccc5c18e6f01ff1f",
+    "originalPath": "mingw64/share/licenses/sqlite3/LICENSE",
+    "sizeBytes": 1528
+  },
+  {
+    "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+    "originalPath": "mingw64/share/licenses/srt/LICENSE",
+    "sizeBytes": 16726
+  },
+  {
+    "sha256": "0acc2fcb27472bdc9aaf8b71f37055bbdac4f54671b7d922f241bd7fcd0dd3e6",
+    "originalPath": "mingw64/share/licenses/svt-av1/LICENSE",
+    "sizeBytes": 1709
+  },
+  {
+    "sha256": "20678ab10402659106dc4c147c97b2a6e94b5c0695415e15a8f195ebc3547922",
+    "originalPath": "mingw64/share/licenses/svt-av1/PATENTS.md",
+    "sizeBytes": 5767
+  },
+  {
+    "sha256": "7a083b136e64d064794c3419751e5c7dd10d2f64c108fe5ba161eae5e5958a93",
+    "originalPath": "mingw64/share/licenses/ttf-dejavu/LICENSE",
+    "sizeBytes": 8816
+  },
+  {
+    "sha256": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf",
+    "originalPath": "mingw64/share/licenses/tzdata/LICENSE",
+    "sizeBytes": 252
+  },
+  {
+    "sha256": "fa53711b25af4b9a9b8dadfea3cb38166ec4b96760c8d62b284055554537d9ef",
+    "originalPath": "mingw64/share/licenses/usrsctp/LICENSE.md",
+    "sizeBytes": 1500
+  },
+  {
+    "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+    "originalPath": "mingw64/share/licenses/utf8cpp/LICENSE",
+    "sizeBytes": 1338
+  },
+  {
+    "sha256": "03f095c5c70ea18ffb2b89dd58e4ee57e4f613d04632993f90c890f4cc125b99",
+    "originalPath": "mingw64/share/licenses/vid.stab/LICENSE",
+    "sizeBytes": 1135
+  },
+  {
+    "sha256": "11232448be82e0ea2c2c66219c2e36389f42249894070ee10c549ff182fc08b6",
+    "originalPath": "mingw64/share/licenses/vtk/Copyright.txt",
+    "sizeBytes": 1761
+  },
+  {
+    "sha256": "11232448be82e0ea2c2c66219c2e36389f42249894070ee10c549ff182fc08b6",
+    "originalPath": "mingw64/share/licenses/vtk/LICENSE",
+    "sizeBytes": 1761
+  },
+  {
+    "sha256": "376f7f507577786a6415abbcf0d98e64e755194051366266af4621fc4fcb4333",
+    "originalPath": "mingw64/share/licenses/vtk/vtkAcceleratorsVTKmCore/LICENSE",
+    "sizeBytes": 2106
+  },
+  {
+    "sha256": "376f7f507577786a6415abbcf0d98e64e755194051366266af4621fc4fcb4333",
+    "originalPath": "mingw64/share/licenses/vtk/vtkAcceleratorsVTKmDataModel/LICENSE",
+    "sizeBytes": 2106
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkAcceleratorsVTKmFilters/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkCommonCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkCommonDataModel/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkCommonExecutionModel/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkCommonMath/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "207ac5fbf0e944b6dc725b1ff9182ef2402763bb39e00f9a7e3bfc90bfb1c2ca",
+    "originalPath": "mingw64/share/licenses/vtk/vtkDICOMParser/Copyright.txt",
+    "sizeBytes": 1822
+  },
+  {
+    "sha256": "db26f00306300a38f343aa377a23f571622ce493e3cb23ef98918fc28e2e47d6",
+    "originalPath": "mingw64/share/licenses/vtk/vtkdiy2/LEGAL.txt",
+    "sizeBytes": 1164
+  },
+  {
+    "sha256": "728b467c7bd03d90a106d036a65724e52959db853e4eefb65c4fbf3e7ac10816",
+    "originalPath": "mingw64/share/licenses/vtk/vtkdiy2/LICENSE.txt",
+    "sizeBytes": 2418
+  },
+  {
+    "sha256": "d5256febd35b763a6f4b96829a6f84da2ca121967ce336142dfe5dc97c567d17",
+    "originalPath": "mingw64/share/licenses/vtk/vtkexodusII/COPYRIGHT",
+    "sizeBytes": 1666
+  },
+  {
+    "sha256": "a6801e7760a7abf6d8908974fa52df1b6b45800c31a6968bbac33730512be118",
+    "originalPath": "mingw64/share/licenses/vtk/vtkexprtk/License.txt",
+    "sizeBytes": 1910
+  },
+  {
+    "sha256": "69ff14d6186884b61812e2c51c0329f7f59ffc5f55a007fa11682603485451d8",
+    "originalPath": "mingw64/share/licenses/vtk/vtkfides/LICENSE.txt",
+    "sizeBytes": 1671
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersExtraction/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "3b611790735500dff353f358cc97b283521bb334f5404cd6240d7fea315950fa",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersGeneral/LICENSE",
+    "sizeBytes": 3450
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersGeometry/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersHybrid/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersImaging/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersParallelImaging/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersParallelStatistics/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersSources/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersStatistics/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkFiltersVerdict/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkGeovisCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkGUISupportQt/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkGUISupportQtSQL/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "5e5eaee3ebb29b6d927bf3355da9c664ccb4716d5bb7105cc51f1c8265e7aeda",
+    "originalPath": "mingw64/share/licenses/vtk/vtkh5part/COPYING",
+    "sizeBytes": 3811
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkImagingCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkInfovisBoost/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkInfovisBoostGraphAlgorithms/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkInfovisCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkInfovisLayout/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkInteractionStyle/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkInteractionWidgets/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOADIOS2/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "27f537cfa93d17a11939834d98e5dd91ed61ad8583b054f1bb6bdcd28f3ae290",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOExport/LICENSE",
+    "sizeBytes": 2456
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOInfovis/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "cc52791b4ea851ff1fccae1c315fd2a843d4c15ed07bf4ee55454056ce0de611",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOMINC/Copyright.txt",
+    "sizeBytes": 2260
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOMySQL/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "53b4cbb06188bf11b6b5d9c936513c262aa38ac6b96c9c8aed62781859a9f947",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIONetCDF/LICENSE",
+    "sizeBytes": 3026
+  },
+  {
+    "sha256": "f7aa19ccc27c0aca1a462fb651cfc8e181a23d6dda2c25d8349dbaada40c31a8",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOOCCT/LICENSE",
+    "sizeBytes": 1566
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOODBC/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOParallelLSDyna/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "27f537cfa93d17a11939834d98e5dd91ed61ad8583b054f1bb6bdcd28f3ae290",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOPIO/Copyright.txt",
+    "sizeBytes": 2456
+  },
+  {
+    "sha256": "f986802c1b8a0498fdf559c65877b760422468c1bf9ca8243ae959e97f7530c1",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOPLY/Copyright.txt",
+    "sizeBytes": 731
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOPostgreSQL/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOSQL/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "9e56fc077b5d412c6bf159647895325035f51e72bd77c3560f0a394769f70e8b",
+    "originalPath": "mingw64/share/licenses/vtk/vtkioss/COPYRIGHT",
+    "sizeBytes": 1664
+  },
+  {
+    "sha256": "6eb134f3c1426a4432ddbf34f81fcad2536234142f15b71306a726a796cf580a",
+    "originalPath": "mingw64/share/licenses/vtk/vtkIOXdmf2/LICENSE",
+    "sizeBytes": 1647
+  },
+  {
+    "sha256": "a2840585f8411be8e6826a31ef15ae65c950bd74a2437a73b013398a934ad0c6",
+    "originalPath": "mingw64/share/licenses/vtk/vtkkissfft/COPYING",
+    "sizeBytes": 246
+  },
+  {
+    "sha256": "2c1b4faf0e1f1a23a56c657959eb138add74e175b8c8949275f9f54d3a376365",
+    "originalPath": "mingw64/share/licenses/vtk/vtkkwiml/Copyright.txt",
+    "sizeBytes": 1518
+  },
+  {
+    "sha256": "55e2d7d11d3125e5881f5024d533e45ef39f5ffb15b37bdcafa2cbc909714af7",
+    "originalPath": "mingw64/share/licenses/vtk/vtkloguru/LICENSE",
+    "sizeBytes": 331
+  },
+  {
+    "sha256": "de2b1b69404af9ca85e649957a57ea0b0cd2fa89c90ca999954d8ca9fae0c09b",
+    "originalPath": "mingw64/share/licenses/vtk/vtkmetaio/License.txt",
+    "sizeBytes": 3612
+  },
+  {
+    "sha256": "8dd848eff55d8f925ad676daf6cba065c4ef7b85698ae1fbdc6603ae4fa32cba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkpegtl/LICENSE",
+    "sizeBytes": 1104
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkRenderingCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkRenderingLabel/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "0f24371c7bb1743dda4be65130f132fb20b55ed43970f2e9fd04d35b4a4c5f7f",
+    "originalPath": "mingw64/share/licenses/vtk/vtkRenderingOpenXR/LICENSE",
+    "sizeBytes": 640
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkRenderingParallel/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkRenderingQt/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkRenderingVolume/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "7aa92ae0b86f73f81947d177639556fe7f8ea42a74762ecdf563e3daf7106a40",
+    "originalPath": "mingw64/share/licenses/vtk/vtksys/Copyright.txt",
+    "sizeBytes": 1813
+  },
+  {
+    "sha256": "697863f577faaaa5d6500637a95b329c9bfbf3d2f1500deefc5c052616971811",
+    "originalPath": "mingw64/share/licenses/vtk/vtkverdict/LICENSE",
+    "sizeBytes": 1674
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkViewsCore/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkViewsInfovis/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "79e00eba197fb5baa8e5d1d76a8bbc7509be8ea07e1e6e11386778ff2cf4c8ba",
+    "originalPath": "mingw64/share/licenses/vtk/vtkViewsQt/LICENSE",
+    "sizeBytes": 1781
+  },
+  {
+    "sha256": "27f537cfa93d17a11939834d98e5dd91ed61ad8583b054f1bb6bdcd28f3ae290",
+    "originalPath": "mingw64/share/licenses/vtk/vtkvpic/LICENSE",
+    "sizeBytes": 2456
+  },
+  {
+    "sha256": "ba21e0a0cf82d2ef0922b045b5a856414151723d7e09385066fd181f46b7d5f4",
+    "originalPath": "mingw64/share/licenses/vtk/vtkvtkm/LICENSE.txt",
+    "sizeBytes": 2461
+  },
+  {
+    "sha256": "c830b56075b4b16df5a89a213f1a22a97147bd537823871a8eee0d9c67b089d3",
+    "originalPath": "mingw64/share/licenses/vtk/vtkvtkm/vtkm_config.mk",
+    "sizeBytes": 1750
+  },
+  {
+    "sha256": "9f7c442c3d9215a413bfc4f2502272e6ba072cfdb3cb2998e683444e2d24d1a4",
+    "originalPath": "mingw64/share/licenses/vtk/vtkvtkm/vtkm.pc",
+    "sizeBytes": 1547
+  },
+  {
+    "sha256": "ba21e0a0cf82d2ef0922b045b5a856414151723d7e09385066fd181f46b7d5f4",
+    "originalPath": "mingw64/share/licenses/vtk/vtkvtkm/VTKmLICENSE.txt",
+    "sizeBytes": 2461
+  },
+  {
+    "sha256": "9c3e44822101fc9bf9809c8efd026b7132575b06e74199547a0c13049119d5eb",
+    "originalPath": "mingw64/share/licenses/vtk/vtkvtkm/VTKmREADME.md",
+    "sizeBytes": 9859
+  },
+  {
+    "sha256": "a83401d8e4e4e8da2d6901f0c85480f9ca2007d9f4eeb12fc0143e6fda165d47",
+    "originalPath": "mingw64/share/licenses/vtk/vtkxdmf2/Copyright.txt",
+    "sizeBytes": 1650
+  },
+  {
+    "sha256": "486d69367fa9db177f07fdca375ab79fa46c8d2b7b0844feae588f08939ecfa3",
+    "originalPath": "mingw64/share/licenses/vtk/vtkxdmf3/Copyright.txt",
+    "sizeBytes": 1650
+  },
+  {
+    "sha256": "3d2fbc4b17d712d55e64587c00ac2bb9e3a06490db14488c935d85056b14fe09",
+    "originalPath": "mingw64/share/licenses/vtk/vtkzfp/LICENSE",
+    "sizeBytes": 2979
+  },
+  {
+    "sha256": "ac24e5ea920e4318e4d02c4086ae51f53cfb03feed06c18df1019e7ada1ec7bc",
+    "originalPath": "mingw64/share/licenses/vulkan-headers/LICENSE",
+    "sizeBytes": 458
+  },
+  {
+    "sha256": "43c0a37e6a0fa7ff3c843b3ec5a4fac84b712558ddac103fbd4c1649662a9ece",
+    "originalPath": "mingw64/share/licenses/vulkan-loader/LICENSE",
+    "sizeBytes": 11661
+  },
+  {
+    "sha256": "69760673abf91cfd0280ae73739a29c078f493804d9016a122b3b189b48ad6e6",
+    "originalPath": "mingw64/share/licenses/vulkan-utility-libraries/LICENSE",
+    "sizeBytes": 304
+  },
+  {
+    "sha256": "ac7f9f4384d1cec4c318493e0614a68871a74a4ae6c1f592022b0b8b86690c71",
+    "originalPath": "mingw64/share/licenses/vulkan-validation-layers/LICENSE",
+    "sizeBytes": 12983
+  },
+  {
+    "sha256": "35a87c7390cd00e51e7a7cbb0486df7897201347e4625779248ace48e7e6cfbc",
+    "originalPath": "mingw64/share/licenses/wavpack/COPYING",
+    "sizeBytes": 1557
+  },
+  {
+    "sha256": "9b79539028e216e813e152d45f5c1ed5fdd0554426ad50270fb03134e7082dac",
+    "originalPath": "mingw64/share/licenses/webrtc-audio-processing-1/COPYING",
+    "sizeBytes": 1495
+  },
+  {
+    "sha256": "c896f633a129e88257808c46029602689ac180d96b2dd4b98bbb239550e1d449",
+    "originalPath": "mingw64/share/licenses/wineditline/LICENSE",
+    "sizeBytes": 1588
+  },
+  {
+    "sha256": "63263614cdd29f2f93cba85e992f041b31f9fc7b4033692f31269489a8a1b177",
+    "originalPath": "mingw64/share/licenses/winpthreads/COPYING",
+    "sizeBytes": 2883
+  },
+  {
+    "sha256": "6ffedbc0f7878612d2b23589f1ff2ab15633e1df7963a5d9fc750ec5500c7e7a",
+    "originalPath": "mingw64/share/licenses/xxhash/LICENSE",
+    "sizeBytes": 1389
+  },
+  {
+    "sha256": "ee3b35b82f7bb0ba5fd9f13ca34ebbe757a59c05bfde5ab9d50ff4188ed33396",
+    "originalPath": "mingw64/share/licenses/xz/COPYING",
+    "sizeBytes": 3885
+  },
+  {
+    "sha256": "0b01625d853911cd0e2e088dcfb743261034a091bb379246cb25a14cc4c74bf1",
+    "originalPath": "mingw64/share/licenses/xz/COPYING.0BSD",
+    "sizeBytes": 607
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "mingw64/share/licenses/xz/COPYING.GPLv2",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "originalPath": "mingw64/share/licenses/xz/COPYING.GPLv3",
+    "sizeBytes": 35149
+  },
+  {
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+    "originalPath": "mingw64/share/licenses/xz/COPYING.LGPLv2.1",
+    "sizeBytes": 26530
+  },
+  {
+    "sha256": "c635190c86f74415ba2170ced60caf1260c563a65a3f716d4b1c17326f66e216",
+    "originalPath": "mingw64/share/licenses/zbar/COPYING",
+    "sizeBytes": 1279
+  },
+  {
+    "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243",
+    "originalPath": "mingw64/share/licenses/zlib/LICENSE",
+    "sizeBytes": 1002
+  },
+  {
+    "sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+    "originalPath": "mingw64/share/licenses/zstd/LICENSE",
+    "sizeBytes": 1549
+  },
+  {
+    "sha256": "0eddedc0c2a2f9a884c3c9397decd2f60d9ae6ec69cf87dc3e6b6a6bae52c4e3",
+    "originalPath": "mingw64/share/licenses/zvbi/COPYING.md",
+    "sizeBytes": 78738
+  },
+  {
+    "sha256": "7dec77cc239b716bf64dfa3ff2d5ef32ded4524ee61bf940842cf7e92336f104",
+    "originalPath": "mingw64/share/man/man3/NOTICEREF_free.3ossl.gz",
+    "sizeBytes": 4121
+  },
+  {
+    "sha256": "7dec77cc239b716bf64dfa3ff2d5ef32ded4524ee61bf940842cf7e92336f104",
+    "originalPath": "mingw64/share/man/man3/NOTICEREF_new.3ossl.gz",
+    "sizeBytes": 4121
+  },
+  {
+    "sha256": "474776ae9f05a2a55d7dd9c9e1597aa165f676c8ca55352256ace2e57d2ca8b1",
+    "originalPath": "mingw64/share/OGRE/Media/DeferredShadingMedia/COPYING",
+    "sizeBytes": 1066
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "usr/share/doc/Cygwin/COPYING",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "originalPath": "usr/share/doc/mpfr/COPYING",
+    "sizeBytes": 35149
+  },
+  {
+    "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+    "originalPath": "usr/share/doc/mpfr/COPYING.LESSER",
+    "sizeBytes": 7652
+  },
+  {
+    "sha256": "dcc100d4161cc0b7177545ab6e47216f84857cda3843847c792a25289852dcaa",
+    "originalPath": "usr/share/doc/rebase/COPYING",
+    "sizeBytes": 18007
+  },
+  {
+    "sha256": "ee3b35b82f7bb0ba5fd9f13ca34ebbe757a59c05bfde5ab9d50ff4188ed33396",
+    "originalPath": "usr/share/doc/xz/COPYING",
+    "sizeBytes": 3885
+  },
+  {
+    "sha256": "0b01625d853911cd0e2e088dcfb743261034a091bb379246cb25a14cc4c74bf1",
+    "originalPath": "usr/share/doc/xz/COPYING.0BSD",
+    "sizeBytes": 607
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "originalPath": "usr/share/doc/xz/COPYING.GPLv2",
+    "sizeBytes": 18092
+  },
+  {
+    "sha256": "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94",
+    "originalPath": "usr/share/licenses/brotli/LICENSE",
+    "sizeBytes": 1084
+  },
+  {
+    "sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+    "originalPath": "usr/share/licenses/curl/COPYING",
+    "sizeBytes": 1088
+  },
+  {
+    "sha256": "254a7894923ff62e69184a991dcbccae97edee58a1105e8efbe78caf10595d72",
+    "originalPath": "usr/share/licenses/dash/COPYING",
+    "sizeBytes": 2689
+  },
+  {
+    "sha256": "0bfa856a9930bddadbef95d1be1cf4e163c0be618e76ea3275caaf255283e274",
+    "originalPath": "usr/share/licenses/file/COPYING",
+    "sizeBytes": 1649
+  },
+  {
+    "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+    "originalPath": "usr/share/licenses/gcc-libs/RUNTIME.LIBRARY.EXCEPTION",
+    "sizeBytes": 3324
+  },
+  {
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "originalPath": "usr/share/licenses/libargp/COPYING",
+    "sizeBytes": 35147
+  },
+  {
+    "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+    "originalPath": "usr/share/licenses/libargp/COPYING.LESSER",
+    "sizeBytes": 7651
+  },
+  {
+    "sha256": "fc82ca8b6fdb18d4e3e85cfd8ab58d1bcd3f1b29abe782895abd91d64763f8e7",
+    "originalPath": "usr/share/licenses/libassuan/COPYING",
+    "sizeBytes": 35068
+  },
+  {
+    "sha256": "9da6c9c74987a36c84302982799d17d2f748ba1c1c0c471425716173c1d07649",
+    "originalPath": "usr/share/licenses/libedit/LICENSE",
+    "sizeBytes": 1615
+  },
+  {
+    "sha256": "67894089811f93fca47a76f85e017da6f8582d4ba0905963c6e0f1ad6df7a195",
+    "originalPath": "usr/share/licenses/libffi/LICENSE",
+    "sizeBytes": 1132
+  },
+  {
+    "sha256": "6197b98c6bf69838c624809c509d84333de1bc847155168c0e84527446a27076",
+    "originalPath": "usr/share/licenses/libksba/COPYING",
+    "sizeBytes": 198
+  },
+  {
+    "sha256": "6b94f3abc1aabd0c72a7c7d92a77f79dda7c8a0cb3df839a97890b4116a2de2a",
+    "originalPath": "usr/share/licenses/libnghttp2/COPYING",
+    "sizeBytes": 1156
+  },
+  {
+    "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+    "originalPath": "usr/share/licenses/libopenssl/LICENSE.txt",
+    "sizeBytes": 10175
+  },
+  {
+    "sha256": "322392e6001b2b3b0fca705dc9f11f26e12441188ecde50eb1d22909980b2925",
+    "originalPath": "usr/share/licenses/libpsl/COPYING",
+    "sizeBytes": 1060
+  },
+  {
+    "sha256": "0b76663a90e034f3d7f2af5bfada4cedec5ebc275361899eccc5c18e6f01ff1f",
+    "originalPath": "usr/share/licenses/libsqlite/LICENSE",
+    "sizeBytes": 1528
+  },
+  {
+    "sha256": "fda5e2522c58ba1f31c9f2044747616457466f4aebec16ade4af86e3a16a8e02",
+    "originalPath": "usr/share/licenses/libssh2/LICENSE",
+    "sizeBytes": 1959
+  },
+  {
+    "sha256": "f0e51f2e813834d6d1841573af74243d817920dc940caa7a014e4fa36ee9bba5",
+    "originalPath": "usr/share/licenses/mintty/LICENSE",
+    "sizeBytes": 2022
+  },
+  {
+    "sha256": "50571950d79d9a84632aba64316ac06324c370cafbc351f2d7e1766accb75761",
+    "originalPath": "usr/share/licenses/mintty/LICENSE.bundling",
+    "sizeBytes": 798
+  },
+  {
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "originalPath": "usr/share/licenses/mintty/LICENSE.GPL",
+    "sizeBytes": 35149
+  },
+  {
+    "sha256": "3eb788f81e3b40f6366318f08a3168ea714ecbd59d378b62532dbbb356160489",
+    "originalPath": "usr/share/licenses/mintty/LICENSE.Oxygen",
+    "sizeBytes": 2044
+  },
+  {
+    "sha256": "867b1e03a9a1bd0131b5ab7cb0cc617750cbd9edec9dee1903e15b306bb8f94b",
+    "originalPath": "usr/share/licenses/mintty/LICENSE.PuTTY",
+    "sizeBytes": 1279
+  },
+  {
+    "sha256": "41822f8f1a906274f3156d6d13b6fd1c3dc87f315876f62cb91ff0e803def295",
+    "originalPath": "usr/share/licenses/ncurses/license.txt",
+    "sizeBytes": 2292
+  },
+  {
+    "sha256": "2e1ba993904df807a10c3eda1e5c272338edc35674b679773a8b3ad460731054",
+    "originalPath": "usr/share/licenses/p11-kit/COPYING",
+    "sizeBytes": 1447
+  },
+  {
+    "sha256": "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf",
+    "originalPath": "usr/share/licenses/tzcode/LICENSE",
+    "sizeBytes": 252
+  },
+  {
+    "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243",
+    "originalPath": "usr/share/licenses/zlib/LICENSE",
+    "sizeBytes": 1002
+  },
+  {
+    "sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+    "originalPath": "usr/share/licenses/zstd/LICENSE",
+    "sizeBytes": 1549
+  }
+]

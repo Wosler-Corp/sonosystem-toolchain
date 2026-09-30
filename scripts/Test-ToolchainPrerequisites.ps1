@@ -3,7 +3,8 @@ param(
     [Parameter(Mandatory)][string]$CatalogPath,
     [Parameter(Mandatory)][ValidateSet('ci', 'developer')][string]$Context,
     [string]$RunnerImage,
-    [string]$OutputPath
+    [string]$OutputPath,
+    [switch]$MinGWOnly
 )
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'

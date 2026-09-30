@@ -62,12 +62,12 @@
     "runnerPrerequisite": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "platform", "context", "productId", "requiredComponents", "generator", "toolset", "versionFamily", "versionProbes"],
+      "required": ["id", "platform", "context", "productSelection", "requiredComponents", "generator", "toolset", "versionFamily", "detection", "bootstrap"],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
         "platform": { "const": "windows" },
         "context": { "enum": ["runner", "developer"] },
-        "productId": { "type": "string", "pattern": "^Microsoft\\.VisualStudio\\.Product\\.[A-Za-z][A-Za-z0-9]*$" },
+        "productSelection": { "const": "*" },
         "requiredComponents": {
           "type": "array", "minItems": 1, "uniqueItems": true,
           "items": { "type": "string", "pattern": "^Microsoft\\.[A-Za-z0-9.]+$" }
@@ -75,20 +75,45 @@
         "generator": { "type": "string", "minLength": 1 },
         "toolset": { "type": "string", "pattern": "^v[0-9]+$" },
         "versionFamily": { "type": "string", "pattern": "^\\[[0-9]+\\.[0-9]+,[0-9]+\\.[0-9]+\\)$" },
-        "versionProbes": {
+        "detection": {
           "type": "object", "additionalProperties": false,
-          "required": ["installationVersion", "vcToolsVersion", "compilerVersion", "msbuildVersion"],
+          "required": ["requiresComplete", "requiresLaunchable"],
           "properties": {
-            "installationVersion": { "$ref": "#/$defs/exactToolVersion" },
-            "vcToolsVersion": { "$ref": "#/$defs/exactToolVersion" },
-            "compilerVersion": { "$ref": "#/$defs/exactToolVersion" },
-            "msbuildVersion": { "$ref": "#/$defs/exactToolVersion" }
+            "requiresComplete": { "const": true },
+            "requiresLaunchable": { "const": true }
+          }
+        },
+        "bootstrap": {
+          "type": "object", "additionalProperties": false,
+          "required": ["url", "signerOrganization", "arguments", "successExitCodes", "temporary"],
+          "properties": {
+            "url": { "const": "https://aka.ms/vs/17/release/vs_BuildTools.exe" },
+            "signerOrganization": { "const": "Microsoft Corporation" },
+            "arguments": {
+              "type": "array",
+              "prefixItems": [
+                { "const": "--quiet" },
+                { "const": "--wait" },
+                { "const": "--norestart" },
+                { "const": "--nocache" }
+              ],
+              "items": false,
+              "minItems": 4,
+              "maxItems": 4
+            },
+            "successExitCodes": {
+              "type": "array",
+              "prefixItems": [{ "const": 0 }, { "const": 1641 }, { "const": 3010 }],
+              "items": false,
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "temporary": { "const": true }
           }
         },
         "supportedRunnerLabel": { "const": "windows-latest-l" }
       }
     },
-    "exactToolVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:\\.[0-9]+)?$" },
     "semanticVersion": {
       "type": "string",
       "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"

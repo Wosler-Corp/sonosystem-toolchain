@@ -1,0 +1,29 @@
+Frozen MSYS2 SonoSystem dependency closure, 2026.9.0
+
+This aggregate retains 347 original, separately licensed upstream binary packages.
+It is not relicensed as a whole. Qt and GStreamer are included in this Windows
+closure; the optional MSYS2 graphical launcher and base meta-package are excluded.
+
+Redistribute the binary ZIP together with the complete matching companion source
+ZIP named msys2-sonosystem-sources-2026.9.0.zip. Preserve this notice, all upstream
+copyright/license/NOTICE files and the machine-readable package-license-attribution
+and source-revisions manifests. Those manifests map every binary package to its
+exact version, license declarations, retained notices and supplied source/recipe.
+Do not replace this complete source delivery with an unverified URL or source offer.
+
+The companion preserves original signed MSYS2 source packages or exact historical
+MSYS2 recipes verified against the signed binary BUILDINFO, together with upstream
+source inputs verified by recipe checksums, pinned signatures or immutable commits.
+For permissively licensed fast_float 6.1.0-1 and ncurses 6.4.20231217-1, original
+tarball bytes could not be recovered. Explicit source-tree evidence is supplied;
+original tarball hash identity is NOT claimed. No binary version was substituted.
+
+Public verification keys and ownertrust are provided for offline signed-package
+verification. No private signing key is distributed. Package signature requirements
+remain enabled. The frozen repository is local-only; no upgrade or keyserver refresh
+is part of installing this package.
+
+Upstream license terms, including any warranty disclaimers, apply to their respective
+components. This archive does not grant rights to Microsoft Windows or unrelated
+proprietary software. Retained build recipes identify package-specific configuration
+and patches. Source delivery is mandatory alongside each binary distribution.

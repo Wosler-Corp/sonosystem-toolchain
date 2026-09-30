@@ -176,7 +176,7 @@ function Test-ToolchainCatalog {
             throw "Catalog contains duplicate runner prerequisite or package ID '$id'."
         }
         $prerequisiteIds[$id] = $true
-        $allowed = @('id', 'platform', 'context', 'productId', 'requiredComponents', 'generator', 'toolset', 'versionFamily', 'versionProbes', 'supportedRunnerLabel')
+        $allowed = @('id', 'platform', 'context', 'productSelection', 'requiredComponents', 'generator', 'toolset', 'versionFamily', 'detection', 'bootstrap', 'supportedRunnerLabel')
         foreach ($property in $prerequisite.PSObject.Properties) {
             if ($property.Name -cnotin $allowed) { throw "Runner prerequisite '$id' has unsupported property '$($property.Name)'." }
         }
@@ -186,9 +186,8 @@ function Test-ToolchainCatalog {
         if ((Get-RequiredValue -InputObject $prerequisite -Name 'context' -Context "runner prerequisite '$id'") -cnotin @('runner', 'developer')) {
             throw "Runner prerequisite '$id' context is unsupported."
         }
-        $productId = [string](Get-RequiredValue -InputObject $prerequisite -Name 'productId' -Context "runner prerequisite '$id'")
-        if ($productId -cnotmatch '^Microsoft\.VisualStudio\.Product\.[A-Za-z][A-Za-z0-9]*$') {
-            throw "Runner prerequisite '$id' productId is invalid."
+        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'productSelection' -Context "runner prerequisite '$id'") -cne '*') {
+            throw "Runner prerequisite '$id' productSelection must accept all Visual Studio products."
         }
         $components = @(Get-RequiredValue -InputObject $prerequisite -Name 'requiredComponents' -Context "runner prerequisite '$id'")
         if ($components.Count -eq 0) { throw "Runner prerequisite '$id' requires component IDs." }
@@ -199,24 +198,50 @@ function Test-ToolchainCatalog {
             }
             $componentIds[[string]$component] = $true
         }
-        Assert-NonEmptyString -Value (Get-RequiredValue -InputObject $prerequisite -Name 'generator' -Context "runner prerequisite '$id'") -Context "runner prerequisite '$id' generator"
-        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'toolset' -Context "runner prerequisite '$id'") -cnotmatch '^v[0-9]+$') {
-            throw "Runner prerequisite '$id' toolset must be exact."
+        $requiredVisualStudioComponents = @(
+            'Microsoft.Component.MSBuild',
+            'Microsoft.VisualStudio.Component.VC.CMake.Project',
+            'Microsoft.VisualStudio.Component.VC.Tools.x86.x64',
+            'Microsoft.VisualStudio.Component.VC.Redist.14.Latest'
+        )
+        if ($components.Count -ne $requiredVisualStudioComponents.Count -or @($requiredVisualStudioComponents | Where-Object { $_ -cnotin $components }).Count -ne 0) {
+            throw "Runner prerequisite '$id' component contract is incomplete or unsupported."
         }
-        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'versionFamily' -Context "runner prerequisite '$id'") -cnotmatch '^\[[0-9]+\.[0-9]+,[0-9]+\.[0-9]+\)$') {
-            throw "Runner prerequisite '$id' versionFamily must be a bounded version range."
+        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'generator' -Context "runner prerequisite '$id'") -cne 'Visual Studio 17 2022') {
+            throw "Runner prerequisite '$id' generator must be Visual Studio 17 2022."
         }
-        $probes = Get-RequiredValue -InputObject $prerequisite -Name 'versionProbes' -Context "runner prerequisite '$id'"
-        foreach ($property in $probes.PSObject.Properties) {
-            if ($property.Name -cnotin @('installationVersion', 'vcToolsVersion', 'compilerVersion', 'msbuildVersion')) {
-                throw "Runner prerequisite '$id' has unsupported version probe '$($property.Name)'."
-            }
+        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'toolset' -Context "runner prerequisite '$id'") -cne 'v143') {
+            throw "Runner prerequisite '$id' toolset must be v143."
         }
-        foreach ($name in @('installationVersion', 'vcToolsVersion', 'compilerVersion', 'msbuildVersion')) {
-            $value = [string](Get-RequiredValue -InputObject $probes -Name $name -Context "runner prerequisite '$id' versionProbes")
-            if ($value -cnotmatch '^[0-9]+\.[0-9]+\.[0-9]+(?:\.[0-9]+)?$') {
-                throw "Runner prerequisite '$id' $name version must be exact."
-            }
+        if ([string](Get-RequiredValue -InputObject $prerequisite -Name 'versionFamily' -Context "runner prerequisite '$id'") -cne '[17.0,18.0)') {
+            throw "Runner prerequisite '$id' versionFamily must be [17.0,18.0)."
+        }
+        $detection = Get-RequiredValue -InputObject $prerequisite -Name 'detection' -Context "runner prerequisite '$id'"
+        foreach ($property in $detection.PSObject.Properties) {
+            if ($property.Name -cnotin @('requiresComplete', 'requiresLaunchable')) { throw "Runner prerequisite '$id' detection has unsupported property '$($property.Name)'." }
+        }
+        if ((Get-RequiredValue -InputObject $detection -Name 'requiresComplete' -Context "runner prerequisite '$id' detection") -ne $true -or
+            (Get-RequiredValue -InputObject $detection -Name 'requiresLaunchable' -Context "runner prerequisite '$id' detection") -ne $true) {
+            throw "Runner prerequisite '$id' detection must require complete and launchable installations."
+        }
+        $bootstrap = Get-RequiredValue -InputObject $prerequisite -Name 'bootstrap' -Context "runner prerequisite '$id'"
+        foreach ($property in $bootstrap.PSObject.Properties) {
+            if ($property.Name -cnotin @('url', 'signerOrganization', 'arguments', 'successExitCodes', 'temporary')) { throw "Runner prerequisite '$id' bootstrap has unsupported property '$($property.Name)'." }
+        }
+        if ([string](Get-RequiredValue -InputObject $bootstrap -Name 'url' -Context "runner prerequisite '$id' bootstrap") -cne 'https://aka.ms/vs/17/release/vs_BuildTools.exe') {
+            throw "Runner prerequisite '$id' bootstrap url must be the official Visual Studio 2022 service."
+        }
+        if ([string](Get-RequiredValue -InputObject $bootstrap -Name 'signerOrganization' -Context "runner prerequisite '$id' bootstrap") -cne 'Microsoft Corporation') {
+            throw "Runner prerequisite '$id' bootstrap signer must be Microsoft Corporation."
+        }
+        if ([string]::Join('|', @($bootstrap.arguments)) -cne '--quiet|--wait|--norestart|--nocache') {
+            throw "Runner prerequisite '$id' bootstrap arguments are unsupported."
+        }
+        if ([string]::Join('|', @($bootstrap.successExitCodes)) -cne '0|1641|3010') {
+            throw "Runner prerequisite '$id' bootstrap success exit codes are unsupported."
+        }
+        if ((Get-RequiredValue -InputObject $bootstrap -Name 'temporary' -Context "runner prerequisite '$id' bootstrap") -ne $true) {
+            throw "Runner prerequisite '$id' bootstrap must be temporary."
         }
         $label = $prerequisite.PSObject.Properties['supportedRunnerLabel']
         if ($null -ne $label -and [string]$label.Value -cne 'windows-latest-l') {

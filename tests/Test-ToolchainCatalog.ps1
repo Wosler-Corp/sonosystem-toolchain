@@ -83,26 +83,27 @@ Invoke-Test 'valid fixture satisfies the published JSON schema' {
     }
 }
 
-Invoke-Test 'Visual Studio is an exact runner prerequisite, not a package' {
+Invoke-Test 'Visual Studio is a major-family licensed prerequisite, not a package' {
     $catalog = Copy-CatalogFixture
     Test-ToolchainCatalog -Catalog $catalog
     Assert-Equal -Actual @($catalog.runnerPrerequisites).Count -Expected 1 -Message 'Expected one runner prerequisite'
     $item = $catalog.runnerPrerequisites[0]
     Assert-Equal -Actual $item.id -Expected 'visual-studio-2022' -Message 'Prerequisite ID differs'
-    Assert-Equal -Actual $item.productId -Expected 'Microsoft.VisualStudio.Product.Enterprise' -Message 'Product ID differs'
+    Assert-Equal -Actual $item.productSelection -Expected '*' -Message 'Product selection must accept every edition'
     Assert-Equal -Actual @($item.requiredComponents) -Expected @(
         'Microsoft.Component.MSBuild',
         'Microsoft.VisualStudio.Component.VC.CMake.Project',
         'Microsoft.VisualStudio.Component.VC.Tools.x86.x64',
         'Microsoft.VisualStudio.Component.VC.Redist.14.Latest'
     ) -Message 'Required components differ'
-    Assert-Equal -Actual "$($item.toolset):$($item.versionFamily)" -Expected 'v143:[17.0,18.0)' -Message 'Toolset pin differs'
-    Assert-Equal -Actual @($item.versionProbes.PSObject.Properties | ForEach-Object { "$($_.Name)=$($_.Value)" }) -Expected @(
-        'installationVersion=17.14.0.0', 'vcToolsVersion=14.43.34808',
-        'compilerVersion=19.43.34810', 'msbuildVersion=17.14.0.0'
-    ) -Message 'Exact version probes differ'
+    Assert-Equal -Actual "$($item.generator):$($item.toolset):$($item.versionFamily)" -Expected 'Visual Studio 17 2022:v143:[17.0,18.0)' -Message 'Stable Visual Studio contract differs'
+    Assert-Equal -Actual "$($item.detection.requiresComplete):$($item.detection.requiresLaunchable)" -Expected 'True:True' -Message 'Detection must require complete and launchable installations'
+    Assert-Equal -Actual $item.bootstrap.url -Expected 'https://aka.ms/vs/17/release/vs_BuildTools.exe' -Message 'Official bootstrap URL differs'
+    Assert-Equal -Actual $item.bootstrap.signerOrganization -Expected 'Microsoft Corporation' -Message 'Bootstrap signer differs'
+    Assert-Equal -Actual @($item.bootstrap.arguments) -Expected @('--quiet', '--wait', '--norestart', '--nocache') -Message 'Bootstrap switches differ'
+    Assert-Equal -Actual @($item.bootstrap.successExitCodes) -Expected @(0, 1641, 3010) -Message 'Bootstrap success codes differ'
     Assert-Equal -Actual $item.supportedRunnerLabel -Expected 'windows-latest-l' -Message 'Runner label differs'
-    foreach ($field in @('release', 'upstream', 'install', 'assetUrl')) {
+    foreach ($field in @('release', 'upstream', 'install', 'assetUrl', 'productId', 'versionProbes')) {
         if ($item.PSObject.Properties[$field]) { throw "Prerequisite contains $field metadata." }
     }
     if ($item.id -cin @($catalog.packages.id)) { throw 'Prerequisite is packaged.' }
@@ -115,7 +116,10 @@ $invalidPrerequisites = @(
     @{ Name = 'duplicate prerequisite ID'; Error = 'duplicate.*prerequisite'; Mutate = { param($c) $c.runnerPrerequisites = @($c.runnerPrerequisites) + @(($c.runnerPrerequisites[0] | ConvertTo-Json -Depth 100 | ConvertFrom-Json -Depth 100)) } },
     @{ Name = 'prerequisite asset URL'; Error = 'assetUrl|unsupported'; Mutate = { param($c) $c.runnerPrerequisites[0] | Add-Member -NotePropertyName assetUrl -NotePropertyValue 'https://vendor.invalid/vs.exe' } },
     @{ Name = 'missing prerequisite component'; Error = 'component'; Mutate = { param($c) $c.runnerPrerequisites[0].requiredComponents = @() } },
-    @{ Name = 'floating prerequisite version'; Error = 'version'; Mutate = { param($c) $c.runnerPrerequisites[0].versionProbes.compilerVersion = 'latest' } },
+    @{ Name = 'edition-specific product'; Error = 'productId|unsupported'; Mutate = { param($c) $c.runnerPrerequisites[0] | Add-Member -NotePropertyName productId -NotePropertyValue 'Microsoft.VisualStudio.Product.Enterprise' } },
+    @{ Name = 'exact patch probes'; Error = 'versionProbes|unsupported'; Mutate = { param($c) $c.runnerPrerequisites[0] | Add-Member -NotePropertyName versionProbes -NotePropertyValue ([pscustomobject]@{ compilerVersion = '19.43.34810' }) } },
+    @{ Name = 'non-official bootstrap URL'; Error = 'bootstrap.*url'; Mutate = { param($c) $c.runnerPrerequisites[0].bootstrap.url = 'https://vendor.invalid/vs.exe' } },
+    @{ Name = 'non-Microsoft bootstrap signer'; Error = 'signer'; Mutate = { param($c) $c.runnerPrerequisites[0].bootstrap.signerOrganization = 'Contoso Ltd' } },
     @{ Name = 'unsupported runner label'; Error = 'label'; Mutate = { param($c) $c.runnerPrerequisites[0].supportedRunnerLabel = 'custom-image' } },
     @{ Name = 'prerequisite ID collides with package'; Error = 'prerequisite|duplicate'; Mutate = { param($c) $c.runnerPrerequisites[0].id = 'runtime' } },
     @{ Name = 'CI profile contains a driver'; Error = 'ci-windows.*driver|driver.*ci-windows'; Mutate = { param($c) $c.profiles.'ci-windows' = @('compiler', 'cp210x-driver') } },
@@ -220,9 +224,10 @@ $expectedDefinitionIds = @(
     'boost-mingw',
     'boost-msvc',
     'libdatachannel',
-    'cmake-sources',
-    'cp210x'
+    'cmake-sources'
 )
+$inventory = Get-Content -LiteralPath (Join-Path $repoRoot 'catalog/windows/dependency-inventory.json') -Raw | ConvertFrom-Json -Depth 100
+$driverGate = @($inventory.mappings | Where-Object id -CEQ 'cp210x')[0]
 
 function Read-ProductionCatalog {
     if (-not (Test-Path -LiteralPath $productionCatalogPath -PathType Leaf)) {
@@ -247,10 +252,25 @@ Invoke-Test 'production catalog defines the exact Windows package inventory' {
     $ciIds = @((Resolve-ToolchainProfile -Catalog $catalog -Profile 'ci-windows').id)
     $devIds = @((Resolve-ToolchainProfile -Catalog $catalog -Profile 'dev-windows').id)
     Assert-Equal -Actual $ciIds -Expected @($expectedDefinitionIds | Where-Object { $_ -cne 'cp210x' }) -Message 'CI profile inventory is incorrect'
-    Assert-Equal -Actual $devIds -Expected $expectedDefinitionIds -Message 'Developer profile must extend CI with CP210x'
+    Assert-Equal -Actual $devIds -Expected $expectedDefinitionIds -Message 'Developer package profile must use the same seven redistributable units as CI'
     if ('cp210x' -cin $ciIds) { throw 'CP210x must not belong to ci-windows.' }
-    if ('cp210x' -cnotin $devIds) { throw 'CP210x must belong to dev-windows.' }
+    if ('cp210x' -cin $devIds) { throw 'CP210x is an external prerequisite, not a dev-windows package.' }
     if (@($catalog.packages.id | Where-Object { $_ -match '(?i)inno' }).Count -ne 0) { throw 'Inno Setup is outside the SW_SS-655 package profiles.' }
+    if (@($catalog.packages.id | Where-Object { $_ -match '(?i)visual-studio|vs-build-tools|^msvc$' }).Count) { throw 'MSVC must remain a runner prerequisite.' }
+    if (@($catalog.runnerPrerequisites | Where-Object id -CEQ 'visual-studio-2022').Count -ne 1) { throw 'The Visual Studio runner prerequisite is missing.' }
+    foreach ($package in $catalog.packages) {
+        if ($package.install.kind -cnotin @('zip', 'driver')) { throw "Unsupported install recipe: $($package.id)" }
+        $definition = Read-PackageDefinition -Id $package.id
+        Assert-Equal -Actual $package.version -Expected $definition.version -Message 'Catalog version differs from package definition'
+        Assert-Equal -Actual $package.release.asset -Expected $definition.asset -Message 'Catalog asset differs from package definition'
+        Assert-Equal -Actual $package.release.tag -Expected 'windows-2026.09.0' -Message 'Catalog release tag differs'
+        Assert-Equal -Actual $package.release.sha256 -Expected $definition.verification.archiveSha256 -Message 'Catalog SHA-256 differs from verified package bytes'
+        Assert-Equal -Actual $package.release.sizeBytes -Expected $definition.verification.archiveSizeBytes -Message 'Catalog size differs from verified package bytes'
+        Assert-Equal -Actual @($package.licenses) -Expected @($definition.licenses) -Message 'Catalog licenses differ from package definition'
+        foreach ($license in $package.licenses) {
+            if (-not (Test-Path -LiteralPath (Join-Path $repoRoot $license) -PathType Leaf)) { throw "Missing license: $license" }
+        }
+    }
 }
 
 Invoke-Test 'host-tools pins CMake 3.30.6 and 7-Zip 19.00' {
@@ -320,11 +340,10 @@ Invoke-Test 'Boost, libdatachannel, and CMake source pins match SonoBot' {
         -Expected @('spdlog=1.15.0', 'googletest=1.14.0') -Message 'CMake source pins are incorrect'
 }
 
-Invoke-Test 'CP210x definition requires signed Universal driver INF metadata' {
-    $definition = Read-PackageDefinition -Id 'cp210x'
-    Assert-Equal -Actual $definition.product -Expected 'CP210x Universal Windows Driver' -Message 'CP210x product is incorrect'
-    Assert-Equal -Actual $definition.source.authenticode.status -Expected 'Valid' -Message 'CP210x must require a valid Authenticode signature'
-    Assert-Equal -Actual $definition.source.inf.version -Expected $definition.version -Message 'CP210x version must come from its INF'
+Invoke-Test 'CP210x remains an external prerequisite with no distributable definition, license tree, or fallback' {
+    if (Test-Path -LiteralPath (Join-Path $definitionRoot 'cp210x.json')) { throw 'CP210x definition must not exist.' }
+    if (Test-Path -LiteralPath (Join-Path $repoRoot 'licenses/cp210x')) { throw 'CP210x license tree must not exist.' }
+    Assert-Equal -Actual $driverGate.upstreamFallbackAllowed -Expected $false -Message 'No vendor fallback is authorized'
 }
 
 Write-Host "Catalog tests: $script:passed passed, $script:failed failed."

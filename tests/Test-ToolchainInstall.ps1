@@ -233,16 +233,21 @@ function Write-TestCatalog {
             id = 'visual-studio-2022'
             platform = 'windows'
             context = 'runner'
-            productId = 'Microsoft.VisualStudio.Product.Enterprise'
+            productSelection = '*'
             requiredComponents = @('Microsoft.Component.MSBuild', 'Microsoft.VisualStudio.Component.VC.CMake.Project', 'Microsoft.VisualStudio.Component.VC.Tools.x86.x64', 'Microsoft.VisualStudio.Component.VC.Redist.14.Latest')
             generator = 'Visual Studio 17 2022'
             toolset = 'v143'
             versionFamily = '[17.0,18.0)'
-            versionProbes = [ordered]@{
-                installationVersion = '17.14.0.0'
-                vcToolsVersion = '14.43.34808'
-                compilerVersion = '19.43.34810'
-                msbuildVersion = '17.14.0.0'
+            detection = [ordered]@{
+                requiresComplete = $true
+                requiresLaunchable = $true
+            }
+            bootstrap = [ordered]@{
+                url = 'https://aka.ms/vs/17/release/vs_BuildTools.exe'
+                signerOrganization = 'Microsoft Corporation'
+                arguments = @('--quiet', '--wait', '--norestart', '--nocache')
+                successExitCodes = @(0, 1641, 3010)
+                temporary = $true
             }
             supportedRunnerLabel = 'windows-latest-l'
         })
@@ -472,6 +477,25 @@ Invoke-Test 'records packages in deterministic dependency order' {
     } finally {
         Remove-TestEnvironment $environment
     }
+}
+
+Invoke-Test 'preserves a single command-version argument as one argument' {
+    $environment = New-TestEnvironment
+    try {
+        $content = "@echo off`r`nif `"%~1`"==`"--probe`" (`r`n  echo probe version 1.2.3`r`n  exit /b 0`r`n)`r`nexit /b 9`r`n"
+        $asset = New-ZipAsset -Environment $environment -AssetName 'probe-1.0.0.zip' -Content $content -RelativePath 'bin\probe.cmd'
+        $package = New-PackageDefinition -Id 'probe' -Version '1.0.0' -Asset $asset -ProbePath 'bin\probe.cmd'
+        $package.validation = @([ordered]@{
+            type = 'command-version'
+            path = 'bin\probe.cmd'
+            arguments = @('--probe')
+            version = '1.2.3'
+        })
+        Write-TestCatalog -Environment $environment -Packages @($package) -CiRoots @('probe') | Out-Null
+        Install-ToolchainProfile -CatalogPath $environment.CatalogPath -Profile ci-windows `
+            -InstallRoot $environment.InstallRoot -OfflineAssetRoot $environment.AssetRoot | Out-Null
+        Assert-True -Condition (Test-Path -LiteralPath $environment.StatePath -PathType Leaf) -Message 'Successful single-argument probe did not write state'
+    } finally { Remove-TestEnvironment $environment }
 }
 
 function New-FakePnPUtil {

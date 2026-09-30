@@ -8,7 +8,7 @@
       "id": "visual-studio-2022",
       "platform": "windows",
       "context": "runner",
-      "productId": "Microsoft.VisualStudio.Product.Enterprise",
+      "productSelection": "*",
       "requiredComponents": [
         "Microsoft.Component.MSBuild",
         "Microsoft.VisualStudio.Component.VC.CMake.Project",
@@ -18,11 +18,25 @@
       "generator": "Visual Studio 17 2022",
       "toolset": "v143",
       "versionFamily": "[17.0,18.0)",
-      "versionProbes": {
-        "installationVersion": "17.14.0.0",
-        "vcToolsVersion": "14.43.34808",
-        "compilerVersion": "19.43.34810",
-        "msbuildVersion": "17.14.0.0"
+      "detection": {
+        "requiresComplete": true,
+        "requiresLaunchable": true
+      },
+      "bootstrap": {
+        "url": "https://aka.ms/vs/17/release/vs_BuildTools.exe",
+        "signerOrganization": "Microsoft Corporation",
+        "arguments": [
+          "--quiet",
+          "--wait",
+          "--norestart",
+          "--nocache"
+        ],
+        "successExitCodes": [
+          0,
+          1641,
+          3010
+        ],
+        "temporary": true
       },
       "supportedRunnerLabel": "windows-latest-l"
     }

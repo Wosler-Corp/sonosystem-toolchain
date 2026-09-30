@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "cmake-sources",
+  "version": "2026.9.0",
+  "kind": "zip",
+  "asset": "cmake-sources-2026.9.0-windows-x86_64.zip",
+  "source": {
+    "sizeBytes": 5188514,
+    "sha256": "0071babca09d13fa760f9f8231adf9dce9a0e54b823b1c4b858b8b161a906633"
+  },
+  "upstream": {
+    "retrievedAt": "2026-09-29T23:31:40.916958Z",
+    "version": "1.15.0",
+    "url": "https://github.com/gabime/spdlog/archive/refs/tags/v1.15.0.zip"
+  },
+  "inputs": [
+    {
+      "url": "https://github.com/gabime/spdlog/archive/refs/tags/v1.15.0.zip",
+      "originalFilename": "spdlog-v1.15.0.zip",
+      "retrievedAt": "2026-09-29T23:31:40.916958Z",
+      "sha256": "076f3b4d452b95433083bcc66d07f79addba2d3fcb2b9177abeb7367d47aefbb",
+      "sizeBytes": 356872,
+      "detectedVersion": "1.15.0",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Source or ZIP archive; payload signatures recorded separately",
+        "status": "NotApplicable"
+      },
+      "repositoryCommit": "8e5613379f5140fefb0b60412fbf1f5406e7c7f8"
+    },
+    {
+      "url": "https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip",
+      "originalFilename": "googletest-v1.14.0.zip",
+      "retrievedAt": "2026-09-29T23:31:41.4901635Z",
+      "sha256": "1f357c27ca988c3f7c6b4bf68a9395005ac6761f034046e9dde0896e3aba00e4",
+      "sizeBytes": 1090859,
+      "detectedVersion": "1.14.0",
+      "licenseId": "BSD-3-Clause",
+      "authenticode": {
+        "reason": "Source or ZIP archive; payload signatures recorded separately",
+        "status": "NotApplicable"
+      },
+      "repositoryCommit": "f8d7d77c06936315286eb55f8de22cd23c188571"
+    }
+  ],
+  "contents": [
+    {
+      "id": "spdlog",
+      "version": "1.15.0"
+    },
+    {
+      "id": "googletest",
+      "version": "1.14.0"
+    }
+  ],
+  "licenses": [
+    "licenses/cmake-sources/2026.9.0/spdlog-LICENSE.txt",
+    "licenses/cmake-sources/2026.9.0/fmt-LICENSE.rst",
+    "licenses/cmake-sources/2026.9.0/googletest-LICENSE.txt"
+  ],
+  "closure": {
+    "scope": "spdlog with bundled fmt 11.0.2 and GoogleTest; optional tests/benchmarks disabled by shipped fail-closed override",
+    "status": "complete"
+  },
+  "redistribution": {
+    "obligations": "Retain all incorporated licenses/notices and source; no source offer needed because corresponding source is supplied",
+    "status": "permitted"
+  },
+  "verification": {
+    "secondBuildSha256": "f805d63937a40a4a66f237b94647f5d52ee1e5484c118262255357203aaee16b",
+    "offline": {
+      "secondInstall": "verified-no-op",
+      "verifiedAt": "2026-09-29T23:58:00.1137355Z",
+      "method": "Clean directory installation with OfflineAssetRoot and nonexistent GitHub CLI; dead HTTP/HTTPS/ALL proxies; Git protocols forbidden; local FetchContent overrides with FULLY_DISCONNECTED and unavailable declared remotes; compile and execute spdlog/GoogleTest smoke test; second install state hash unchanged.",
+      "status": "passed",
+      "runtime": "GCC 14.2.0 developer compiler prerequisite; no machine-wide changes"
+    },
+    "archiveSha256": "f805d63937a40a4a66f237b94647f5d52ee1e5484c118262255357203aaee16b",
+    "archiveSizeBytes": 1436590
+  }
+}

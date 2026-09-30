@@ -338,7 +338,7 @@ function Test-PackageProbes {
                 }
                 'command-version' {
                     if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { throw "Validation command is missing: $path" }
-                    $arguments = if ($null -ne $probe.PSObject.Properties['arguments']) { @($probe.arguments) } else { @('--version') }
+                    [string[]]$arguments = if ($null -ne $probe.PSObject.Properties['arguments']) { @($probe.arguments) } else { @('--version') }
                     $output = & $path @arguments 2>&1
                     if ($LASTEXITCODE -ne 0) { throw "Validation command failed: $path" }
                     $text = [string]::Join([Environment]::NewLine, @($output))

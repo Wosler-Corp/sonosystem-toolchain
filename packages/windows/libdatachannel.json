@@ -1,0 +1,941 @@
+{
+  "schemaVersion": 1,
+  "id": "libdatachannel",
+  "version": "0.21.2",
+  "toolchain": "gcc14.2-mingw",
+  "kind": "zip",
+  "asset": "libdatachannel-0.21.2-windows-x86_64-gcc14.2-mingw.zip",
+  "source": {
+    "sizeBytes": 76663581,
+    "sha256": "276a5b4a5bc11150c79be15363d43e972577faafb7e586bcfc91ffd14ec8baf7"
+  },
+  "upstream": {
+    "version": "0.21.2",
+    "retrievedAt": "2026-09-30T02:15:33.1747774Z",
+    "url": "https://codeload.github.com/paullouisageneau/libdatachannel/tar.gz/a0598f214b46217dd709f09522c601d5bc94b518"
+  },
+  "inputs": [
+    {
+      "finalUrl": "https://codeload.github.com/paullouisageneau/libdatachannel/tar.gz/a0598f214b46217dd709f09522c601d5bc94b518",
+      "url": "https://codeload.github.com/paullouisageneau/libdatachannel/tar.gz/a0598f214b46217dd709f09522c601d5bc94b518",
+      "originalFilename": "libdatachannel-a0598f214b46217dd709f09522c601d5bc94b518.tar.gz",
+      "license": "MPL-2.0",
+      "retrievedAt": "2026-09-30T02:15:33.1747774Z",
+      "signature": {
+        "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+        "status": "NotSigned"
+      },
+      "commit": "a0598f214b46217dd709f09522c601d5bc94b518",
+      "sha256": "fee73e1ed24884b8b3d185dbcbcd307c0b2a77c7f71eca65f4314cd388c64578",
+      "repo": "paullouisageneau/libdatachannel",
+      "commitVerification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      },
+      "sizeBytes": 52637391,
+      "name": "libdatachannel",
+      "detectedVersion": "0.21.2",
+      "licenseId": "MPL-2.0",
+      "authenticode": {
+        "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "finalUrl": "https://codeload.github.com/paullouisageneau/libjuice/tar.gz/2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+      "url": "https://codeload.github.com/paullouisageneau/libjuice/tar.gz/2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+      "originalFilename": "libjuice-2de35247f0b15fa385406f3e2020d0e3d4d5cfcc.tar.gz",
+      "license": "MPL-2.0",
+      "retrievedAt": "2026-09-30T02:15:34.8322797Z",
+      "signature": {
+        "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+        "status": "NotSigned"
+      },
+      "commit": "2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+      "sha256": "b0da5aa0dbbf0484641555eb0122898fae5ea0f0ff1b47324f9c69e57d18b915",
+      "repo": "paullouisageneau/libjuice",
+      "commitVerification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      },
+      "sizeBytes": 96152,
+      "name": "libjuice",
+      "detectedVersion": "2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+      "licenseId": "MPL-2.0",
+      "authenticode": {
+        "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "finalUrl": "https://codeload.github.com/SergiusTheBest/plog/tar.gz/e21baecd4753f14da64ede979c5a19302618b752",
+      "url": "https://codeload.github.com/SergiusTheBest/plog/tar.gz/e21baecd4753f14da64ede979c5a19302618b752",
+      "originalFilename": "plog-e21baecd4753f14da64ede979c5a19302618b752.tar.gz",
+      "license": "MIT",
+      "retrievedAt": "2026-09-30T02:15:35.6648618Z",
+      "signature": {
+        "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+        "status": "NotSigned"
+      },
+      "commit": "e21baecd4753f14da64ede979c5a19302618b752",
+      "sha256": "658e037fe999036cca8b91a61ac07171980aeeaf2e3421b87c71454fdff07ce2",
+      "repo": "SergiusTheBest/plog",
+      "commitVerification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      },
+      "sizeBytes": 132465,
+      "name": "plog",
+      "detectedVersion": "e21baecd4753f14da64ede979c5a19302618b752",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "finalUrl": "https://codeload.github.com/sctplab/usrsctp/tar.gz/ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+      "url": "https://codeload.github.com/sctplab/usrsctp/tar.gz/ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+      "originalFilename": "usrsctp-ebb18adac6501bad4501b1f6dccb67a1c85cc299.tar.gz",
+      "license": "BSD-3-Clause",
+      "retrievedAt": "2026-09-30T02:15:36.7305107Z",
+      "signature": {
+        "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+        "status": "NotSigned"
+      },
+      "commit": "ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+      "sha256": "1281cb1acd159e359aa52285de83fa00e5c1fdf4d2edcb02f7535b9550885f1c",
+      "repo": "sctplab/usrsctp",
+      "commitVerification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      },
+      "sizeBytes": 774243,
+      "name": "usrsctp",
+      "detectedVersion": "ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+      "licenseId": "BSD-3-Clause",
+      "authenticode": {
+        "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "finalUrl": "https://codeload.github.com/nlohmann/json/tar.gz/9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+      "url": "https://codeload.github.com/nlohmann/json/tar.gz/9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+      "originalFilename": "json-9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03.tar.gz",
+      "license": "MIT",
+      "retrievedAt": "2026-09-30T02:15:38.8469423Z",
+      "signature": {
+        "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+        "status": "NotSigned"
+      },
+      "commit": "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+      "sha256": "0dbc5e40a01ff142e7e68c03e85247a4dcede2f592d12d3677dee3664d17975a",
+      "repo": "nlohmann/json",
+      "commitVerification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJlZl1fCRBK7hj4Ov3rIwAA19QIAB1wCkR8TT7Z8yWlN06xYZ8h\nAVDO6pl49LGYzsLB2HFpu8HTI8qhh0QG6qWg4Yb659g0C0OkoUX6KpZqsEbdKw0+\niS1XiJ0phIAOIBsRyCHs+1uqOBPU95lYLg7cP5Di74oC2BhZM+RAAEgIWq0Cfx1w\nIQI3YBNTGdZ2duGrps+66GDMKEpYrBprP2eYzmhgek1pGFb0jmaPdjHZjL09c/+a\naja9ggQh8j0q6mY6Dex4obvOgc9q1aiQiGCtYsiWHqldYUoAaUuh/wPzc3eYztOf\n6IaiaVmQKydZDtxAKYdUiYMoozGWq1pPOJ6TG32l/CRTtpaetjwzPGc+vgoHGnc=\n=+6Sm\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 5af76d5aa32f4b473b5dd7f82fb9f2a4257322c6\nparent 1d597743d89eec9a1b599bfc69e36db94a5fe05c\nauthor Niels Lohmann <mail@nlohmann.me> 1701207391 +0100\ncommitter GitHub <noreply@github.com> 1701207391 +0100\n\nJSON for Modern C++ 3.11.3 (#4222)\n\n",
+        "verified_at": "2024-01-16T19:59:59Z"
+      },
+      "sizeBytes": 8054631,
+      "name": "json",
+      "detectedVersion": "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "finalUrl": "https://codeload.github.com/cisco/libsrtp/tar.gz/a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+      "url": "https://codeload.github.com/cisco/libsrtp/tar.gz/a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+      "originalFilename": "libsrtp-a566a9cfcd619e8327784aa7cff4a1276dc1e895.tar.gz",
+      "license": "BSD-3-Clause",
+      "retrievedAt": "2026-09-30T02:15:40.1865699Z",
+      "signature": {
+        "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+        "status": "NotSigned"
+      },
+      "commit": "a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+      "sha256": "e9ea6288246f3cb21954393a19fda09f4dd252147967a30bb8824c2168620c61",
+      "repo": "cisco/libsrtp",
+      "commitVerification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      },
+      "sizeBytes": 636836,
+      "name": "libsrtp",
+      "detectedVersion": "a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+      "licenseId": "BSD-3-Clause",
+      "authenticode": {
+        "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "sizeBytes": 6252442,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-binutils-2.43.1-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "a40556982bd9d307888e2b935b4aefa60614a342e777e456227b418e9549782f",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "f1c4d14f286ed679e6a4572a55c7780ef91eefb70dd1aebb6513842e561c92ed"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "2.43.1-1",
+      "licenseId": "spdx:GPL-3.0-or-later AND GPL-2.0-or-later AND LGPL-3.0-or-later AND LGPL-2.0-or-later",
+      "originalFilename": "mingw-w64-x86_64-binutils-2.43.1-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:06.5174107Z"
+    },
+    {
+      "sizeBytes": 4682185,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-crt-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "224e40f86f265e7e574fd119f18002ea0383cbfee0c719f2861a3efa80fe2da8",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "9f7cdde8cf4334e1bd1ffa48cdb8d7741bbaf39a632f042acf81e1976a5f3663"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "12.0.0.r320.g335ffe5b7-1",
+      "licenseId": "spdx:ZPL-2.1",
+      "originalFilename": "mingw-w64-x86_64-crt-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:06.9214078Z"
+    },
+    {
+      "sizeBytes": 45606867,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-gcc-14.2.0-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "851c5ebcc4f787bce96c309b5c0c85c9f537053765520180f72f343b94d86b3b",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "9eff9d8a82ef2cf131618453c53fd52e4af2ced73ae1f16c7f4b1a00db3931da"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "14.2.0-1",
+      "licenseId": "spdx:GPL-3.0-or-later",
+      "originalFilename": "mingw-w64-x86_64-gcc-14.2.0-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:07.850126Z"
+    },
+    {
+      "sizeBytes": 1047706,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-gcc-libs-14.2.0-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "3ac4352d1a4dec21508a71d744ff055d5643b2937c799b11114a33066abfb963",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "6ef208050c3d8818f2f6f5782731f40e60df6dd0eef908e2d253e29dfa3807ca"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "14.2.0-1",
+      "licenseId": "spdx:GPL-3.0-or-later WITH GCC-exception-3.1 AND LGPL-2.1-or-later",
+      "originalFilename": "mingw-w64-x86_64-gcc-libs-14.2.0-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:02.7965064Z"
+    },
+    {
+      "sizeBytes": 304282,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-gettext-runtime-0.22.5-2-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "1fabd1963b4b436d124e4a2963d9807b945bde01ea05350e58afabd7989eb24d",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "66f9ea9f7f3eef058d13cf82a606bcb0ad114be02bf462dc40453139e2d4d7dd"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "0.22.5-2",
+      "licenseId": "spdx:GPL-3.0-or-later AND LGPL-2.1-or-later",
+      "originalFilename": "mingw-w64-x86_64-gettext-runtime-0.22.5-2-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:12.1285733Z"
+    },
+    {
+      "sizeBytes": 591674,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-gmp-6.3.0-2-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "8924433974c4add46cb46ea4f6ef283b5c5139d3f552375115b5580f855015cc",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "a70d99dc9a6165886e1a03c973246377eda2005f33fe9f07815ae8f43aa0a8e5"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "6.3.0-2",
+      "licenseId": "LGPL3 AND GPL",
+      "originalFilename": "mingw-w64-x86_64-gmp-6.3.0-2-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:21.3595115Z"
+    },
+    {
+      "sizeBytes": 6451206,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-headers-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "05ae98c547a89ff1cdefca7fa4759c8ff744cabe8e7f040f5072491f2acdf17a",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "a8f3ee1c7ba55ab18c2fbfb1ebd3369013369428f4d3481501227ddff36d1af6"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "12.0.0.r320.g335ffe5b7-1",
+      "licenseId": "spdx:ZPL-2.1 AND LGPL-2.1-or-later",
+      "originalFilename": "mingw-w64-x86_64-headers-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:13.6681638Z"
+    },
+    {
+      "sizeBytes": 1476620,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-isl-0.26-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "f99e5e9ba418f39ab8e2a21dc368dd881a74d4241618ae1354b30f115764de41",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "d40de2cfb206b65960e98d1be82416cabaff12a4ce949f2d6ff53164a4ae2d1e"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "0.26-1",
+      "licenseId": "MIT",
+      "originalFilename": "mingw-w64-x86_64-isl-0.26-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:04.1112725Z"
+    },
+    {
+      "sizeBytes": 736116,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-libiconv-1.17-4-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "ceedb36b46fe8e6ff69d619774c4d2ce1f118b50ee6a00194d874855c3ae6a57",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "084b4d7c51f6f87c464d6c68c35af2ecbb52122149462cc2fb621b7c5c899a55"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "1.17-4",
+      "licenseId": "spdx:LGPL-2.1-or-later AND documentation:spdx:GPL-3.0-or-later",
+      "originalFilename": "mingw-w64-x86_64-libiconv-1.17-4-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:23.1359553Z"
+    },
+    {
+      "sizeBytes": 29229,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-libwinpthread-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "244e3ee1f23ee0645307a80009a65c7b9d24a3d277d42b909d3d699c5e4bd619",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "bf74f54e6663f86866587426bb7ce9282b5a32ce2f923e0047ce5dee5b5bd10f"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "12.0.0.r320.g335ffe5b7-1",
+      "licenseId": "spdx:MIT AND BSD-3-Clause-Clear",
+      "originalFilename": "mingw-w64-x86_64-libwinpthread-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:07.3300577Z"
+    },
+    {
+      "sizeBytes": 141873,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-make-4.4.1-3-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "cc3f346fa9cef011ac5fbaabcda8d7722480d0fa1295d9282dd7e30c8013e2e9",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "cc423e60d44db0dee902c613874af49456bd8e2df3957951445ef64f8f12a002"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "4.4.1-3",
+      "licenseId": "GPL3",
+      "originalFilename": "mingw-w64-x86_64-make-4.4.1-3-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:13.2215545Z"
+    },
+    {
+      "sizeBytes": 131795,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-mpc-1.3.1-2-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "2598ea7ea20b8fe05a2f2ebd2678b0b8d2420dfbc8f6f7bba69b67f3ff3dad12",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "a71bda2ca11b9da47632b3ab80c008bbf2fbd03bb47007e66e369b195f04a281"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "1.3.1-2",
+      "licenseId": "LGPL",
+      "originalFilename": "mingw-w64-x86_64-mpc-1.3.1-2-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:13.8567677Z"
+    },
+    {
+      "sizeBytes": 548633,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-mpfr-4.2.1-2-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "27bde37ad759ebc46f9c6fd6f0deabd4432a60063545289fe5ead7936f9c26c9",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "347ab3962e8d18d6a8dad3efc3cae8e16845879568e7db5a0cdaa094880b9e96"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "4.2.1-2",
+      "licenseId": "spdx:LGPL-3.0-or-later",
+      "originalFilename": "mingw-w64-x86_64-mpfr-4.2.1-2-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:04.278156Z"
+    },
+    {
+      "sizeBytes": 7641778,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-openssl-3.3.2-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "7b91d7c8b0c7087060ea5d4f8abfb1e6608f351f6e4f11b38b5cc538cdf940b9",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "b49b832bcdb4f2008ab76f9f16ff9353e26ff4a1329bc31c181cbe6cf58f4cde"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "3.3.2-1",
+      "licenseId": "spdx:Apache-2.0",
+      "originalFilename": "mingw-w64-x86_64-openssl-3.3.2-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:04.7220745Z"
+    },
+    {
+      "sizeBytes": 3195,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-windows-default-manifest-6.4-4-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "716b48ad9fe4a9c88c3a323279224943b79a04152bce66797debc83491bb91fa",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "49157a0c6a32ca2bcaf4236c5b29b5d965efcca0989051f050343f49a4744087"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "6.4-4",
+      "licenseId": "BSD",
+      "originalFilename": "mingw-w64-x86_64-windows-default-manifest-6.4-4-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:22.550701Z"
+    },
+    {
+      "sizeBytes": 40800,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-winpthreads-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "a1fb7992e110fd2bc0b70d758646de9597bdc5a1a6e4ed9abca52b8903429e52",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "3a514bc91ae79391f5f61b43fb6ebd0d69f938a76f57d7d14f7d56b44d423bf3"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "12.0.0.r320.g335ffe5b7-1",
+      "licenseId": "spdx:MIT AND BSD-3-Clause-Clear",
+      "originalFilename": "mingw-w64-x86_64-winpthreads-git-12.0.0.r320.g335ffe5b7-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:21.9336805Z"
+    },
+    {
+      "sizeBytes": 106864,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-zlib-1.3.1-1-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "ca04caafd73e15de216502d53038406e79d29b20c47d9a409e9b2d12858105f0",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "6cbc9cb05eeab6bf07b4574e5cb442d7c749ac0ef54a5f8d6ffbefd2bd79a0b3"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "1.3.1-1",
+      "licenseId": "spdx:Zlib",
+      "originalFilename": "mingw-w64-x86_64-zlib-1.3.1-1-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:04.0082949Z"
+    },
+    {
+      "sizeBytes": 651190,
+      "retrievalMeaning": "Exact signed local package cache recovered to staging; original download timestamp unknown",
+      "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-zstd-1.5.6-2-any.pkg.tar.zst",
+      "originalCacheRetrievalAt": null,
+      "sha256": "1475d6d9129aad9773b92deab2033f245d4dbeb55363bad18fd49f76e631e125",
+      "signature": {
+        "status": "Valid",
+        "fingerprint": "5F944B027F7FE2091985AA2EFA11531AA0AA7F57",
+        "sha256": "09904f9d583d24329a711d77768e8590207aa036d817cd24f79b0583d524a1cb"
+      },
+      "role": "Build input; only DLLs listed in runtime evidence redistributed",
+      "detectedVersion": "1.5.6-2",
+      "licenseId": "spdx:BSD-3-Clause OR GPL-2.0-or-later",
+      "originalFilename": "mingw-w64-x86_64-zstd-1.5.6-2-any.pkg.tar.zst",
+      "authenticode": {
+        "reason": "MSYS2 archive detached OpenPGP signature verified; no Authenticode archive format",
+        "status": "NotApplicable"
+      },
+      "retrievedAt": "2026-09-30T00:43:14.168412Z"
+    },
+    {
+      "url": "https://github.com/Kitware/CMake/releases/download/v3.30.6/cmake-3.30.6-windows-x86_64.zip",
+      "originalFilename": "cmake-3.30.6-windows-x86_64.zip",
+      "retrievedAt": "2026-09-29T23:31:36.9531502Z",
+      "sha256": "08f690b982c00a7ed35972653b662c4ab566c19b4a6fc1efc5a79011a12fb662",
+      "sizeBytes": 45418553,
+      "detectedVersion": "3.30.6",
+      "licenseId": "BSD-3-Clause AND bundled compatible licenses",
+      "authenticode": {
+        "reason": "Source or ZIP archive; payload signatures recorded separately",
+        "status": "NotApplicable"
+      },
+      "role": "Build-only CMake; not redistributed in this package"
+    }
+  ],
+  "licenses": [
+    "licenses/libdatachannel/0.21.2/crt/COPYING",
+    "licenses/libdatachannel/0.21.2/crt/COPYING.MinGW-w64-runtime.txt",
+    "licenses/libdatachannel/0.21.2/crt/COPYING.MinGW-w64.txt",
+    "licenses/libdatachannel/0.21.2/gcc-libs/COPYING.LIB",
+    "licenses/libdatachannel/0.21.2/gcc-libs/COPYING.RUNTIME",
+    "licenses/libdatachannel/0.21.2/gcc-libs/COPYING3",
+    "licenses/libdatachannel/0.21.2/gcc-libs/README",
+    "licenses/libdatachannel/0.21.2/headers/COPYING",
+    "licenses/libdatachannel/0.21.2/headers/COPYING.MinGW-w64-runtime.txt",
+    "licenses/libdatachannel/0.21.2/headers/COPYING.MinGW-w64.txt",
+    "licenses/libdatachannel/0.21.2/headers/ddk-readme.txt",
+    "licenses/libdatachannel/0.21.2/json-LICENSE.MIT",
+    "licenses/libdatachannel/0.21.2/libdatachannel-LICENSE",
+    "licenses/libdatachannel/0.21.2/libjuice-LICENSE",
+    "licenses/libdatachannel/0.21.2/libsrtp-LICENSE",
+    "licenses/libdatachannel/0.21.2/libwinpthread/COPYING",
+    "licenses/libdatachannel/0.21.2/openssl/LICENSE",
+    "licenses/libdatachannel/0.21.2/plog-LICENSE",
+    "licenses/libdatachannel/0.21.2/REDISTRIBUTION.md",
+    "licenses/libdatachannel/0.21.2/usrsctp-LICENSE.md"
+  ],
+  "closure": {
+    "dllImports": [
+      {
+        "sizeBytes": 5152384,
+        "file": "libcrypto-3-x64.dll",
+        "sha256": "1c300b84f7f31777b743f02346f3e35be092c0ae309ea990fc6bb393323e72b6",
+        "imports": [
+          "ADVAPI32.dll",
+          "CRYPT32.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "USER32.dll",
+          "WS2_32.dll"
+        ]
+      },
+      {
+        "sizeBytes": 4680450,
+        "file": "libdatachannel.dll",
+        "sha256": "f907360ecd2db3b58b65dbd4de24ec787e491859ed783f078f827a4b21abb35e",
+        "imports": [
+          "bcrypt.dll",
+          "libgcc_s_seh-1.dll",
+          "IPHLPAPI.DLL",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll",
+          "libstdc++-6.dll",
+          "WS2_32.dll",
+          "libcrypto-3-x64.dll",
+          "libssl-3-x64.dll"
+        ]
+      },
+      {
+        "sizeBytes": 151731,
+        "file": "libgcc_s_seh-1.dll",
+        "sha256": "0e057fccb0e7656bd096bf25a4714e74245ea02b644dafcc2106f8c524fcc535",
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll"
+        ]
+      },
+      {
+        "sizeBytes": 1016987,
+        "file": "libssl-3-x64.dll",
+        "sha256": "5549b137f1032ccd7bb419713996f0f86806cb2aea3a446425cd00d24ba2ab6d",
+        "imports": [
+          "libcrypto-3-x64.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "WS2_32.dll"
+        ]
+      },
+      {
+        "sizeBytes": 2400168,
+        "file": "libstdc++-6.dll",
+        "sha256": "713e5d696c6929b9c4cd9186ef0baaba3e1d30b42f43b60d4bbb44525d832e4d",
+        "imports": [
+          "libgcc_s_seh-1.dll",
+          "KERNEL32.dll",
+          "msvcrt.dll",
+          "libwinpthread-1.dll"
+        ]
+      },
+      {
+        "sizeBytes": 60798,
+        "file": "libwinpthread-1.dll",
+        "sha256": "1a4f9324673d884914b0fd1a6c55f8bcc84f2cbef52c46d0e4d0a541e0759837",
+        "imports": [
+          "KERNEL32.dll",
+          "msvcrt.dll"
+        ]
+      }
+    ],
+    "externalPrerequisites": [
+      "Windows x86_64 system DLLs"
+    ],
+    "status": "complete",
+    "configuration": "Release; bundled static submodules; shared libdatachannel/OpenSSL/GCC runtimes",
+    "sourceCommit": "a0598f214b46217dd709f09522c601d5bc94b518",
+    "submodules": [
+      {
+        "finalUrl": "https://codeload.github.com/paullouisageneau/libjuice/tar.gz/2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+        "url": "https://codeload.github.com/paullouisageneau/libjuice/tar.gz/2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+        "originalFilename": "libjuice-2de35247f0b15fa385406f3e2020d0e3d4d5cfcc.tar.gz",
+        "license": "MPL-2.0",
+        "retrievedAt": "2026-09-30T02:15:34.8322797Z",
+        "signature": {
+          "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+          "status": "NotSigned"
+        },
+        "commit": "2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+        "sha256": "b0da5aa0dbbf0484641555eb0122898fae5ea0f0ff1b47324f9c69e57d18b915",
+        "repo": "paullouisageneau/libjuice",
+        "commitVerification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "sizeBytes": 96152,
+        "name": "libjuice",
+        "detectedVersion": "2de35247f0b15fa385406f3e2020d0e3d4d5cfcc",
+        "licenseId": "MPL-2.0",
+        "authenticode": {
+          "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+          "status": "NotApplicable"
+        }
+      },
+      {
+        "finalUrl": "https://codeload.github.com/SergiusTheBest/plog/tar.gz/e21baecd4753f14da64ede979c5a19302618b752",
+        "url": "https://codeload.github.com/SergiusTheBest/plog/tar.gz/e21baecd4753f14da64ede979c5a19302618b752",
+        "originalFilename": "plog-e21baecd4753f14da64ede979c5a19302618b752.tar.gz",
+        "license": "MIT",
+        "retrievedAt": "2026-09-30T02:15:35.6648618Z",
+        "signature": {
+          "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+          "status": "NotSigned"
+        },
+        "commit": "e21baecd4753f14da64ede979c5a19302618b752",
+        "sha256": "658e037fe999036cca8b91a61ac07171980aeeaf2e3421b87c71454fdff07ce2",
+        "repo": "SergiusTheBest/plog",
+        "commitVerification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "sizeBytes": 132465,
+        "name": "plog",
+        "detectedVersion": "e21baecd4753f14da64ede979c5a19302618b752",
+        "licenseId": "MIT",
+        "authenticode": {
+          "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+          "status": "NotApplicable"
+        }
+      },
+      {
+        "finalUrl": "https://codeload.github.com/sctplab/usrsctp/tar.gz/ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+        "url": "https://codeload.github.com/sctplab/usrsctp/tar.gz/ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+        "originalFilename": "usrsctp-ebb18adac6501bad4501b1f6dccb67a1c85cc299.tar.gz",
+        "license": "BSD-3-Clause",
+        "retrievedAt": "2026-09-30T02:15:36.7305107Z",
+        "signature": {
+          "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+          "status": "NotSigned"
+        },
+        "commit": "ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+        "sha256": "1281cb1acd159e359aa52285de83fa00e5c1fdf4d2edcb02f7535b9550885f1c",
+        "repo": "sctplab/usrsctp",
+        "commitVerification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "sizeBytes": 774243,
+        "name": "usrsctp",
+        "detectedVersion": "ebb18adac6501bad4501b1f6dccb67a1c85cc299",
+        "licenseId": "BSD-3-Clause",
+        "authenticode": {
+          "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+          "status": "NotApplicable"
+        }
+      },
+      {
+        "finalUrl": "https://codeload.github.com/nlohmann/json/tar.gz/9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+        "url": "https://codeload.github.com/nlohmann/json/tar.gz/9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+        "originalFilename": "json-9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03.tar.gz",
+        "license": "MIT",
+        "retrievedAt": "2026-09-30T02:15:38.8469423Z",
+        "signature": {
+          "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+          "status": "NotSigned"
+        },
+        "commit": "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+        "sha256": "0dbc5e40a01ff142e7e68c03e85247a4dcede2f592d12d3677dee3664d17975a",
+        "repo": "nlohmann/json",
+        "commitVerification": {
+          "verified": true,
+          "reason": "valid",
+          "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJlZl1fCRBK7hj4Ov3rIwAA19QIAB1wCkR8TT7Z8yWlN06xYZ8h\nAVDO6pl49LGYzsLB2HFpu8HTI8qhh0QG6qWg4Yb659g0C0OkoUX6KpZqsEbdKw0+\niS1XiJ0phIAOIBsRyCHs+1uqOBPU95lYLg7cP5Di74oC2BhZM+RAAEgIWq0Cfx1w\nIQI3YBNTGdZ2duGrps+66GDMKEpYrBprP2eYzmhgek1pGFb0jmaPdjHZjL09c/+a\naja9ggQh8j0q6mY6Dex4obvOgc9q1aiQiGCtYsiWHqldYUoAaUuh/wPzc3eYztOf\n6IaiaVmQKydZDtxAKYdUiYMoozGWq1pPOJ6TG32l/CRTtpaetjwzPGc+vgoHGnc=\n=+6Sm\n-----END PGP SIGNATURE-----\n",
+          "payload": "tree 5af76d5aa32f4b473b5dd7f82fb9f2a4257322c6\nparent 1d597743d89eec9a1b599bfc69e36db94a5fe05c\nauthor Niels Lohmann <mail@nlohmann.me> 1701207391 +0100\ncommitter GitHub <noreply@github.com> 1701207391 +0100\n\nJSON for Modern C++ 3.11.3 (#4222)\n\n",
+          "verified_at": "2024-01-16T19:59:59Z"
+        },
+        "sizeBytes": 8054631,
+        "name": "json",
+        "detectedVersion": "9cca280a4d0ccf0c08f47a99aa71d1b0e52f8d03",
+        "licenseId": "MIT",
+        "authenticode": {
+          "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+          "status": "NotApplicable"
+        }
+      },
+      {
+        "finalUrl": "https://codeload.github.com/cisco/libsrtp/tar.gz/a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+        "url": "https://codeload.github.com/cisco/libsrtp/tar.gz/a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+        "originalFilename": "libsrtp-a566a9cfcd619e8327784aa7cff4a1276dc1e895.tar.gz",
+        "license": "BSD-3-Clause",
+        "retrievedAt": "2026-09-30T02:15:40.1865699Z",
+        "signature": {
+          "reason": "GitHub commit-addressed source archive; exact Git object and release tag checked separately",
+          "status": "NotSigned"
+        },
+        "commit": "a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+        "sha256": "e9ea6288246f3cb21954393a19fda09f4dd252147967a30bb8824c2168620c61",
+        "repo": "cisco/libsrtp",
+        "commitVerification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        },
+        "sizeBytes": 636836,
+        "name": "libsrtp",
+        "detectedVersion": "a566a9cfcd619e8327784aa7cff4a1276dc1e895",
+        "licenseId": "BSD-3-Clause",
+        "authenticode": {
+          "reason": "Commit-addressed source archive; commit/tag signature evidence recorded separately",
+          "status": "NotApplicable"
+        }
+      }
+    ]
+  },
+  "redistribution": {
+    "status": "permitted",
+    "sourceAvailability": "sources/ within this same package",
+    "obligations": "Exact MPL sources and all five submodule sources included in ZIP; MPL/MIT/BSD/Apache/GCC Runtime Library Exception/MinGW notices retained"
+  },
+  "buildProvenance": {
+    "opensslVersion": "3.3.2-1",
+    "sourceCommit": "a0598f214b46217dd709f09522c601d5bc94b518",
+    "gccVersion": "14.2.0-1",
+    "networkControls": "Dead HTTP/HTTPS/ALL proxies; forbidden Git protocols; local-only staged PATH and explicit OpenSSL roots; FetchContent fully disconnected; no machine-wide firewall changes",
+    "upstreamTests": "Disabled by approved NO_TESTS=ON",
+    "configureFlags": [
+      "-S",
+      "/workspace/libdatachannel/source",
+      "-B",
+      "/workspace/libdatachannel/build",
+      "-G",
+      "MinGW Makefiles",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_INSTALL_PREFIX=/workspace/libdatachannel/package-root",
+      "-DCMAKE_C_COMPILER=/workspace/libdatachannel/toolchain/mingw64/bin/gcc.exe",
+      "-DCMAKE_CXX_COMPILER=/workspace/libdatachannel/toolchain/mingw64/bin/g++.exe",
+      "-DCMAKE_MAKE_PROGRAM=mingw32-make.exe",
+      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+      "-DOPENSSL_ROOT_DIR=/workspace/libdatachannel/toolchain/mingw64",
+      "-DOPENSSL_INCLUDE_DIR=/workspace/libdatachannel/toolchain/mingw64/include",
+      "-DOPENSSL_SSL_LIBRARY=/workspace/libdatachannel/toolchain/mingw64/lib/libssl.dll.a",
+      "-DOPENSSL_CRYPTO_LIBRARY=/workspace/libdatachannel/toolchain/mingw64/lib/libcrypto.dll.a",
+      "-DCMAKE_PREFIX_PATH=/workspace/libdatachannel/toolchain/mingw64",
+      "-DUSE_GNUTLS=0",
+      "-DUSE_NICE=0",
+      "-DNO_TESTS=ON",
+      "-DNO_EXAMPLES=ON",
+      "-DPREFER_SYSTEM_LIB=OFF",
+      "-DUSE_SYSTEM_SRTP=OFF",
+      "-DUSE_SYSTEM_JUICE=OFF",
+      "-DUSE_SYSTEM_USRSCTP=OFF",
+      "-DUSE_SYSTEM_PLOG=OFF",
+      "-DUSE_SYSTEM_JSON=OFF",
+      "-DBUILD_SHARED_LIBS=OFF",
+      "-Dsctp_build_shared_lib=OFF",
+      "-Dsctp_build_programs=OFF",
+      "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+      "-DFETCHCONTENT_UPDATES_DISCONNECTED=ON",
+      "-DCMAKE_DISABLE_FIND_PACKAGE_Git=TRUE",
+      "-DCMAKE_DISABLE_FIND_PACKAGE_PkgConfig=TRUE",
+      "-DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF",
+      "-DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF",
+      "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "-DCMAKE_C_FLAGS=-fcanon-prefix-map \"-ffile-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\" \"-fdebug-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\" \"-ffile-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\" \"-fdebug-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\"",
+      "-DCMAKE_CXX_FLAGS=-fcanon-prefix-map \"-ffile-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\" \"-fdebug-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\" \"-ffile-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\" \"-fdebug-prefix-map=/workspace/libdatachannel=/build/libdatachannel-work\""
+    ],
+    "sourceRewrites": [],
+    "tag": {
+      "node_id": "TA_kwDOC92rGNoAKGM5MTI2OWJmODZlZDljM2EwN2I1ZTZjY2ExNGNhOTFmYTBiYTYxMjY",
+      "sha": "c91269bf86ed9c3a07b5e6cca14ca91fa0ba6126",
+      "url": "https://api.github.com/repos/paullouisageneau/libdatachannel/git/tags/c91269bf86ed9c3a07b5e6cca14ca91fa0ba6126",
+      "tagger": {
+        "name": "Paul-Louis Ageneau",
+        "email": "paul-louis@ageneau.org",
+        "date": "2024-07-02T10:43:00Z"
+      },
+      "object": {
+        "sha": "a0598f214b46217dd709f09522c601d5bc94b518",
+        "type": "commit",
+        "url": "https://api.github.com/repos/paullouisageneau/libdatachannel/git/commits/a0598f214b46217dd709f09522c601d5bc94b518"
+      },
+      "tag": "v0.21.2",
+      "message": "Version 0.21.2\n\n- Fix uninitialized playout delay fields in RtpPacketizationConfig\n- Fix missing notify on queue limit preventing thread from waking up\n",
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "cmake": {
+      "verification": "Used executable byte-for-byte hash equals the exact pinned host-tools upstream ZIP member",
+      "version": "3.30.6",
+      "sha256": "7f4604b29fcdc285290186fd92c41de311d9e7877144d1bef06d6e0856ba168d",
+      "sourceArchiveSha256": "08f690b982c00a7ed35972653b662c4ab566c19b4a6fc1efc5a79011a12fb662"
+    }
+  },
+  "verification": {
+    "archiveSha256": "e3d2e4737831073a27a6ce4625d51d14806cf4bad8a4af35619d55c6ed6ac6e5",
+    "secondBuildSha256": "e3d2e4737831073a27a6ce4625d51d14806cf4bad8a4af35619d55c6ed6ac6e5",
+    "archiveSizeBytes": 67393655,
+    "offline": {
+      "status": "passed",
+      "method": "Clean offline resolver installation, exact CMake imported target compile/link; runtime PATH only installed package and Windows; dead proxies, forbidden Git transports, no GitHub CLI; verified second install state digest unchanged",
+      "stateSha256": "75b818d0988ecc86e851fbafd237e072ddb9ba8f8a2650c6434719b9f09746fb",
+      "verifiedAt": "2026-09-30T02:47:54.0057083Z",
+      "secondInstall": "verified-no-op",
+      "negativeAcquisitionProbes": {
+        "status": "passed",
+        "curlExitCode": 7,
+        "boundary": "Application-level acquisition paths blocked; OS network isolation not asserted",
+        "gitExitCode": 128
+      },
+      "noOpEvidence": {
+        "installedStateSha256Unchanged": true,
+        "installedDllTimestampUnchanged": true
+      }
+    }
+  }
+}

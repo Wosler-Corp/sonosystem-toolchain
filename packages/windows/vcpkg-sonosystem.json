@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "id": "vcpkg-sonosystem",
+  "version": "2025.12.12",
+  "kind": "zip",
+  "asset": "vcpkg-sonosystem-2025.12.12-windows-x86_64.zip",
+  "source": {
+    "sizeBytes": 124402376,
+    "sha256": "355e8118b5d520fbdeb478ab7bb3bff5dffd1a05747c10b17e6190f8e9527eac"
+  },
+  "upstream": {
+    "retrievedAt": "2026-09-30T02:16:48.7762973Z",
+    "url": "https://github.com/microsoft/vcpkg/archive/84bab45d415d22042bd0b9081aea57f362da3f35.zip",
+    "version": "2025.12.12"
+  },
+  "inputs": [
+    {
+      "url": "https://github.com/microsoft/vcpkg/archive/84bab45d415d22042bd0b9081aea57f362da3f35.zip",
+      "retrievedAt": "2026-09-30T02:16:48.7762973Z",
+      "originalFilename": "vcpkg-2025.12.12.zip",
+      "sha256": "ce76bac1f30f65a03748e6cffca767d5fc65065b84ff58fffeb64d1c9af0b51b",
+      "sizeBytes": 10521075,
+      "detectedVersion": "2025.12.12",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Source archive, no Authenticode signature",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "url": "https://github.com/microsoft/vcpkg-tool/releases/download/2025-12-05/vcpkg.exe",
+      "retrievedAt": "2026-09-30T02:16:49.389723Z",
+      "originalFilename": "vcpkg-2025-12-05.exe",
+      "sha256": "37f05505d35081bd0c89d52bb4a2038cc2dcececddd2aaefc8af7ae6912e698c",
+      "sizeBytes": 5450272,
+      "detectedVersion": "2025-12-05",
+      "licenseId": "MIT",
+      "authenticode": {
+        "signerSubject": "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "fileVersion": null,
+        "status": "Valid"
+      }
+    },
+    {
+      "url": "https://github.com/microsoft/vcpkg-tool/archive/d84fb805651077f4ed3a97b61fbad2b513462f8b.zip",
+      "retrievedAt": "2026-09-30T02:16:50.3484629Z",
+      "originalFilename": "vcpkg-tool-d84fb805651077f4ed3a97b61fbad2b513462f8b.zip",
+      "sha256": "c19bd56ac081dc1b2e67e126f70b9c30f8f33be9b7831f13dc8502935719e25c",
+      "sizeBytes": 3587248,
+      "detectedVersion": "2025-12-05",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Source archive, no Authenticode signature",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "url": "https://github.com/microsoft/vcpkg/archive/544a4c5c297e60e4ac4a5a1810df66748d908869.zip",
+      "retrievedAt": "2026-09-30T02:16:51.9373708Z",
+      "originalFilename": "vcpkg-registry-544a4c5c297e60e4ac4a5a1810df66748d908869.zip",
+      "sha256": "ed5eb060649b8ae39ff420feb08ae50b30adf017f383b8545cd856038005cb92",
+      "sizeBytes": 10534048,
+      "detectedVersion": "544a4c5c297e60e4ac4a5a1810df66748d908869",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Source archive, no Authenticode signature",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "url": "https://github.com/microsoft/vcpkg/archive/054637a2ae63c6c647b3169251759910cc4c984a.zip",
+      "retrievedAt": "2026-09-30T02:16:53.4756394Z",
+      "originalFilename": "vcpkg-registry-054637a2ae63c6c647b3169251759910cc4c984a.zip",
+      "sha256": "5175c0aade622b8510aace9b86861dd79a4f951d137fda6db10d8411e6e1467c",
+      "sizeBytes": 9376803,
+      "detectedVersion": "054637a2ae63c6c647b3169251759910cc4c984a",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Source archive, no Authenticode signature",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "url": "https://github.com/fmtlib/fmt/archive/12.1.0.tar.gz",
+      "retrievedAt": "2026-09-30T02:16:54.0349573Z",
+      "originalFilename": "fmtlib-fmt-12.1.0.tar.gz",
+      "sha256": "ea7de4299689e12b6dddd392f9896f08fb0777ac7168897a244a6d6085043fea",
+      "sizeBytes": 711419,
+      "detectedVersion": "12.1.0",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Source archive, no Authenticode signature",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "url": "https://github.com/gabime/spdlog/archive/v1.16.0.tar.gz",
+      "retrievedAt": "2026-09-30T02:16:54.6406843Z",
+      "originalFilename": "gabime-spdlog-v1.16.0.tar.gz",
+      "sha256": "8741753e488a78dd0d0024c980e1fb5b5c85888447e309d9cb9d949bdb52aa3e",
+      "sizeBytes": 280382,
+      "detectedVersion": "1.16.0",
+      "licenseId": "MIT",
+      "authenticode": {
+        "reason": "Source archive, no Authenticode signature",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "url": "https://github.com/openssl/openssl/archive/openssl-3.6.0.tar.gz",
+      "retrievedAt": "2026-09-30T02:16:56.2128218Z",
+      "originalFilename": "openssl-openssl-openssl-3.6.0.tar.gz",
+      "sha256": "1535d184cbd04ea6b20485b98719fa8d609e45c3657f7c65b8299ae606f78159",
+      "sizeBytes": 55165518,
+      "detectedVersion": "3.6.0",
+      "licenseId": "Apache-2.0",
+      "authenticode": {
+        "reason": "Source archive, no Authenticode signature",
+        "status": "NotApplicable"
+      }
+    }
+  ],
+  "contents": [
+    {
+      "recipeBytes": "identical to original built Git tree",
+      "version": "12.1.0",
+      "triplet": "x64-windows",
+      "id": "fmt",
+      "portTree": "936231a2c765082457d348a8781ea9d3610eb331"
+    },
+    {
+      "recipeBytes": "Original baseline recipe retained; separately recorded packaging-only overlay applied",
+      "version": "3.6.0#3",
+      "triplet": "x64-windows",
+      "id": "openssl",
+      "portTree": "21c1dabbf149eaa75b6c8b6ba9c3c6edb4f47ea7"
+    },
+    {
+      "recipeBytes": "identical to original built Git tree",
+      "version": "1.16.0#1",
+      "triplet": "x64-windows",
+      "id": "spdlog[core,fmt]",
+      "portTree": "33853c1dc569252eb1df77164b3357d63fc15cb6"
+    },
+    {
+      "recipeBytes": "identical to original built Git tree",
+      "version": "2024-04-23",
+      "triplet": "x64-windows",
+      "id": "vcpkg-cmake",
+      "portTree": "e74aa1e8f93278a8e71372f1fa08c3df420eb840"
+    },
+    {
+      "recipeBytes": "identical to original built Git tree",
+      "version": "2024-05-23",
+      "triplet": "x64-windows",
+      "id": "vcpkg-cmake-config",
+      "portTree": "97a63e4bc1a17422ffe4eff71da53b4b561a7841"
+    },
+    {
+      "recipeBytes": "identical to original built Git tree",
+      "version": "2025-05-29",
+      "triplet": "x64-windows",
+      "id": "vcpkg-cmake-get-vars",
+      "portTree": "d6510f888dd526c7828f6b973349e7f30be51254"
+    }
+  ],
+  "licenses": [
+    "licenses/vcpkg-sonosystem/2025.12.12/fmt/copyright",
+    "licenses/vcpkg-sonosystem/2025.12.12/openssl/copyright",
+    "licenses/vcpkg-sonosystem/2025.12.12/REDISTRIBUTION.md",
+    "licenses/vcpkg-sonosystem/2025.12.12/spdlog/copyright",
+    "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-cmake-config/copyright",
+    "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-cmake-get-vars/copyright",
+    "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-cmake/copyright",
+    "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-tool/LICENSE.txt",
+    "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-tool/NOTICE.txt",
+    "licenses/vcpkg-sonosystem/2025.12.12/vcpkg/LICENSE.txt"
+  ],
+  "closure": {
+    "toolTag": "2025-12-05",
+    "toolCommit": "d84fb805651077f4ed3a97b61fbad2b513462f8b",
+    "excluded": "General-purpose port builds/bootstrap/update; inactive Boost library binaries; build-only tools; Microsoft compiler/runtime",
+    "scope": "Approved frozen SonoBot manifest; x64-windows preinstalled Release/Debug rebuilt libraries, headers and CMake/pkgconfig metadata; complete immutable sources; original ABI caches/PDBs excluded",
+    "status": "complete",
+    "sourceCommit": "84bab45d415d22042bd0b9081aea57f362da3f35",
+    "registries": [
+      {
+        "originalArchive": "sources/vcpkg-registry-544a4c5c297e60e4ac4a5a1810df66748d908869.zip",
+        "portCount": 6,
+        "baseline": "default",
+        "kind": "filesystem",
+        "commit": "544a4c5c297e60e4ac4a5a1810df66748d908869"
+      },
+      {
+        "originalArchive": "sources/vcpkg-registry-054637a2ae63c6c647b3169251759910cc4c984a.zip",
+        "portCount": 157,
+        "baseline": "default",
+        "kind": "filesystem",
+        "commit": "054637a2ae63c6c647b3169251759910cc4c984a"
+      }
+    ]
+  },
+  "redistribution": {
+    "status": "permitted",
+    "obligations": "Retain MIT/Apache-2.0 licenses, tool notices, corresponding sources and packaging override notices; no Microsoft compiler/runtime, original ABI caches or PDBs redistributed"
+  },
+  "integration": {
+    "registryConfigurationSha256": "28e1e3c8b2d9df35ea13c2a4f45d30d5148ebdd2c13f647c1ed065b8c30892e6",
+    "triplet": "x64-windows",
+    "installedDirectory": "installed",
+    "normalOperations": [
+      "Configure/build with guarded preinstalled CMake toolchain",
+      "vcpkg version --disable-metrics",
+      "vcpkg list --x-install-root=<package>/installed --disable-metrics"
+    ],
+    "compilerPrerequisite": "MSVC 14.43.34808",
+    "toolchainFile": "sonosystem-vcpkg.cmake",
+    "manifestInstall": false,
+    "dependencyManifestSha256": "0c3ffc6c745105ea1d0ea74ff468eab231be94b08361ade16fb5e63d34dca753",
+    "hostCmake": "3.30.6",
+    "runtimeActivation": "Activate-VcpkgRuntime.ps1 -Configuration Release|Debug -CaBundlePath <application-approved existing PEM>",
+    "manifestHashAlgorithm": "CRLF-to-LF only, then SHA-256; all other bytes exact"
+  },
+  "verification": {
+    "secondBuildSha256": "11d3f2cc853588104b8c566daf995059edabe6450996b9b744ac19d80f4b85b4",
+    "reviewFixes": [
+      "Required catalog fields tested against unchanged repository assertions",
+      "Manifest SHA-256 canonicalizes CRLF to LF only",
+      "OpenSSL provider/config/trust relocation and private-path-free rebuild"
+    ],
+    "archiveSizeBytes": 90447186,
+    "archiveSha256": "11d3f2cc853588104b8c566daf995059edabe6450996b9b744ac19d80f4b85b4",
+    "offline": {
+      "method": "Dedicated OfflineAssetRoot; unavailable GitHub CLI; dead vendor proxies; forbidden Git protocols; blocked vcpkg asset origin; all extracted file hashes checked; LF and CRLF Release/Debug compile-link-runtime; loaded legacy.dll path equals relocated package directory; legacy MD4 fetched; explicit test CA bundle loaded; changed manifest rejected; direct DLL imports resolved to package or licensed Windows/VS runtime prerequisites",
+      "importEdgesVerified": 87,
+      "trust": "Application-supplied local test CA bundle; no trust store changes",
+      "stateTimestamp": "Existing installer rewrites identical state JSON",
+      "secondInstall": "verified-payload-no-op",
+      "legacyProvider": "Verified exact relocated module path in Release and Debug",
+      "archiveFilesVerified": 1666,
+      "verifiedAt": "2026-09-30T03:47:23.8045239Z",
+      "stateBytesUnchanged": true,
+      "checkoutLineEndings": [
+        "LF",
+        "CRLF"
+      ],
+      "status": "passed"
+    },
+    "privatePathScan": {
+      "status": "passed",
+      "originalInputHashesVerified": 8,
+      "encodingScans": [
+        "byte strings",
+        "UTF-16"
+      ],
+      "privateLongAndShortPathMatches": 0,
+      "pdbFiles": 0,
+      "filesScanned": 1666,
+      "proposedMetadataMatches": 0
+    }
+  },
+  "vcpkgTag": "2025.12.12",
+  "registryBaselines": [
+    "544a4c5c297e60e4ac4a5a1810df66748d908869",
+    "054637a2ae63c6c647b3169251759910cc4c984a"
+  ],
+  "manifestTree": [
+    {
+      "path": "vcpkg.json",
+      "sha256": "0c3ffc6c745105ea1d0ea74ff468eab231be94b08361ade16fb5e63d34dca753"
+    },
+    {
+      "path": "vcpkg-configuration.json",
+      "sha256": "28e1e3c8b2d9df35ea13c2a4f45d30d5148ebdd2c13f647c1ed065b8c30892e6"
+    }
+  ],
+  "manifestHashAlgorithm": "SHA-256 of UTF-8 bytes after CRLF-to-LF normalization only; all other content is exact",
+  "buildProvenance": {
+    "abiReproduction": "Complete overlay tree retained; only patches named in its portfile are applied",
+    "packagingRebuild": {
+      "network": "No downloads; cached original sources/tools; origin blocked; Git forbidden",
+      "observedAt": "2026-09-30T03:39:47.8614321Z",
+      "exitCode": 0,
+      "originalPortsCommit": "544a4c5c297e60e4ac4a5a1810df66748d908869",
+      "tripletSha256": "12a199b9f0a7d295698981660b48de57311ffd030462a978da7b08c7464d9afc",
+      "changes": [
+        "Stable OpenSSL compiled prefix C:/WoslerVcpkg with worker-only DESTDIR",
+        "Compiler /d1trimfile removes worker prefix from __FILE__ diagnostics",
+        "Linker /PDBALTPATH:wosler-symbols.pdb; debug PDBs excluded from redistribution"
+      ],
+      "opensslWindowsRecipeSha256": "75434ccbe699bb41521c090e8f086c171f003021ef90ee5fefcb8540d1fe37b9"
+    },
+    "abis": [
+      {
+        "version": "2024-04-23",
+        "port": "vcpkg-cmake",
+        "abi": "70bb81288b9c10586b32a3bd964bfe9bf4ccfd97059d0486880273272d987e64"
+      },
+      {
+        "version": "2025-05-29",
+        "port": "vcpkg-cmake-get-vars",
+        "abi": "0d332b86fc8ff93107a128f1e273b839510883544ec9f117211e591ee60f1aff"
+      },
+      {
+        "version": "2024-05-23",
+        "port": "vcpkg-cmake-config",
+        "abi": "769cfaa7a2cc60ed36f7f8ea30cbc0544c4a500ac0e1f8937e5cec66a17028e5"
+      },
+      {
+        "version": "3.6.0",
+        "port": "openssl",
+        "abi": "b8c8a5a8ffe55e85829035e9b4bc4b75ffa0c7ab6dbf41b33d95583f5b4259ea"
+      },
+      {
+        "version": "12.1.0",
+        "port": "fmt",
+        "abi": "15b3859389cb3989a7baa1d3bc646faf837999e9dd7d2c8632b246481a92e4c3"
+      },
+      {
+        "version": "1.16.0",
+        "port": "spdlog",
+        "abi": "62b9a9adaeb1106eabb2fdd9f03acafc5f2491e9d8b0d9402948a42ad111ab87"
+      }
+    ],
+    "compilerEnvironment": "_CL_ receives the quoted /d1trimfile prefix directly; exact pinned compiler preprocessing probe passed",
+    "overrides": [
+      "provenance/build-overrides/x64-windows.cmake",
+      "provenance/build-overrides/full-openssl-overlay"
+    ],
+    "originalRecipes": "Unchanged frozen filesystem registry recipes retained; OpenSSL uses the separately recorded packaging-only overlay"
+  }
+}
