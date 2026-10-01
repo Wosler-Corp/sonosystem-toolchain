@@ -1,0 +1,42 @@
+name: Validate toolchain
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - bugfix/SW_SS-655/toolchain-packaging
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog-contract:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+
+      - name: Run catalog contract tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainCatalog.ps1
+
+      - name: Run installer tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainInstall.ps1
+
+      - name: Run package builder tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainPackage.ps1
+
+      - name: Run prerequisite tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainPrerequisites.ps1
+
+      - name: Run verified asset synchronization tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-ToolchainAssetSync.ps1
+
+      - name: Run reusable action and workflow contract tests
+        shell: pwsh
+        run: pwsh -NoProfile -File tests/Test-WorkflowContracts.ps1

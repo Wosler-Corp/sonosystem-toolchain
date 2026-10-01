@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "windows-2026.09.0",
+  "platform": "windows",
+  "architecture": "x86_64",
+  "runnerPrerequisites": [
+    {
+      "id": "visual-studio-2022",
+      "platform": "windows",
+      "context": "runner",
+      "productSelection": "*",
+      "requiredComponents": [
+        "Microsoft.Component.MSBuild",
+        "Microsoft.VisualStudio.Component.VC.CMake.Project",
+        "Microsoft.VisualStudio.Component.VC.Tools.x86.x64",
+        "Microsoft.VisualStudio.Component.VC.Redist.14.Latest"
+      ],
+      "generator": "Visual Studio 17 2022",
+      "toolset": "v143",
+      "versionFamily": "[17.0,18.0)",
+      "detection": {
+        "requiresComplete": true,
+        "requiresLaunchable": true
+      },
+      "bootstrap": {
+        "url": "https://aka.ms/vs/17/release/vs_BuildTools.exe",
+        "signerOrganization": "Microsoft Corporation",
+        "arguments": [
+          "--quiet",
+          "--wait",
+          "--norestart",
+          "--nocache"
+        ],
+        "successExitCodes": [
+          0,
+          1641,
+          3010
+        ],
+        "temporary": true
+      },
+      "supportedRunnerLabel": "windows-latest-l"
+    }
+  ],
+  "packages": [
+    {
+      "id": "host-tools",
+      "version": "2026.9.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "windows-2026.09.0",
+        "asset": "host-tools-2026.9.0-windows-x86_64.zip",
+        "sha256": "9eff93f1462f7a3b50b0e48e3ecf8e8470e53cd1f528b681ef8c51dc6acdbc12",
+        "sizeBytes": 37473939,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://github.com/Kitware/CMake/releases/download/v3.30.6/cmake-3.30.6-windows-x86_64.zip",
+        "version": "3.30.6",
+        "retrievedAt": "09/29/2026 23:31:36"
+      },
+      "licenses": [
+        "licenses/host-tools/2026.9.0/cmake/Copyright.txt",
+        "licenses/host-tools/2026.9.0/cmake/cmcppdap/NOTICE",
+        "licenses/host-tools/2026.9.0/cmake/cmcurl/COPYING",
+        "licenses/host-tools/2026.9.0/cmake/cmlibarchive/COPYING",
+        "licenses/host-tools/2026.9.0/cmake/cmliblzma/COPYING",
+        "licenses/host-tools/2026.9.0/cmake/cmlibrhash/COPYING",
+        "licenses/host-tools/2026.9.0/cmake/cmlibuv/LICENSE",
+        "licenses/host-tools/2026.9.0/cmake/cmnghttp2/COPYING",
+        "licenses/host-tools/2026.9.0/cmake/cmsys/Copyright.txt",
+        "licenses/host-tools/2026.9.0/cmake/cmzlib/Copyright.txt",
+        "licenses/host-tools/2026.9.0/cmake/cmzstd/LICENSE",
+        "licenses/host-tools/2026.9.0/7zip/License.txt",
+        "licenses/host-tools/2026.9.0/7zip/LGPL-2.1.txt",
+        "licenses/host-tools/2026.9.0/7zip/unRarLicense.txt",
+        "licenses/host-tools/2026.9.0/cmake/cmcppdap/LICENSE",
+        "licenses/host-tools/2026.9.0/REDISTRIBUTION.md"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "host-tools",
+        "expandedSizeBytes": 70986183
+      },
+      "validation": [
+        {
+          "type": "file-exists",
+          "path": "cmake/bin/cmake.exe"
+        },
+        {
+          "type": "file-exists",
+          "path": "7zip/7z.exe"
+        }
+      ]
+    },
+    {
+      "id": "msys2-sonosystem",
+      "version": "2026.9.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "windows-2026.09.0",
+        "asset": "msys2-sonosystem-2026.9.0-windows-x86_64.zip",
+        "sha256": "b027ce5144800a00fac01510c50a730498fe4c35081025548a2cc43809f2c200",
+        "sizeBytes": 1984114092,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://repo.msys2.org/",
+        "version": "347-package exact installed pacman closure; GCC14.2.0-1",
+        "retrievedAt": "09/30/2026 02:15:58"
+      },
+      "licenses": [
+        "licenses/msys2-sonosystem/2026.9.0/REDISTRIBUTION-NOTICE.txt",
+        "licenses/msys2-sonosystem/2026.9.0/complete-license-attribution.json",
+        "licenses/msys2-sonosystem/2026.9.0/complete-source-revisions.json"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "msys2-sonosystem",
+        "expandedSizeBytes": 5066467836
+      },
+      "validation": [
+        {
+          "type": "file-exists",
+          "path": "msys2_shell.cmd"
+        },
+        {
+          "type": "file-exists",
+          "path": "usr/bin/bash.exe"
+        },
+        {
+          "type": "file-exists",
+          "path": "usr/bin/pacman.exe"
+        },
+        {
+          "arguments": [
+            "-dumpfullversion"
+          ],
+          "path": "mingw64/bin/gcc.exe",
+          "version": "14.2.0",
+          "type": "command-version"
+        },
+        {
+          "sha256": "2e6d31a5983a91251bfae5aefa1c0a19d8ba3cf601d0e8a706b4cfa9661a6b8a",
+          "path": "var/lib/pacman/local/ALPM_DB_VERSION",
+          "type": "sha256"
+        }
+      ]
+    },
+    {
+      "id": "vcpkg-sonosystem",
+      "version": "2025.12.12",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "windows-2026.09.0",
+        "asset": "vcpkg-sonosystem-2025.12.12-windows-x86_64.zip",
+        "sha256": "11d3f2cc853588104b8c566daf995059edabe6450996b9b744ac19d80f4b85b4",
+        "sizeBytes": 90447186,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://github.com/microsoft/vcpkg/archive/84bab45d415d22042bd0b9081aea57f362da3f35.zip",
+        "version": "2025.12.12",
+        "retrievedAt": "09/30/2026 02:16:48"
+      },
+      "licenses": [
+        "licenses/vcpkg-sonosystem/2025.12.12/fmt/copyright",
+        "licenses/vcpkg-sonosystem/2025.12.12/openssl/copyright",
+        "licenses/vcpkg-sonosystem/2025.12.12/REDISTRIBUTION.md",
+        "licenses/vcpkg-sonosystem/2025.12.12/spdlog/copyright",
+        "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-cmake-config/copyright",
+        "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-cmake-get-vars/copyright",
+        "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-cmake/copyright",
+        "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-tool/LICENSE.txt",
+        "licenses/vcpkg-sonosystem/2025.12.12/vcpkg-tool/NOTICE.txt",
+        "licenses/vcpkg-sonosystem/2025.12.12/vcpkg/LICENSE.txt"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "vcpkg-sonosystem",
+        "expandedSizeBytes": 124402376
+      },
+      "validation": [
+        {
+          "type": "file-exists",
+          "path": ".vcpkg-root"
+        },
+        {
+          "type": "file-exists",
+          "path": "vcpkg.exe"
+        }
+      ]
+    },
+    {
+      "id": "boost-mingw",
+      "version": "1.86.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "windows-2026.09.0",
+        "asset": "boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip",
+        "sha256": "8c9208bdf80c934c4013f8bdca43a092d69020a7f0487135e2ae3f8e7487a31b",
+        "sizeBytes": 39562973,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip",
+        "version": "1.86.0",
+        "retrievedAt": "09/30/2026 03:12:32"
+      },
+      "licenses": [
+        "licenses/boost-mingw/1.86.0/LICENSE_1_0.txt"
+      ],
+      "dependencies": [
+        "msys2-sonosystem"
+      ],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "boost-mingw",
+        "expandedSizeBytes": 211503636
+      },
+      "validation": {
+        "type": "file-exists",
+        "path": "boost-1.86.0/include/boost/version.hpp"
+      }
+    },
+    {
+      "id": "boost-msvc",
+      "version": "1.86.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "windows-2026.09.0",
+        "asset": "boost-1.86.0-windows-x86_64-msvc19.43-v143.zip",
+        "sha256": "6246a880c74fc59ed23b611f052230624ba7be3277bd9324352c860b82c1facc",
+        "sizeBytes": 78227427,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-msvc19.43-v143.zip",
+        "version": "1.86.0",
+        "retrievedAt": "09/30/2026 03:12:39"
+      },
+      "licenses": [
+        "licenses/boost-msvc/1.86.0/LICENSE_1_0.txt"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "boost-msvc",
+        "expandedSizeBytes": 481957717
+      },
+      "validation": {
+        "type": "file-exists",
+        "path": "boost-1.86.0/include/boost/version.hpp"
+      }
+    },
+    {
+      "id": "libdatachannel",
+      "version": "0.21.2",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "windows-2026.09.0",
+        "asset": "libdatachannel-0.21.2-windows-x86_64-gcc14.2-mingw.zip",
+        "sha256": "e3d2e4737831073a27a6ce4625d51d14806cf4bad8a4af35619d55c6ed6ac6e5",
+        "sizeBytes": 67393655,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://codeload.github.com/paullouisageneau/libdatachannel/tar.gz/a0598f214b46217dd709f09522c601d5bc94b518",
+        "version": "0.21.2",
+        "retrievedAt": "09/30/2026 02:15:33"
+      },
+      "licenses": [
+        "licenses/libdatachannel/0.21.2/crt/COPYING",
+        "licenses/libdatachannel/0.21.2/crt/COPYING.MinGW-w64-runtime.txt",
+        "licenses/libdatachannel/0.21.2/crt/COPYING.MinGW-w64.txt",
+        "licenses/libdatachannel/0.21.2/gcc-libs/COPYING.LIB",
+        "licenses/libdatachannel/0.21.2/gcc-libs/COPYING.RUNTIME",
+        "licenses/libdatachannel/0.21.2/gcc-libs/COPYING3",
+        "licenses/libdatachannel/0.21.2/gcc-libs/README",
+        "licenses/libdatachannel/0.21.2/headers/COPYING",
+        "licenses/libdatachannel/0.21.2/headers/COPYING.MinGW-w64-runtime.txt",
+        "licenses/libdatachannel/0.21.2/headers/COPYING.MinGW-w64.txt",
+        "licenses/libdatachannel/0.21.2/headers/ddk-readme.txt",
+        "licenses/libdatachannel/0.21.2/json-LICENSE.MIT",
+        "licenses/libdatachannel/0.21.2/libdatachannel-LICENSE",
+        "licenses/libdatachannel/0.21.2/libjuice-LICENSE",
+        "licenses/libdatachannel/0.21.2/libsrtp-LICENSE",
+        "licenses/libdatachannel/0.21.2/libwinpthread/COPYING",
+        "licenses/libdatachannel/0.21.2/openssl/LICENSE",
+        "licenses/libdatachannel/0.21.2/plog-LICENSE",
+        "licenses/libdatachannel/0.21.2/REDISTRIBUTION.md",
+        "licenses/libdatachannel/0.21.2/usrsctp-LICENSE.md"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "libdatachannel",
+        "expandedSizeBytes": 76663581
+      },
+      "validation": [
+        {
+          "type": "file-exists",
+          "path": "bin/libdatachannel.dll"
+        },
+        {
+          "type": "file-exists",
+          "path": "include/rtc/datachannel.hpp"
+        }
+      ]
+    },
+    {
+      "id": "cmake-sources",
+      "version": "2026.9.0",
+      "release": {
+        "repository": "Wosler-Corp/sonosystem-toolchain",
+        "tag": "windows-2026.09.0",
+        "asset": "cmake-sources-2026.9.0-windows-x86_64.zip",
+        "sha256": "f805d63937a40a4a66f237b94647f5d52ee1e5484c118262255357203aaee16b",
+        "sizeBytes": 1436590,
+        "attestation": "github-immutable-release"
+      },
+      "upstream": {
+        "url": "https://github.com/gabime/spdlog/archive/refs/tags/v1.15.0.zip",
+        "version": "1.15.0",
+        "retrievedAt": "09/29/2026 23:31:40"
+      },
+      "licenses": [
+        "licenses/cmake-sources/2026.9.0/spdlog-LICENSE.txt",
+        "licenses/cmake-sources/2026.9.0/fmt-LICENSE.rst",
+        "licenses/cmake-sources/2026.9.0/googletest-LICENSE.txt"
+      ],
+      "dependencies": [],
+      "install": {
+        "recipeVersion": 1,
+        "kind": "zip",
+        "target": "toolchain-root",
+        "destination": "cmake-sources",
+        "expandedSizeBytes": 5188514
+      },
+      "validation": [
+        {
+          "type": "file-exists",
+          "path": "spdlog/CMakeLists.txt"
+        },
+        {
+          "type": "file-exists",
+          "path": "googletest/CMakeLists.txt"
+        }
+      ]
+    }
+  ],
+  "profiles": {
+    "ci-windows": [
+      "host-tools",
+      "msys2-sonosystem",
+      "vcpkg-sonosystem",
+      "boost-mingw",
+      "boost-msvc",
+      "libdatachannel",
+      "cmake-sources"
+    ],
+    "dev-windows": [
+      "host-tools",
+      "msys2-sonosystem",
+      "vcpkg-sonosystem",
+      "boost-mingw",
+      "boost-msvc",
+      "libdatachannel",
+      "cmake-sources"
+    ]
+  }
+}

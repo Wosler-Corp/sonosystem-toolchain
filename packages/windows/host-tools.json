@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "host-tools",
+  "version": "2026.9.0",
+  "kind": "zip",
+  "asset": "host-tools-2026.9.0-windows-x86_64.zip",
+  "source": {
+    "sizeBytes": 70986183,
+    "sha256": "eddc51e8db7b00d4461ecc428af59a3bb12843b2e9869dc386e19d473544e152"
+  },
+  "upstream": {
+    "retrievedAt": "2026-09-29T23:31:36.9531502Z",
+    "version": "3.30.6",
+    "url": "https://github.com/Kitware/CMake/releases/download/v3.30.6/cmake-3.30.6-windows-x86_64.zip"
+  },
+  "inputs": [
+    {
+      "url": "https://github.com/Kitware/CMake/releases/download/v3.30.6/cmake-3.30.6-windows-x86_64.zip",
+      "originalFilename": "cmake-3.30.6-windows-x86_64.zip",
+      "retrievedAt": "2026-09-29T23:31:36.9531502Z",
+      "sha256": "08f690b982c00a7ed35972653b662c4ab566c19b4a6fc1efc5a79011a12fb662",
+      "sizeBytes": 45418553,
+      "detectedVersion": "3.30.6",
+      "licenseId": "BSD-3-Clause AND bundled compatible licenses",
+      "authenticode": {
+        "reason": "Source or ZIP archive; payload signatures recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "url": "https://www.7-zip.org/a/7z1900-x64.exe",
+      "originalFilename": "7z1900-x64.exe",
+      "retrievedAt": "2026-09-29T23:31:38.9205065Z",
+      "sha256": "0f5d4dbbe5e55b7aa31b91e5925ed901fdf46a367491d81381846f05ad54c45e",
+      "sizeBytes": 1447178,
+      "detectedVersion": "19.00",
+      "licenseId": "LGPL-2.1-or-later AND BSD-3-Clause AND unRAR",
+      "authenticode": {
+        "status": "NotSigned",
+        "signerSubject": null,
+        "reason": "The official 7-Zip 19.00 executable is not Authenticode-signed."
+      }
+    },
+    {
+      "url": "https://www.7-zip.org/a/7z1900-src.7z",
+      "originalFilename": "7z1900-src.7z",
+      "retrievedAt": "2026-09-29T23:31:40.3467879Z",
+      "sha256": "9ba70a5e8485cf9061b30a2a84fe741de5aeb8dd271aab8889da0e9b3bf1868e",
+      "sizeBytes": 1071569,
+      "detectedVersion": "19.00",
+      "licenseId": "LGPL-2.1-or-later AND BSD-3-Clause AND unRAR",
+      "authenticode": {
+        "reason": "Source or ZIP archive; payload signatures recorded separately",
+        "status": "NotApplicable"
+      }
+    },
+    {
+      "authenticode": {
+        "status": "NotApplicable"
+      },
+      "detectedVersion": "3.30.6",
+      "retrievedAt": "2026-09-29T23:39:28.3539528Z",
+      "sizeBytes": 20822483,
+      "originalFilename": "cmake-3.30.6.zip",
+      "url": "https://github.com/Kitware/CMake/releases/download/v3.30.6/cmake-3.30.6.zip",
+      "sha256": "3f3522970bb57fbda5b0a4804feecce8deda0f94fdff4aae909645d29a96ff98",
+      "licenseId": "BSD-3-Clause AND bundled compatible licenses"
+    }
+  ],
+  "contents": [
+    {
+      "id": "cmake",
+      "version": "3.30.6"
+    },
+    {
+      "id": "7zip",
+      "version": "19.00"
+    }
+  ],
+  "licenses": [
+    "licenses/host-tools/2026.9.0/cmake/Copyright.txt",
+    "licenses/host-tools/2026.9.0/cmake/cmcppdap/NOTICE",
+    "licenses/host-tools/2026.9.0/cmake/cmcurl/COPYING",
+    "licenses/host-tools/2026.9.0/cmake/cmlibarchive/COPYING",
+    "licenses/host-tools/2026.9.0/cmake/cmliblzma/COPYING",
+    "licenses/host-tools/2026.9.0/cmake/cmlibrhash/COPYING",
+    "licenses/host-tools/2026.9.0/cmake/cmlibuv/LICENSE",
+    "licenses/host-tools/2026.9.0/cmake/cmnghttp2/COPYING",
+    "licenses/host-tools/2026.9.0/cmake/cmsys/Copyright.txt",
+    "licenses/host-tools/2026.9.0/cmake/cmzlib/Copyright.txt",
+    "licenses/host-tools/2026.9.0/cmake/cmzstd/LICENSE",
+    "licenses/host-tools/2026.9.0/7zip/License.txt",
+    "licenses/host-tools/2026.9.0/7zip/LGPL-2.1.txt",
+    "licenses/host-tools/2026.9.0/7zip/unRarLicense.txt",
+    "licenses/host-tools/2026.9.0/cmake/cmcppdap/LICENSE",
+    "licenses/host-tools/2026.9.0/REDISTRIBUTION.md"
+  ],
+  "closure": {
+    "scope": "Portable CLI tools; operating-system and licensed runner runtime prerequisites remain external",
+    "status": "complete"
+  },
+  "redistribution": {
+    "obligations": "Retain all incorporated licenses/notices and source; no source offer needed because corresponding source is supplied",
+    "status": "permitted"
+  },
+  "payloadAuthenticode": [
+    {
+      "status": "Valid",
+      "fileVersion": "3.30.6",
+      "signerSubject": "CN=\"Kitware, Inc.\", O=\"Kitware, Inc.\", L=Clifton Park, S=New York, C=US, SERIALNUMBER=2235734, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=New York, OID.1.3.6.1.4.1.311.60.2.1.3=US",
+      "path": "cmake/bin/cmake.exe"
+    },
+    {
+      "status": "Valid",
+      "fileVersion": "3.30.6",
+      "signerSubject": "CN=\"Kitware, Inc.\", O=\"Kitware, Inc.\", L=Clifton Park, S=New York, C=US, SERIALNUMBER=2235734, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=New York, OID.1.3.6.1.4.1.311.60.2.1.3=US",
+      "path": "cmake/bin/ctest.exe"
+    },
+    {
+      "status": "Valid",
+      "fileVersion": "3.30.6",
+      "signerSubject": "CN=\"Kitware, Inc.\", O=\"Kitware, Inc.\", L=Clifton Park, S=New York, C=US, SERIALNUMBER=2235734, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=New York, OID.1.3.6.1.4.1.311.60.2.1.3=US",
+      "path": "cmake/bin/cpack.exe"
+    },
+    {
+      "status": "Valid",
+      "fileVersion": "3.30.6",
+      "signerSubject": "CN=\"Kitware, Inc.\", O=\"Kitware, Inc.\", L=Clifton Park, S=New York, C=US, SERIALNUMBER=2235734, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=New York, OID.1.3.6.1.4.1.311.60.2.1.3=US",
+      "path": "cmake/bin/cmcldeps.exe"
+    },
+    {
+      "status": "NotSigned",
+      "fileVersion": "19.00",
+      "path": "7zip/7z.exe"
+    },
+    {
+      "status": "NotSigned",
+      "fileVersion": "19.00",
+      "path": "7zip/7z.dll"
+    }
+  ],
+  "verification": {
+    "secondBuildSha256": "9eff93f1462f7a3b50b0e48e3ecf8e8470e53cd1f528b681ef8c51dc6acdbc12",
+    "offline": {
+      "secondInstall": "verified-no-op",
+      "verifiedAt": "2026-09-29T23:58:00.0991986Z",
+      "method": "Clean directory installation with OfflineAssetRoot and nonexistent GitHub CLI; dead HTTP/HTTPS/ALL proxies and forbidden Git protocols; CMake 3.30.6 and 7-Zip 19.00 version probes passed; second install state hash unchanged.",
+      "status": "passed"
+    },
+    "archiveSha256": "9eff93f1462f7a3b50b0e48e3ecf8e8470e53cd1f528b681ef8c51dc6acdbc12",
+    "archiveSizeBytes": 37473939
+  }
+}

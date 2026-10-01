@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "releaseTag": "windows-2026.09.0",
+  "reconstruction": {
+    "name": "msys2-sonosystem-sources-2026.9.0.zip",
+    "sizeBytes": 3300167861,
+    "sha256": "9aac3540884aeac5040e5ecc9fb5b248191ee1b663ef2ab4993b60bd0ec1f3e2",
+    "method": "Concatenate part001, part002, and part003 as raw bytes in numeric order; do not recompress or rewrite the ZIP."
+  },
+  "parts": [
+    {
+      "number": 1,
+      "name": "msys2-sonosystem-sources-2026.9.0.zip.part001",
+      "sizeBytes": 1500000000,
+      "sha256": "f3e810084923c9dc7337d9b45b2fdd2d442c3fb20d9b402493bc9e871b6a5934"
+    },
+    {
+      "number": 2,
+      "name": "msys2-sonosystem-sources-2026.9.0.zip.part002",
+      "sizeBytes": 1500000000,
+      "sha256": "2bb8b3d752a52f91abb265531f5a93ce8e248f24a994092ab87d880b64b85d58"
+    },
+    {
+      "number": 3,
+      "name": "msys2-sonosystem-sources-2026.9.0.zip.part003",
+      "sizeBytes": 300167861,
+      "sha256": "0a2b27e1173823e8a1632b84af6f101fdfbbe90a498703df3737e1ccc6b82e59"
+    }
+  ]
+}

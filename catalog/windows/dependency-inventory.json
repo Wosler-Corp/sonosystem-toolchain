@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "status": "acquisition-sites-classified",
+  "expectedSiteCount": 40,
+  "notice": "Task 3 acquisition inventory under approved dispositions. Package IDs identify planned artifacts, not published packages or approved redistribution. Task 4 must prove closure and hashes; Task 8 must migrate current source acquisitions. This document authorizes no vendor fallback.",
+  "source": { "repository": "Wosler-Corp/sonobot", "commit": "9adbc51ba82539477aa0a371883da1f46f982df0", "branch": "bugfix/SW_SS-655/toolchain-packaging" },
+  "scope": {
+    "entryPoints": [
+      { "path": ".github/workflows/SonoSystem-ci.yml", "line": 109, "purpose": "Backup Windows build/test setup" },
+      { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 400, "purpose": "Primary Windows build/test setup" },
+      { "path": "setup_dependencies.bat", "line": 19, "purpose": "Developer Windows setup, including non-CI submodule initialization" }
+    ],
+    "inputs": [".github/workflows/*.yml", "setup_dependencies.bat", "dependencies_windows.txt", "install-from-wosler-repo.ps1", "CMakeLists.txt", "vcpkg.json", "vcpkg-configuration.json", ".gitmodules"],
+    "limitations": "The gate classifies 40 direct sites in the pinned source snapshot, not the transitive closure or arbitrary future YAML/CMake syntax. Task 4 collects the deferred source/package manifests. Automatic cross-repository CI integration is deferred pending approved credentials or Task 8 consumer policy; the gate runs locally against a clean pinned SonoBot checkout."
+  },
+  "mappings": [
+    {
+      "id": "vc-runtime", "category": "licensed-runner-prerequisite",
+      "purpose": "Install the Visual C++ x64 runtime when the local runtime check fails",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 587 }],
+      "evidence": [{ "path": "setup_dependencies.bat", "line": 25, "observed": "https://aka.ms/vs/17/release/vc_redist.x64.exe" }, { "path": "setup_dependencies.bat", "line": 59, "observed": "call :EnsureVCRedist2022" }],
+      "observedVersion": "2015-2022 family only", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "inno-setup", "category": "excluded-deployment-only", "packageIds": [],
+      "purpose": "Install the Inno Setup compiler during ordinary developer and Windows CI setup",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 82 }],
+      "evidence": [{ "path": "setup_dependencies.bat", "line": 66, "observed": "C:\\Program Files (x86)\\Inno Setup 6\\ISCC.exe" }, { "path": "setup_dependencies.bat", "line": 69, "observed": "https://jrsoftware.org/download.php/is.exe" }],
+      "deploymentConsumerEvidence": [
+        { "path": "create_installer.bat", "line": 13, "observed": "SET ISS_SCRIPT=\"%SCRIPT_DIR%SonoStationSetup.iss\"", "purpose": "Select the SonoStation deployment installer specification" },
+        { "path": "create_installer.bat", "line": 74, "observed": "%INNO_COMPILER% /Qp %ISS_SCRIPT%", "purpose": "Invoke the Inno Setup compiler to produce the deployment installer" }
+      ],
+      "observedVersion": null, "sha256": null, "licenseStatus": "review-required",
+      "currentlyReachableFromSetup": true, "profileMembership": [], "migrationTask": 8,
+      "requiredMigration": "Gate or remove unconditional installation in setup_dependencies.bat during the developer-setup migration. Approved target disposition is deployment-only; present source reachability is not deployment-only."
+    },
+    {
+      "id": "7zip", "category": "package", "packageIds": ["7zip"],
+      "purpose": "Install 7-Zip with curl or bitsadmin as alternate transports",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 111 }, { "path": "setup_dependencies.bat", "line": 115 }],
+      "observedUrl": "https://www.7-zip.org/a/7z1900-x64.exe", "observedVersion": "19.00", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "cmake", "category": "package", "packageIds": ["cmake"],
+      "purpose": "Install CMake when absent from PATH",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 136 }],
+      "observedUrl": "https://github.com/Kitware/CMake/releases/download/v3.30.6/cmake-3.30.6-windows-x86_64.msi", "observedVersion": "3.30.6", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "msys2-root", "category": "package", "packageIds": ["msys2-root"],
+      "purpose": "Establish C:\\msys64; capture the complete root and package database together",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 154 }],
+      "observedUrl": "https://repo.msys2.org/distrib/x86_64/msys2-x86_64-20240507.exe", "observedVersion": "20240507 installer only", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "msys2-refresh", "category": "package", "packageIds": ["msys2-root"],
+      "purpose": "Refresh package databases and upgrade packages twice, always in CI and optionally for developer setup",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 217 }, { "path": "setup_dependencies.bat", "line": 218 }, { "path": "setup_dependencies.bat", "line": 222 }, { "path": "setup_dependencies.bat", "line": 223 }],
+      "observedVersion": null, "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "msys2-packages", "category": "package", "packageIds": ["msys2-root"],
+      "purpose": "Install dependencies_windows.txt and its unresolved transitive packages into the same root",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 236 }],
+      "manifest": {
+        "path": "dependencies_windows.txt", "firstLine": 1, "lastLine": 29,
+        "namesInLineOrder": ["mingw-w64-x86_64-crt-git", "mingw-w64-x86_64-headers-git", "mingw-w64-x86_64-toolchain", "mingw-w64-x86_64-gcc", "mingw-w64-x86_64-make", "mingw-w64-x86_64-gdb", "mingw-w64-x86_64-binutils", "mingw-w64-x86_64-vtk", "mingw-w64-x86_64-qt6", "mingw-w64-x86_64-opencv", "mingw-w64-x86_64-nlohmann-json", "mingw-w64-x86_64-jsoncpp", "mingw-w64-x86_64-usrsctp", "mingw-w64-x86_64-libsrtp", "mingw-w64-x86_64-gst-plugins-base", "mingw-w64-x86_64-gst-plugins-good", "mingw-w64-x86_64-gst-plugins-bad", "mingw-w64-x86_64-gst-plugins-ugly", "mingw-w64-x86_64-gst-libav", "mingw-w64-x86_64-freetype", "mingw-w64-x86_64-fast_float", "mingw-w64-x86_64-utf8cpp", "mingw-w64-x86_64-eigen3", "mingw-w64-x86_64-pkg-config", "mingw-w64-x86_64-openssl", "mingw-w64-x86_64-libzip", "mingw-w64-x86_64-vulkan-devel", "mingw-w64-x86_64-vulkan", "mingw-w64-x86_64-vulkan-headers"]
+      },
+      "observedVersion": null, "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "boost-mingw", "category": "package", "packageIds": ["boost-mingw"],
+      "purpose": "Install ABI-matched Boost binaries for MinGW",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 248 }],
+      "observedAsset": "boost-1.86.0-windows-x86_64-gcc14.2-mingw.zip", "observedVersion": "1.86.0", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "boost-msvc", "category": "package", "packageIds": ["boost-msvc"],
+      "purpose": "Install ABI-matched Boost binaries for MSVC",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 381 }],
+      "observedAsset": "boost-1.86.0-windows-x86_64-msvc19.43-v143.zip", "observedVersion": "1.86.0", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "vs-build-tools", "category": "licensed-runner-prerequisite",
+      "purpose": "Install Visual Studio 2022 Build Tools and C++ build components when unavailable",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 329 }],
+      "evidence": [{ "path": "setup_dependencies.bat", "line": 337, "observed": "Installer acquires VCTools, MSBuild, VC.CMake.Project, VC.Tools.x86.x64 and VC.Redist.14.Latest" }],
+      "observedUrl": "https://aka.ms/vs/17/release/vs_BuildTools.exe", "observedVersion": "17.x family only", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "vcpkg-checkout", "category": "package", "packageIds": ["vcpkg"],
+      "purpose": "Acquire vcpkg source, then select the observed tag before bootstrapping",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 446 }, { "path": "setup_dependencies.bat", "line": 456 }],
+      "evidence": [{ "path": "setup_dependencies.bat", "line": 22, "observed": "VCPKG_TAG=2025.12.12" }, { "path": "setup_dependencies.bat", "line": 464, "observed": "checkout %VCPKG_TAG%" }],
+      "observedUrl": "https://github.com/microsoft/vcpkg.git", "observedVersion": "2025.12.12 tag", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "vcpkg-bootstrap", "category": "package", "packageIds": ["vcpkg"],
+      "purpose": "Produce vcpkg through an external bootstrap script whose acquisitions are uninspected",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 473 }],
+      "observedVersion": null, "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "vcpkg-install", "category": "package", "packageIds": ["vcpkg-installed"],
+      "purpose": "Acquire registries, ports, source archives and required binaries; exact transitive closure unresolved",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 496 }],
+      "manifest": [{ "path": "vcpkg.json", "line": 5, "name": "openssl" }, { "path": "vcpkg.json", "line": 6, "name": "spdlog" }],
+      "registries": [
+        { "path": "vcpkg-configuration.json", "line": 3, "baseline": "544a4c5c297e60e4ac4a5a1810df66748d908869", "repository": "https://github.com/microsoft/vcpkg", "purpose": "Default registry" },
+        { "path": "vcpkg-configuration.json", "line": 13, "baseline": "054637a2ae63c6c647b3169251759910cc4c984a", "repository": "https://github.com/microsoft/vcpkg", "purpose": "Configured boost* / boost-* registry; activation by current manifest not established" }
+      ],
+      "observedVersion": null, "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "spdlog-fetchcontent", "category": "package", "packageIds": ["spdlog-fetchcontent"],
+      "purpose": "Acquire spdlog during Windows configure, separately from vcpkg spdlog",
+      "sources": [{ "path": "CMakeLists.txt", "line": 186 }],
+      "evidence": [{ "path": "CMakeLists.txt", "line": 188, "observed": "https://github.com/gabime/spdlog.git" }, { "path": "CMakeLists.txt", "line": 189, "observed": "GIT_TAG v1.15.0" }, { "path": "CMakeLists.txt", "line": 193, "observed": "FetchContent_MakeAvailable(spdlog)" }],
+      "observedVersion": "v1.15.0 tag", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "googletest", "category": "package", "packageIds": ["googletest"],
+      "purpose": "Acquire GoogleTest when BUILD_TESTS or BUILD_UNIT_TESTS is enabled",
+      "sources": [{ "path": "CMakeLists.txt", "line": 426 }],
+      "evidence": [{ "path": "CMakeLists.txt", "line": 428, "observed": "https://github.com/google/googletest.git" }, { "path": "CMakeLists.txt", "line": 429, "observed": "GIT_TAG v1.14.0" }, { "path": "CMakeLists.txt", "line": 433, "observed": "FetchContent_MakeAvailable(googletest)" }],
+      "observedVersion": "v1.14.0 tag", "sha256": null, "licenseStatus": "review-required"
+    },
+    {
+      "id": "cache-api", "category": "retained-service-call",
+      "purpose": "List/delete GitHub Actions caches; this does not classify the github-script action",
+      "sources": [{ "path": ".github/workflows/SonoSystem-ci.yml", "line": 51 }, { "path": ".github/workflows/SonoSystem-ci.yml", "line": 65 }, { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 337 }, { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 351 }]
+    },
+    {
+      "id": "cp210x", "status": "license-blocked", "category": "license-blocked", "packageIds": [],
+      "purpose": "Install the serial driver when absent; reachable from local and CI setup",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 289 }],
+      "evidence": [{ "path": "setup_dependencies.bat", "line": 283, "purpose": "Defines unversioned vendor URL" }, { "path": "setup_dependencies.bat", "line": 318, "purpose": "Installs downloaded driver" }],
+      "observedUrl": "https://www.silabs.com/documents/public/software/CP210x_Windows_Drivers.zip",
+      "observedVersion": null, "sha256": null, "redistributionEvidence": null, "upstreamFallbackAllowed": false
+    },
+    {
+      "id": "libdatachannel", "status": "authoritative-version-selected", "category": "package", "packageIds": ["libdatachannel"],
+      "purpose": "Rebuild the bundled Windows library with the active MinGW compiler",
+      "sources": [{ "path": ".github/workflows/SonoSystem-ci.yml", "line": 127 }, { "path": ".github/workflows/SonoSystem-ci.yml", "line": 129 }, { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 419 }, { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 421 }],
+      "variants": [
+        { "path": ".github/workflows/SonoSystem-ci.yml", "line": 127, "observedVersion": "v0.19.5", "submoduleLine": 129, "configureLine": 133, "status": "stale-migrate-task-8", "packageVersion": "0.21.2" },
+        { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 419, "observedVersion": "v0.21.2", "submoduleLine": 421, "configureLine": 425, "status": "authoritative", "packageVersion": "0.21.2" }
+      ],
+      "authoritativeVersion": "0.21.2", "sha256": null, "licenseStatus": "review-required", "closureStatus": "deferred-to-task-4"
+    },
+    {
+      "id": "actions-checkout", "category": "github-action-full-sha",
+      "purpose": "Acquire source checkout action code; apply the desired full-SHA pin in Task 8",
+      "observedRef": "actions/checkout@v6", "sourceRef": "refs/tags/v6",
+      "resolvedFrom": "https://github.com/actions/checkout.git", "resolvedBy": "git ls-remote, including peeled-tag query", "resolvedAt": "2026-09-29",
+      "desiredCommit": "d23441a48e516b6c34aea4fa41551a30e30af803", "currentlyFullShaPinned": false, "migrationTask": 8,
+      "sources": [
+        { "path": ".github/workflows/SonoSystem-ci.yml", "line": 38, "observed": "actions/checkout@v6" },
+        { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 324, "observed": "actions/checkout@v6" }
+      ]
+    },
+    {
+      "id": "actions-github-script", "category": "github-action-full-sha",
+      "purpose": "Acquire cache-cleanup action code; apply the desired full-SHA pin in Task 8",
+      "observedRef": "actions/github-script@v8", "sourceRef": "refs/tags/v8",
+      "resolvedFrom": "https://github.com/actions/github-script.git", "resolvedBy": "git ls-remote, including peeled-tag query", "resolvedAt": "2026-09-29",
+      "desiredCommit": "ed597411d8f924073f98dfc5c65a23a2325f34cd", "currentlyFullShaPinned": false, "migrationTask": 8,
+      "sources": [
+        { "path": ".github/workflows/SonoSystem-ci.yml", "line": 44, "observed": "actions/github-script@v8" },
+        { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 330, "observed": "actions/github-script@v8" }
+      ]
+    },
+    {
+      "id": "actions-cache", "category": "github-action-full-sha",
+      "purpose": "Acquire cache-transfer action code; apply the desired full-SHA pin in Task 8",
+      "observedRef": "actions/cache@v5", "sourceRef": "refs/tags/v5",
+      "resolvedFrom": "https://github.com/actions/cache.git", "resolvedBy": "git ls-remote, including peeled-tag query", "resolvedAt": "2026-09-29",
+      "desiredCommit": "caa296126883cff596d87d8935842f9db880ef25", "currentlyFullShaPinned": false, "migrationTask": 8,
+      "sources": [
+        { "path": ".github/workflows/SonoSystem-ci.yml", "line": 86, "observed": "actions/cache@v5" },
+        { "path": ".github/workflows/SonoSystem-ci.yml", "line": 95, "observed": "actions/cache@v5" },
+        { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 372, "observed": "actions/cache@v5" },
+        { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 381, "observed": "actions/cache@v5" }
+      ]
+    },
+    {
+      "id": "boost-helper-transfers", "category": "package", "packageIds": ["boost-mingw", "boost-msvc"],
+      "purpose": "Shared transport downloads each caller's Boost package and adjacent checksum; one package category, variant selected by the caller",
+      "callers": [{ "path": "setup_dependencies.bat", "line": 248, "packageId": "boost-mingw" }, { "path": "setup_dependencies.bat", "line": 381, "packageId": "boost-msvc" }],
+      "sources": [{ "path": "install-from-wosler-repo.ps1", "line": 93 }, { "path": "install-from-wosler-repo.ps1", "line": 94 }],
+      "evidence": [{ "path": "install-from-wosler-repo.ps1", "line": 69, "observed": "https://github.com/$Repository/releases/download/$releaseTag" }, { "path": "install-from-wosler-repo.ps1", "line": 71, "observed": "$archiveUrl.sha256 is not an independently pinned digest" }]
+    },
+    {
+      "id": "codex-submodule", "category": "retained-service-call",
+      "purpose": "Retain local-only developer Codex integration source synchronization; this .codex checkout is repository tooling, not a Windows toolchain package",
+      "sources": [{ "path": "setup_dependencies.bat", "line": 51 }],
+      "evidence": [{ "path": "setup_dependencies.bat", "line": 41, "observed": "Initialize/update git submodules (Codex integration)" }, { "path": ".gitmodules", "line": 2, "observed": "path = .codex" }, { "path": "setup_dependencies.bat", "line": 46, "observed": "GITHUB_ACTIONS skips this update" }],
+      "observedUrl": "git@github.com:Wosler-Corp/Codex-Tool.git"
+    }
+  ],
+  "nonAcquisitionObservations": [
+    { "path": "setup_dependencies.bat", "line": 424, "purpose": "Find Git locally; no automatic installer or version established" },
+    { "path": "CMakeLists.txt", "line": 648, "purpose": "OpenCppCoverage URL is warning text, not an executed download" },
+    { "path": "CMakeLists.txt", "line": 674, "purpose": "pip install gcovr is error text; no executed Windows build/test wheel acquisition established" },
+    { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 588, "purpose": "Failure-notification job runs on Linux and posts to Google Chat; inventory separately if scope expands to supporting Linux jobs" },
+    { "path": ".github/workflows/review-helper-request.yml", "line": 58, "purpose": "Review Helper pip acquisition is in a separate Linux workflow" }
+  ],
+  "deploymentExclusions": ["inno-setup"],
+  "closure": {
+    "complete": false,
+    "status": "deferred-to-task-4",
+    "requiredEvidence": [
+      {
+        "id": "msys2", "status": "deferred-to-task-4",
+        "sources": [{ "path": "setup_dependencies.bat", "line": 154 }, { "path": "setup_dependencies.bat", "line": 217 }, { "path": "setup_dependencies.bat", "line": 236 }, { "path": "dependencies_windows.txt", "line": 1 }],
+        "mustCollect": ["Installer SHA-256 for the observed 20240507 URL", "Complete C:/msys64 root and package database snapshot", "Repository configuration and database hashes after both update passes", "Resolved versions, architectures, origins and archive hashes for all 29 requested names and every transitive package", "Redistribution licenses and notices for every captured package"]
+      },
+      {
+        "id": "vcpkg", "status": "deferred-to-task-4",
+        "sources": [{ "path": "setup_dependencies.bat", "line": 22 }, { "path": "setup_dependencies.bat", "line": 473 }, { "path": "setup_dependencies.bat", "line": 496 }, { "path": "vcpkg-configuration.json", "line": 3 }, { "path": "vcpkg-configuration.json", "line": 13 }, { "path": "vcpkg.json", "line": 5 }],
+        "mustCollect": ["Full commit resolved from observed 2025.12.12 tag", "bootstrap-vcpkg.bat and every recursively referenced acquisition script at that commit", "vcpkg executable and bootstrap tool download URLs, versions, SHA-256 values and licenses", "Both committed registry baselines, active registry selection, port revisions and any overlays", "Complete resolved openssl/spdlog transitive port manifests, source/submodule commits and archive hashes", "Required binary packages with triplets, features, ABI keys, source-to-binary provenance, SHA-256 values and redistribution evidence"]
+      },
+      {
+        "id": "libdatachannel", "status": "deferred-to-task-4",
+        "sources": [{ "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 419 }, { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 421 }, { "path": ".github/workflows/ci-layer-c-full-heavy.yml", "line": 425 }],
+        "mustCollect": ["Full upstream commit and source hash for authoritative v0.21.2 only", "Complete recursive submodule paths, remote URLs, commits, source hashes and licenses", "Upstream CMake/FetchContent acquisition graph under the recorded MinGW configure flags", "Every required source archive and binary result with hashes and build provenance", "Do not produce a 0.19.5 package; that backup source reference migrates in Task 8"]
+      },
+      {
+        "id": "other-direct-packages", "status": "deferred-to-task-4",
+        "sources": [{ "path": "setup_dependencies.bat", "line": 248 }, { "path": "setup_dependencies.bat", "line": 381 }, { "path": "install-from-wosler-repo.ps1", "line": 93 }, { "path": "CMakeLists.txt", "line": 186 }, { "path": "CMakeLists.txt", "line": 426 }],
+        "mustCollect": ["Independent Boost variant hashes and license files, not only adjacent checksums", "Immutable spdlog and GoogleTest source commits, transitive acquisitions and licenses", "Hashes and accepted redistribution evidence for the directly observed host installers", "Licensed runner prerequisite version/provisioning evidence", "Inspect referenced configure/build scripts and record any additional executable acquisition sites"]
+      }
+    ]
+  },
+  "pendingMigrations": [
+    { "id": "libdatachannel-version", "task": 8, "detail": "Migrate backup v0.19.5 acquisition to the single authoritative 0.21.2 package." },
+    { "id": "inno-reachability", "task": 8, "detail": "Gate/remove unconditional Inno installation from developer/build/test setup. No toolchain profile includes Inno." },
+    { "id": "action-pinning", "task": 8, "detail": "Apply recorded desired full-SHA action pins; current SonoBot references remain major tags." },
+    { "id": "cp210x-license", "task": 4, "detail": "Blocked pending accepted redistribution/provisioning evidence, version and digest. No package or vendor fallback. This block does not prevent Task 3 inventory completion." },
+    { "id": "cross-repository-ci", "task": 8, "detail": "Inventory gate runs locally. Do not invent a credential secret or change the validation workflow before approved cross-repository credentials or consumer policy are available." }
+  ]
+}

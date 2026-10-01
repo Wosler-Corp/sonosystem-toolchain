@@ -1,0 +1,1603 @@
+{
+  "schemaVersion": 1,
+  "id": "boost-msvc",
+  "version": "1.86.0",
+  "toolchain": "msvc19.43-v143",
+  "kind": "zip",
+  "asset": "boost-1.86.0-windows-x86_64-msvc19.43-v143.zip",
+  "source": {
+    "sha256": "79071a8a19a4ab8a7b31d0cd4f42b123d7e27aa6d11f8562070d344b6b0f15df",
+    "identityMethod": "Ordinal sorted relative-path NUL sha256 NUL size, joined with LF, UTF-8 without BOM",
+    "identityKind": "extracted-existing-archive-tree",
+    "sizeBytes": 481957717
+  },
+  "upstream": {
+    "version": "1.86.0",
+    "retrievedAt": "2026-09-30T03:12:39.4755897Z",
+    "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-msvc19.43-v143.zip"
+  },
+  "acquisition": {
+    "sourceRelease": {
+      "repository": "Wosler-Corp/sonosystem-toolchain",
+      "releaseId": 377351005,
+      "tag": "boost-1.86.0",
+      "releaseUrl": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/tag/boost-1.86.0",
+      "assetId": 531195129,
+      "assetName": "boost-1.86.0-windows-x86_64-msvc19.43-v143.zip",
+      "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-msvc19.43-v143.zip",
+      "releaseCreatedAt": "2026-01-06T18:55:56Z",
+      "releasePublishedAt": "2026-08-26T19:01:52Z",
+      "assetCreatedAt": "2026-08-26T18:54:22Z",
+      "assetUpdatedAt": "2026-08-26T18:54:35Z",
+      "observedImmutable": false,
+      "sourceStatus": "verified-source-input-only"
+    },
+    "downloadVerification": {
+      "sha256": "6246a880c74fc59ed23b611f052230624ba7be3277bd9324352c860b82c1facc",
+      "verifiedAt": "2026-09-30T03:12:39.4755897Z",
+      "sizeBytes": 78227427
+    },
+    "task5CopyRequired": true,
+    "publicationStatus": "not-published-by-this-task",
+    "mode": "reuse-existing-release",
+    "instructions": "Copy verified original archive bytes to approved immutable Task5 release; never rebuild/recompress to adopt this definition"
+  },
+  "inputs": [
+    {
+      "url": "https://github.com/Wosler-Corp/sonosystem-toolchain/releases/download/boost-1.86.0/boost-1.86.0-windows-x86_64-msvc19.43-v143.zip",
+      "retrievedAt": "2026-09-30T03:12:39.4755897Z",
+      "originalFilename": "boost-1.86.0-windows-x86_64-msvc19.43-v143.zip",
+      "sha256": "6246a880c74fc59ed23b611f052230624ba7be3277bd9324352c860b82c1facc",
+      "sizeBytes": 78227427,
+      "detectedVersion": "1.86.0",
+      "licenseId": "BSL-1.0",
+      "role": "Existing Wosler Boost archive reused byte-for-byte",
+      "authenticode": {
+        "status": "NotApplicable",
+        "reason": "ZIP has no Authenticode envelope; archive hash/size verified against exact Wosler asset identity, not an immutable-release attestation"
+      }
+    }
+  ],
+  "licenses": [
+    "licenses/boost-msvc/1.86.0/LICENSE_1_0.txt"
+  ],
+  "licenseEvidence": {
+    "sha256": "beb8e42e9d6b4284e03304d05a81a0755200a965fc8d0a5e0aea1e84cf805d6e",
+    "scope": "Boost archive only; external dependency notices remain owned by the dependency",
+    "archivePath": "boost-1.86.0/LICENSE_1_0.txt",
+    "incorporatedLicense": "BSL-1.0"
+  },
+  "dependencies": [],
+  "installLayout": {
+    "include": "boost-1.86.0/include",
+    "flattenArchive": false,
+    "destination": "boost-msvc",
+    "binaries": "boost-1.86.0/bin",
+    "archiveRoot": "boost-1.86.0",
+    "libraries": "boost-1.86.0/lib"
+  },
+  "contents": {
+    "manifest": "packages/windows/contents/boost-msvc-1.86.0.json",
+    "expandedSizeBytes": 481957717,
+    "fileCount": 16042,
+    "manifestSha256": "e0d8021de9f710200904b4b42250d607dbe75710add6baf09cba1f5a130d52cc",
+    "dlls": [
+      "boost-1.86.0/bin/boost_atomic-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_atomic-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_charconv-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_charconv-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_chrono-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_chrono-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_container-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_container-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_context-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_context-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_contract-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_contract-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_coroutine-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_coroutine-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_date_time-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_date_time-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_fiber-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_fiber-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_filesystem-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_filesystem-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_graph-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_graph-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_iostreams-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_iostreams-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_json-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_json-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_locale-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_locale-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_log-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_log-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_log_setup-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_log_setup-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_c99-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_c99-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_c99f-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_c99f-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_c99l-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_c99l-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_tr1-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_tr1-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_tr1f-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_tr1f-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_tr1l-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_math_tr1l-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_nowide-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_nowide-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_prg_exec_monitor-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_prg_exec_monitor-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_process-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_process-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_program_options-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_program_options-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_random-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_random-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_regex-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_regex-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_serialization-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_serialization-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_from_exception-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_from_exception-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_noop-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_noop-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_windbg-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_windbg-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_windbg_cached-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_stacktrace_windbg_cached-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_system-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_system-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_thread-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_thread-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_timer-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_timer-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_type_erasure-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_type_erasure-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_unit_test_framework-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_unit_test_framework-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_url-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_url-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_wave-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_wave-vc143-mt-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_wserialization-vc143-mt-gd-x64-1_86.dll",
+      "boost-1.86.0/bin/boost_wserialization-vc143-mt-x64-1_86.dll"
+    ],
+    "libraries": [
+      "boost-1.86.0/lib/boost_atomic-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_atomic-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_charconv-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_charconv-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_chrono-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_chrono-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_container-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_container-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_context-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_context-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_contract-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_contract-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_coroutine-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_coroutine-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_date_time-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_date_time-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_fiber-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_fiber-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_filesystem-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_filesystem-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_graph-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_graph-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_iostreams-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_iostreams-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_json-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_json-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_locale-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_locale-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_log-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_log-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_log_setup-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_log_setup-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_c99-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_c99-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_c99f-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_c99f-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_c99l-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_c99l-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_tr1-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_tr1-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_tr1f-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_tr1f-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_tr1l-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_math_tr1l-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_nowide-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_nowide-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_prg_exec_monitor-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_prg_exec_monitor-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_process-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_process-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_program_options-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_program_options-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_random-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_random-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_regex-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_regex-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_serialization-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_serialization-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_from_exception-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_from_exception-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_noop-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_noop-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_windbg-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_windbg-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_windbg_cached-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_stacktrace_windbg_cached-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_system-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_system-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_thread-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_thread-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_timer-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_timer-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_type_erasure-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_type_erasure-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_unit_test_framework-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_unit_test_framework-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_url-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_url-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_wave-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_wave-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_wserialization-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/boost_wserialization-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/libboost_exception-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/libboost_exception-vc143-mt-x64-1_86.lib",
+      "boost-1.86.0/lib/libboost_test_exec_monitor-vc143-mt-gd-x64-1_86.lib",
+      "boost-1.86.0/lib/libboost_test_exec_monitor-vc143-mt-x64-1_86.lib"
+    ]
+  },
+  "closure": {
+    "status": "complete",
+    "scope": "Archive DLL imports resolved with explicitly declared external prerequisites; prerequisite source/licensing gates remain separate",
+    "components": [
+      "atomic",
+      "charconv",
+      "chrono",
+      "container",
+      "context",
+      "contract",
+      "coroutine",
+      "date_time",
+      "exception",
+      "fiber",
+      "filesystem",
+      "graph",
+      "iostreams",
+      "json",
+      "locale",
+      "log",
+      "log_setup",
+      "math_c99",
+      "math_c99f",
+      "math_c99l",
+      "math_tr1",
+      "math_tr1f",
+      "math_tr1l",
+      "nowide",
+      "prg_exec_monitor",
+      "process",
+      "program_options",
+      "random",
+      "regex",
+      "serialization",
+      "stacktrace_from_exception",
+      "stacktrace_noop",
+      "stacktrace_windbg",
+      "stacktrace_windbg_cached",
+      "system",
+      "test_exec_monitor",
+      "thread",
+      "timer",
+      "type_erasure",
+      "unit_test_framework",
+      "url",
+      "wave",
+      "wserialization"
+    ],
+    "variants": [
+      "release",
+      "debug"
+    ],
+    "link": [
+      "shared",
+      "static-exception-and-test_exec_monitor-only"
+    ],
+    "runtimeLink": "shared",
+    "bundledRuntimeDlls": [],
+    "dllImports": [
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_atomic-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "file": "boost_atomic-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_charconv-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "file": "boost_charconv-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_chrono-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_chrono-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_container-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_container-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140_1D.dll",
+          "VCRUNTIME140D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_context-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "file": "boost_context-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_contract-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "file": "boost_contract-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_context-vc143-mt-gd-x64-1_86.dll",
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140_1D.dll",
+          "VCRUNTIME140D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_coroutine-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_context-vc143-mt-x64-1_86.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_coroutine-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_date_time-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "file": "boost_date_time-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_context-vc143-mt-gd-x64-1_86.dll",
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_fiber-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_context-vc143-mt-x64-1_86.dll",
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_fiber-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "bcrypt.dll",
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_filesystem-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "bcrypt.dll",
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll"
+        ],
+        "file": "boost_filesystem-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "USER32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_graph-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "USER32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll"
+        ],
+        "file": "boost_graph-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_iostreams-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "file": "boost_iostreams-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_json-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll"
+        ],
+        "file": "boost_json-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_locale-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll"
+        ],
+        "file": "boost_locale-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_filesystem-vc143-mt-gd-x64-1_86.dll",
+          "boost_thread-vc143-mt-gd-x64-1_86.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "ADVAPI32.dll",
+          "WS2_32.dll",
+          "Secur32.dll",
+          "MSVCP140D.dll",
+          "MSVCP140D_CODECVT_IDS.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-core-synch-l1-2-0.dll"
+        ],
+        "file": "boost_log-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_filesystem-vc143-mt-x64-1_86.dll",
+          "boost_thread-vc143-mt-x64-1_86.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "ADVAPI32.dll",
+          "WS2_32.dll",
+          "Secur32.dll",
+          "MSVCP140.dll",
+          "MSVCP140_CODECVT_IDS.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll"
+        ],
+        "file": "boost_log-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_filesystem-vc143-mt-gd-x64-1_86.dll",
+          "boost_thread-vc143-mt-gd-x64-1_86.dll",
+          "boost_log-vc143-mt-gd-x64-1_86.dll",
+          "WS2_32.dll",
+          "MSVCP140D.dll",
+          "USER32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_log_setup-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_filesystem-vc143-mt-x64-1_86.dll",
+          "boost_thread-vc143-mt-x64-1_86.dll",
+          "boost_log-vc143-mt-x64-1_86.dll",
+          "WS2_32.dll",
+          "MSVCP140.dll",
+          "USER32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll"
+        ],
+        "file": "boost_log_setup-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_math_c99-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll"
+        ],
+        "file": "boost_math_c99-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_math_c99f-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll"
+        ],
+        "file": "boost_math_c99f-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_math_c99l-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll"
+        ],
+        "file": "boost_math_c99l-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140_1D.dll",
+          "VCRUNTIME140D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_math_tr1-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_math_tr1-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140_1D.dll",
+          "VCRUNTIME140D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_math_tr1f-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_math_tr1f-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140_1D.dll",
+          "VCRUNTIME140D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_math_tr1l-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-math-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_math_tr1l-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_nowide-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_nowide-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_prg_exec_monitor-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll"
+        ],
+        "file": "boost_prg_exec_monitor-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_filesystem-vc143-mt-gd-x64-1_86.dll",
+          "ADVAPI32.dll",
+          "ntdll.dll",
+          "SHELL32.dll",
+          "USER32.dll",
+          "MSVCP140D.dll",
+          "WS2_32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_process-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_filesystem-vc143-mt-x64-1_86.dll",
+          "ADVAPI32.dll",
+          "ntdll.dll",
+          "SHELL32.dll",
+          "USER32.dll",
+          "MSVCP140.dll",
+          "WS2_32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "file": "boost_process-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_program_options-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll"
+        ],
+        "file": "boost_program_options-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "ADVAPI32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_random-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "ADVAPI32.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_random-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_regex-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll"
+        ],
+        "file": "boost_regex-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_serialization-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll"
+        ],
+        "file": "boost_serialization-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_stacktrace_from_exception-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_stacktrace_from_exception-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_stacktrace_noop-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "file": "boost_stacktrace_noop-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "dbgeng.dll",
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_stacktrace_windbg-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "dbgeng.dll",
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_stacktrace_windbg-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "dbgeng.dll",
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_stacktrace_windbg_cached-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "dbgeng.dll",
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_stacktrace_windbg_cached-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_system-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "file": "boost_system-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_thread-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_thread-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_timer-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_timer-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_type_erasure-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_type_erasure-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_unit_test_framework-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "api-ms-win-crt-utility-l1-1-0.dll",
+          "api-ms-win-crt-time-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll",
+          "api-ms-win-crt-locale-l1-1-0.dll",
+          "api-ms-win-crt-environment-l1-1-0.dll"
+        ],
+        "file": "boost_unit_test_framework-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_url-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll"
+        ],
+        "file": "boost_url-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_thread-vc143-mt-gd-x64-1_86.dll",
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_wave-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_thread-vc143-mt-x64-1_86.dll",
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-runtime-l1-1-0.dll",
+          "api-ms-win-crt-stdio-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-convert-l1-1-0.dll"
+        ],
+        "file": "boost_wave-vc143-mt-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_serialization-vc143-mt-gd-x64-1_86.dll",
+          "MSVCP140D.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140D.dll",
+          "VCRUNTIME140_1D.dll",
+          "ucrtbased.dll"
+        ],
+        "missingFromPackageAndSystem32": [],
+        "file": "boost_wserialization-vc143-mt-gd-x64-1_86.dll"
+      },
+      {
+        "imports": [
+          "boost_serialization-vc143-mt-x64-1_86.dll",
+          "MSVCP140.dll",
+          "KERNEL32.dll",
+          "VCRUNTIME140.dll",
+          "VCRUNTIME140_1.dll",
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "missingFromPackageAndSystem32": [
+          "api-ms-win-crt-heap-l1-1-0.dll",
+          "api-ms-win-crt-string-l1-1-0.dll",
+          "api-ms-win-crt-runtime-l1-1-0.dll"
+        ],
+        "file": "boost_wserialization-vc143-mt-x64-1_86.dll"
+      }
+    ],
+    "externalPrerequisites": [
+      "Windows x86_64 system DLLs and API-set contracts",
+      "Licensed MSVC v143 release and developer debug runtimes; no Microsoft runtime binaries incorporated"
+    ]
+  },
+  "redistribution": {
+    "scope": "Incorporated Boost archive only",
+    "status": "permitted",
+    "externalDependencyGate": "Licensed Microsoft runtime prerequisites; no Microsoft runtime redistribution",
+    "obligations": "Retain original BSL-1.0 license and header copyright notices; external runtime packages are not incorporated into this archive"
+  },
+  "provenance": {
+    "verifiedExistingArchive": true,
+    "originalSourceCommit": null,
+    "rebuilt": false,
+    "recompressed": false,
+    "originalBuildRecipe": "not-established"
+  },
+  "verification": {
+    "archiveSha256": "6246a880c74fc59ed23b611f052230624ba7be3277bd9324352c860b82c1facc",
+    "archiveSizeBytes": 78227427,
+    "offline": {
+      "method": "Exact existing ZIP; clean MSVC 19.43 Release and Debug shared-link compile/link/thread-chrono-atomic runtime, with package bin and licensed Windows/MSVC prerequisite runtimes only",
+      "link": "shared",
+      "networkControls": "Dead HTTP/HTTPS/ALL proxies, Git protocols disabled, OfflineAssetRoot and nonexistent GitHub CLI; not an OS firewall air gap",
+      "components": [
+        "thread",
+        "chrono",
+        "atomic"
+      ],
+      "variants": {
+        "release": {
+          "runtimeExitCode": 0,
+          "configureExitCode": 0,
+          "buildExitCode": 0
+        },
+        "debug": {
+          "runtimeExitCode": 0,
+          "configureExitCode": 0,
+          "buildExitCode": 0
+        }
+      },
+      "status": "passed",
+      "verifiedAt": "2026-09-30T03:33:35.0379321Z"
+    },
+    "reinstall": {
+      "stateUnchanged": true,
+      "fixtureAttestationDisclaimer": "TEST FIXTURE ONLY. release.attestation is a schema-required synthetic marker contradicting observed immutable:false. No attestation verified, no publication evidence, no release provenance claim. Tests exercise offline hash verification/extraction/state mechanics only.",
+      "stateSha256": "c0aa29ec606aa744c4fa21bff8ef67a227601d9d6206542fe5a3eafcbaddcb62",
+      "method": "Actual Install-ToolchainProfile and Test-InstalledToolchain; clean install and repeat install with exact local ZIPs",
+      "payloadTimestampsUnchanged": true,
+      "payloadAndStateUnchanged": true,
+      "status": "passed",
+      "stateFileTimestampChanges": true
+    },
+    "separateExtractionIdentityMatches": true,
+    "buildReproducibility": {
+      "reason": "Existing archive reused; no rebuild or recompression performed",
+      "performed": false
+    }
+  }
+}
